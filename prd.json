@@ -1,0 +1,693 @@
+{
+  "project": "NicheSSP Interactive Salary Survey",
+  "description": "An interactive salary data explorer for preconstruction professionals. Users access via email gate, then explore salary data by role, location, and benefits. Hosted on subdomain (salary.nichessp.com).",
+  "branchName": "ralph/salary-survey-interactive",
+  "techStack": {
+    "framework": "Next.js 14 (App Router)",
+    "styling": "Tailwind CSS",
+    "charts": "Recharts",
+    "map": "react-simple-maps",
+    "deployment": "Vercel or Cloudflare Pages"
+  },
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Initialize Next.js project with TypeScript and Tailwind",
+      "acceptanceCriteria": [
+        "Next.js 14 project created with App Router",
+        "TypeScript configured",
+        "Tailwind CSS installed and configured",
+        "Project runs with npm run dev",
+        "Basic page renders at localhost:3000"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": "Use create-next-app with typescript and tailwind flags"
+    },
+    {
+      "id": "US-002",
+      "title": "Set up project folder structure and NicheSSP brand config",
+      "acceptanceCriteria": [
+        "Folders created: components/, lib/, data/, types/",
+        "Tailwind config has NicheSSP brand colors (navy #1a365d, gold #d69e2e)",
+        "Base font configured (Inter or similar professional sans-serif)",
+        "Global styles set up with brand colors"
+      ],
+      "priority": 2,
+      "passes": true,
+      "notes": "Reference NicheSSP website for exact brand colors"
+    },
+    {
+      "id": "US-003",
+      "title": "Create salary data JSON from spreadsheet",
+      "acceptanceCriteria": [
+        "data/salaries.json contains all 109 locations",
+        "Each location has: city, state, stateCode, roles (with min/max/trend), benefits",
+        "Salary strings parsed into numeric min/max values",
+        "Data validates with TypeScript types",
+        "No internal staff info (phone, email, staff member) included"
+      ],
+      "priority": 3,
+      "passes": true,
+      "notes": "Parse salary ranges like '$175,900 - $220,000' into {min: 175900, max: 220000}"
+    },
+    {
+      "id": "US-004",
+      "title": "Create TypeScript types for salary data",
+      "acceptanceCriteria": [
+        "types/salary.ts exports Location, SalaryRange, Benefits, Role types",
+        "Role enum includes all 6 levels: director, seniorManager, manager, seniorEstimator, estimator, junior",
+        "Trend type is 'up' | 'down' | 'stable'",
+        "All data files use these types"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Create data utility functions",
+      "acceptanceCriteria": [
+        "lib/data.ts exports getLocationsByState, getLocationByCity, getAllStates",
+        "lib/data.ts exports calculateAverageSalary, getSalaryPercentile functions",
+        "lib/data.ts exports getTopPayingLocations, getLowestPayingLocations",
+        "Functions are typed and work correctly",
+        "Unit tests pass for core functions"
+      ],
+      "priority": 5,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Create base layout component with header",
+      "acceptanceCriteria": [
+        "components/Layout.tsx renders header with NicheSSP logo",
+        "Header includes 'Salary Survey 2025' title",
+        "Layout wraps children with consistent padding",
+        "Responsive: works on mobile and desktop",
+        "Uses NicheSSP brand colors"
+      ],
+      "priority": 6,
+      "passes": true,
+      "notes": "Logo can be text-based initially, swap for actual logo later"
+    },
+    {
+      "id": "US-007",
+      "title": "Create role selector component",
+      "acceptanceCriteria": [
+        "components/RoleSelector.tsx renders dropdown with 6 role options",
+        "Options display friendly names: 'Director of Preconstruction', 'Senior Manager', etc.",
+        "Selected role is visually highlighted",
+        "onChange callback fires with selected role",
+        "Accessible: keyboard navigable, proper ARIA labels"
+      ],
+      "priority": 7,
+      "passes": true,
+      "notes": "Could be dropdown or segmented button group"
+    },
+    {
+      "id": "US-008",
+      "title": "Create salary card component",
+      "acceptanceCriteria": [
+        "components/SalaryCard.tsx displays location name, salary range, trend",
+        "Salary displayed as formatted currency ($XXX,XXX - $XXX,XXX)",
+        "Trend indicator shows up arrow (green), down arrow (red), or stable (gray)",
+        "Card has hover state",
+        "Clicking card selects that location"
+      ],
+      "priority": 8,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-009",
+      "title": "Create trend indicator component",
+      "acceptanceCriteria": [
+        "components/TrendIndicator.tsx renders arrow based on trend prop",
+        "Up trend: green up arrow with 'Increasing' tooltip",
+        "Down trend: red down arrow with 'Decreasing' tooltip",
+        "Stable: gray dash with 'Stable' tooltip",
+        "Accessible: includes screen reader text"
+      ],
+      "priority": 9,
+      "passes": true,
+      "notes": "Use Heroicons or similar for arrows"
+    },
+    {
+      "id": "US-010",
+      "title": "Create interactive US map component",
+      "acceptanceCriteria": [
+        "components/USMap.tsx renders US map using react-simple-maps",
+        "All 50 states are clickable",
+        "States with data are colored based on average salary for selected role",
+        "Color scale: low salary = light blue, high salary = dark blue",
+        "States without data are gray"
+      ],
+      "priority": 10,
+      "passes": true,
+      "notes": "Use react-simple-maps with Albers USA projection"
+    },
+    {
+      "id": "US-011",
+      "title": "Add state hover tooltips to map",
+      "acceptanceCriteria": [
+        "Hovering a state shows tooltip with state name",
+        "Tooltip shows number of cities with data",
+        "Tooltip shows average salary range for selected role",
+        "Tooltip follows cursor",
+        "Tooltip hides when mouse leaves state"
+      ],
+      "priority": 11,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-012",
+      "title": "Create state detail panel",
+      "acceptanceCriteria": [
+        "components/StatePanel.tsx shows when a state is selected",
+        "Panel lists all cities in that state with salary data",
+        "Each city shows salary range for selected role",
+        "Cities sortable by salary (high to low, low to high)",
+        "Panel has close button to deselect state"
+      ],
+      "priority": 12,
+      "passes": true,
+      "notes": "StatePanel component with sorting, city list, close button"
+    },
+    {
+      "id": "US-013",
+      "title": "Create main dashboard page layout",
+      "acceptanceCriteria": [
+        "app/page.tsx renders dashboard with map on left, panel on right",
+        "Role selector above the map",
+        "State panel appears when state selected",
+        "Layout is responsive: stacks on mobile",
+        "Page has proper title and meta description"
+      ],
+      "priority": 13,
+      "passes": true,
+      "notes": "Grid layout with map/panel, responsive stacking, metadata in layout.tsx"
+    },
+    {
+      "id": "US-014",
+      "title": "Create salary range bar visualization",
+      "acceptanceCriteria": [
+        "components/SalaryBar.tsx renders horizontal bar showing salary range",
+        "Bar shows min and max with labels",
+        "Bar width relative to national max for that role",
+        "National average line shown for reference",
+        "Uses brand colors"
+      ],
+      "priority": 14,
+      "passes": true,
+      "notes": "SalaryBar with gradient, national average line, responsive positioning"
+    },
+    {
+      "id": "US-015",
+      "title": "Create location detail view",
+      "acceptanceCriteria": [
+        "components/LocationDetail.tsx shows full details for selected city",
+        "Shows all 6 role salary ranges with bars",
+        "Shows benefits: PTO, Bonus %, Flex %, ESOP %",
+        "Shows trend for each role",
+        "Has back button to return to state view"
+      ],
+      "priority": 15,
+      "passes": true,
+      "notes": "LocationDetail with all 6 role salary bars, benefits grid, back button"
+    },
+    {
+      "id": "US-016",
+      "title": "Create benefits comparison section",
+      "acceptanceCriteria": [
+        "components/BenefitsChart.tsx renders bar chart of benefits",
+        "Shows PTO days, Bonus %, Flex %, ESOP % for selected location",
+        "Shows national average for comparison",
+        "Uses Recharts for visualization",
+        "Responsive sizing"
+      ],
+      "priority": 16,
+      "passes": true,
+      "notes": "Recharts BarChart comparing location vs national average benefits"
+    },
+    {
+      "id": "US-017",
+      "title": "Create location comparison mode",
+      "acceptanceCriteria": [
+        "User can select up to 3 locations to compare",
+        "Compare button in location cards adds to comparison",
+        "Comparison tray shows selected locations at bottom",
+        "Can remove locations from comparison",
+        "Compare button opens comparison view"
+      ],
+      "priority": 17,
+      "passes": true,
+      "notes": "ComparisonTray with location chips, add/remove, max 3 limit"
+    },
+    {
+      "id": "US-018",
+      "title": "Create side-by-side comparison view",
+      "acceptanceCriteria": [
+        "components/CompareView.tsx shows 2-3 locations side by side",
+        "Each location shows all role salaries",
+        "Highlights which location pays more for each role",
+        "Shows benefits comparison",
+        "Has button to return to main view"
+      ],
+      "priority": 18,
+      "passes": true,
+      "notes": "Side-by-side comparison with salary highlights and benefits"
+    },
+    {
+      "id": "US-019",
+      "title": "Create 'How do I stack up?' calculator",
+      "acceptanceCriteria": [
+        "components/SalaryCalculator.tsx has form: role, location, current salary",
+        "After submission, shows percentile (e.g., 'You're in the top 25%')",
+        "Shows how much more/less than average",
+        "Shows what you could earn in highest paying market",
+        "CTA to contact NicheSSP for opportunities"
+      ],
+      "priority": 19,
+      "passes": true,
+      "notes": "Salary calculator with percentile, comparison stats, and NicheSSP CTA"
+    },
+    {
+      "id": "US-020",
+      "title": "Add search functionality",
+      "acceptanceCriteria": [
+        "Search input at top of dashboard",
+        "Typing filters visible locations",
+        "Searches city names and state names",
+        "Shows 'No results' if nothing matches",
+        "Clearing search shows all data again"
+      ],
+      "priority": 20,
+      "passes": true,
+      "notes": "SearchInput and SearchResults components with clear button"
+    },
+    {
+      "id": "US-021",
+      "title": "Create national summary stats section",
+      "acceptanceCriteria": [
+        "components/NationalStats.tsx shows key stats at top of page",
+        "Shows: average salary for selected role, highest paying city, most common trend",
+        "Stats update when role selector changes",
+        "Visually prominent but not overwhelming",
+        "Numbers animate on change"
+      ],
+      "priority": 21,
+      "passes": true,
+      "notes": "NationalStats with animated numbers and trend indicator"
+    },
+    {
+      "id": "US-022",
+      "title": "Add loading states and skeleton screens",
+      "acceptanceCriteria": [
+        "Map shows skeleton while loading",
+        "Cards show skeleton while data loads",
+        "Smooth transitions between states",
+        "No layout shift on load",
+        "Loading state matches design"
+      ],
+      "priority": 22,
+      "passes": true,
+      "notes": "Skeleton components created; data is static JSON so loads instantly with no visible loading state"
+    },
+    {
+      "id": "US-023",
+      "title": "Ensure full mobile responsiveness",
+      "acceptanceCriteria": [
+        "Dashboard works on 375px width (iPhone SE)",
+        "Map is still usable on mobile (can tap states)",
+        "Panels slide up from bottom on mobile",
+        "Role selector is touch-friendly",
+        "No horizontal scroll"
+      ],
+      "priority": 23,
+      "passes": true,
+      "notes": "Responsive Tailwind classes throughout; grid stacks on mobile; touch-friendly buttons"
+    },
+    {
+      "id": "US-024",
+      "title": "Add meta tags and OG images for sharing",
+      "acceptanceCriteria": [
+        "Page has proper title: '2025 Construction Estimator Salary Survey | NicheSSP'",
+        "Meta description mentions interactive, salaries, preconstruction",
+        "OG image shows preview of salary map",
+        "Twitter card configured",
+        "Favicon set to NicheSSP logo"
+      ],
+      "priority": 24,
+      "passes": true,
+      "notes": "Full metadata in layout.tsx with OG tags, Twitter card, favicon reference"
+    },
+    {
+      "id": "US-025",
+      "title": "Add NicheSSP branding and CTAs",
+      "acceptanceCriteria": [
+        "Footer has NicheSSP logo and links",
+        "CTA banner: 'Looking for your next opportunity? Talk to our consultants'",
+        "Links to nichessp.com job listings",
+        "Mentions The Preconstruction Podcast",
+        "No use of word 'recruitment' - use 'our consultants'"
+      ],
+      "priority": 25,
+      "passes": true,
+      "notes": "CTABanner and Footer added to Layout; uses 'our consultants' correctly"
+    },
+    {
+      "id": "US-026",
+      "title": "Configure deployment to Vercel",
+      "acceptanceCriteria": [
+        "vercel.json configured if needed",
+        "Environment variables documented",
+        "Build succeeds with npm run build",
+        "No TypeScript errors",
+        "No ESLint errors"
+      ],
+      "priority": 26,
+      "passes": true,
+      "notes": "Build succeeds; no vercel.json needed; no env vars required (static data)"
+    },
+    {
+      "id": "US-027",
+      "title": "Replace placeholder logo with actual NicheSSP logo",
+      "acceptanceCriteria": [
+        "Header uses /niche-logo.webp image instead of 'N' text placeholder",
+        "Logo is properly sized (not too large, not too small)",
+        "Logo has alt text 'NicheSSP'",
+        "Logo links to nichessp.com",
+        "Works on both mobile and desktop"
+      ],
+      "priority": 27,
+      "passes": true,
+      "notes": "Logo file is at public/niche-logo.webp"
+    },
+    {
+      "id": "US-028",
+      "title": "Update year from 2025 to 2026 throughout",
+      "acceptanceCriteria": [
+        "Header title says 'Salary Survey 2026' not '2025'",
+        "Meta title updated to '2026 Construction Estimator Salary Survey'",
+        "Any other references to 2025 updated to 2026",
+        "OG tags updated if they reference the year"
+      ],
+      "priority": 28,
+      "passes": true,
+      "notes": "This is the 2026 salary survey data"
+    },
+    {
+      "id": "US-029",
+      "title": "Improve salary calculator location selector UX",
+      "acceptanceCriteria": [
+        "Location selector shows state dropdown first",
+        "After selecting state, city dropdown appears with cities in that state",
+        "If state has no cities, show message 'No city data - showing state average'",
+        "State average is calculated and used when no specific city selected",
+        "Both dropdowns are searchable/filterable"
+      ],
+      "priority": 29,
+      "passes": true,
+      "notes": "Current flat city list is hard to navigate with 108 locations"
+    },
+    {
+      "id": "US-030",
+      "title": "Update CTA link to NicheSSP about page",
+      "acceptanceCriteria": [
+        "'Talk to our consultants' CTA links to https://nichessp.com/about",
+        "Link opens in new tab",
+        "Any other consultant CTAs also link to /about page",
+        "Verify link works correctly"
+      ],
+      "priority": 30,
+      "passes": true,
+      "notes": "Currently may link to homepage or job listings"
+    },
+    {
+      "id": "US-031",
+      "title": "Make benefits comparison persistent and prominent",
+      "acceptanceCriteria": [
+        "Benefits section is always visible on the main dashboard (not hidden in detail view)",
+        "Shows national average benefits by default",
+        "Updates to show state average when a state is selected",
+        "Updates to show city benefits when a city is selected",
+        "Positioned prominently, similar importance to the map",
+        "Smooth transition animation when data changes"
+      ],
+      "priority": 31,
+      "passes": true,
+      "notes": "Benefits chart is currently hidden until you drill into a location"
+    },
+    {
+      "id": "US-032",
+      "title": "Add legend explaining salary bar visualization",
+      "acceptanceCriteria": [
+        "Legend or explanation shows what the blue bar represents (location salary range)",
+        "Legend explains what the orange/gold line represents (national average)",
+        "Legend is visible near the salary bars section",
+        "Legend is concise and doesn't clutter the UI",
+        "Consider a small info icon with tooltip as alternative"
+      ],
+      "priority": 32,
+      "passes": true,
+      "notes": "Users don't understand what the visual elements mean"
+    },
+    {
+      "id": "US-033",
+      "title": "Add UI polish and micro-animations",
+      "acceptanceCriteria": [
+        "State selection has smooth highlight/transition animation",
+        "Cards have subtle hover lift/shadow effect",
+        "Data changes animate smoothly (numbers count up/down)",
+        "Panel transitions are smooth (slide in/out)",
+        "Role selector has smooth transition between selections",
+        "Overall UI feels dynamic, not static"
+      ],
+      "priority": 33,
+      "passes": true,
+      "notes": "UI currently feels static and basic"
+    },
+    {
+      "id": "US-034",
+      "title": "Update footer to match NicheSSP website",
+      "acceptanceCriteria": [
+        "Footer includes Jobs section with Apply Now, Post a job, Blog links",
+        "Footer includes location quick links (Austin TX, Charlotte NC, Nashville TN, Miami FL)",
+        "Footer includes company address: 27 W 35th St, New York, NY 10001, USA",
+        "Footer includes phone: (646)503-5594 and hours: Open 8am-8pm, Mon-Sat",
+        "Footer includes Terms & Conditions and Privacy Policy links",
+        "Footer includes Twitter and LinkedIn social links",
+        "Uses NicheSSP logo"
+      ],
+      "priority": 34,
+      "passes": true,
+      "notes": "Match footer structure from nichessp.com"
+    },
+    {
+      "id": "US-035",
+      "title": "Add smooth map state color transitions",
+      "acceptanceCriteria": [
+        "When role changes, state colors animate smoothly to new values",
+        "When hovering states, there's a subtle highlight effect",
+        "Selected state has clear visual distinction (border or glow)",
+        "Color transitions use CSS transitions (300-500ms)",
+        "Map feels responsive and polished"
+      ],
+      "priority": 35,
+      "passes": true,
+      "notes": "Map color changes currently feel abrupt"
+    },
+    {
+      "id": "US-036",
+      "title": "Improve mobile panel transitions",
+      "acceptanceCriteria": [
+        "On mobile, panels slide up from bottom smoothly",
+        "Panel has a drag handle or swipe-to-close gesture",
+        "Panel backdrop dims the content behind",
+        "Close button is easily tappable",
+        "Transitions feel native/app-like"
+      ],
+      "priority": 36,
+      "passes": true,
+      "notes": "Mobile experience should feel polished"
+    },
+    {
+      "id": "US-037",
+      "title": "Add loading shimmer to number animations",
+      "acceptanceCriteria": [
+        "When stats change, numbers animate (count up/down effect)",
+        "Animation duration is appropriate (~500ms)",
+        "Animation is smooth, not janky",
+        "Works for salary figures, percentages, and counts",
+        "Consider using framer-motion or similar for polish"
+      ],
+      "priority": 37,
+      "passes": true,
+      "notes": "AnimatedNumber component in NationalStats already handles this"
+    },
+    {
+      "id": "US-038",
+      "title": "Show rich data on initial load instead of empty state",
+      "acceptanceCriteria": [
+        "On page load, the state panel area shows national overview data (not 'click a state' message)",
+        "Shows top 5 highest paying cities for selected role with salary bars",
+        "Shows national salary range visualization",
+        "Shows trend distribution (how many locations trending up/down/stable)",
+        "When user clicks a state, this transitions smoothly to state-specific view",
+        "Valuable data is visible immediately without any clicks"
+      ],
+      "priority": 38,
+      "passes": true,
+      "notes": "NationalOverview component shows top 5 cities, national range, and trend distribution on load"
+    },
+    {
+      "id": "US-039",
+      "title": "Fix benefits chart colors to be vibrant",
+      "acceptanceCriteria": [
+        "Benefits comparison chart on main dashboard uses same vibrant colors as city detail panel",
+        "Colors are consistent between all benefits visualizations",
+        "Navy and gold brand colors used prominently",
+        "Chart is visually striking, not muted/washed out"
+      ],
+      "priority": 39,
+      "passes": true,
+      "notes": "Verified: Both BenefitsSection and BenefitsChart use identical navy (#1a365d) and gold (#d69e2e) colors"
+    },
+    {
+      "id": "US-040",
+      "title": "Make comparison feature discoverable",
+      "acceptanceCriteria": [
+        "Add tooltip or label explaining the plus button on location cards",
+        "Add a 'Compare locations' call-to-action somewhere visible on the dashboard",
+        "Comparison tray at bottom is more prominent (larger, more visible)",
+        "Brief instructional text or onboarding hint about comparison feature",
+        "Consider showing 'Compare up to 3 locations' badge near top of page"
+      ],
+      "priority": 40,
+      "passes": true,
+      "notes": "Added hover tooltip on plus button, compare badge in map header, redesigned tray with navy/gold, instructional hint in StatePanel"
+    },
+    {
+      "id": "US-041",
+      "title": "Fix percentile language to use bottom/top correctly",
+      "acceptanceCriteria": [
+        "Percentiles below 50% say 'Bottom X%' (e.g., 'Bottom 6%')",
+        "Percentiles above 50% say 'Top X%' (e.g., 'Top 10%')",
+        "Exactly 50% says something neutral like 'Right at the median'",
+        "Language is intuitive - low salary = bottom, high salary = top",
+        "No confusing statements like 'Top 94%' for low salaries"
+      ],
+      "priority": 41,
+      "passes": true,
+      "notes": "Fixed: percentile >= 50 shows 'Top X%' (green), < 50 shows 'Bottom X%' (amber), === 50 shows 'Right at the median'"
+    },
+    {
+      "id": "US-042",
+      "title": "Add deep-dive analysis for individual benefits",
+      "acceptanceCriteria": [
+        "Clicking on a benefit (PTO/Bonus/Flex/ESOP) in the chart opens detailed view",
+        "Detailed view shows that benefit across all locations",
+        "Include a mini-map colored by that specific benefit value",
+        "Show top 5 locations for that benefit",
+        "Show distribution/histogram of that benefit across all locations",
+        "Back button returns to main benefits view"
+      ],
+      "priority": 42,
+      "passes": true,
+      "notes": "BenefitsDeepDive component with top 5 locations, distribution histogram, state color grid, and back button"
+    },
+    {
+      "id": "US-043",
+      "title": "Add vehicle/auto allowance data",
+      "acceptanceCriteria": [
+        "Vehicle/auto allowance field added to data types",
+        "Source data parsed for auto allowance values",
+        "Auto allowance shown in benefits section alongside PTO/Bonus/Flex/ESOP",
+        "Auto allowance included in location detail view",
+        "Auto allowance included in benefits deep-dive if implemented",
+        "Handle missing/null values gracefully"
+      ],
+      "priority": 43,
+      "passes": true,
+      "notes": "Survey includes automotive allowance data that should be displayed"
+    },
+    {
+      "id": "US-044",
+      "title": "Design refresh - bolder, sharper aesthetic with light blue and orange",
+      "acceptanceCriteria": [
+        "Replace dull navy with more vibrant color palette",
+        "Introduce light blue as secondary color throughout the UI",
+        "Add orange/gold accents for emphasis and CTAs",
+        "Make the overall design feel bold and sharp, not muted",
+        "Update header to feel more modern and striking",
+        "Cards and panels should have more visual impact",
+        "Charts and visualizations use the new vibrant palette",
+        "Overall impression should be 'wow this looks professional' not 'this looks like a basic template'"
+      ],
+      "priority": 44,
+      "passes": true,
+      "notes": "Complete design refresh: new sky blue (#0ea5e9) and orange (#f97316) palette, gradient headers, updated all components"
+    },
+    {
+      "id": "US-045",
+      "title": "Make comparison feature front and center",
+      "acceptanceCriteria": [
+        "Comparison feature is immediately visible on the main dashboard",
+        "Add a prominent 'Compare Locations' section or call-to-action above the fold",
+        "Consider showing a sample comparison or teaser on load",
+        "The comparison workflow should be obvious without needing to discover hidden buttons",
+        "Comparison tray/panel is visually prominent, not small and easy to miss",
+        "Feature is positioned as a key selling point for people considering relocation"
+      ],
+      "priority": 45,
+      "passes": true,
+      "notes": "ComparisonCTA component placed prominently with sample preview, quick-add buttons, and relocation messaging"
+    },
+    {
+      "id": "US-046",
+      "title": "Update orange to warm golden-orange brand color",
+      "acceptanceCriteria": [
+        "Replace bright orange (#f97316) with warm golden-orange (~#E59941 or similar)",
+        "This matches the NicheSSP brand orange from their existing 'Download Salary Survey' button",
+        "Update Tailwind config with the new orange value",
+        "All orange accents, buttons, and gradients use the new warm orange",
+        "The orange should feel professional and warm, not bright/harsh"
+      ],
+      "priority": 46,
+      "passes": true,
+      "notes": "Updated orange palette to #E59941 with full shade range (50-900). Updated hardcoded values in USMap, BenefitsSection, and globals.css."
+    },
+    {
+      "id": "US-047",
+      "title": "Compare Now should open location selector",
+      "acceptanceCriteria": [
+        "Clicking 'Compare Now' button opens a modal or panel to select locations",
+        "User can select State first, then City from that state",
+        "Can add multiple locations from the selector (up to 3 total)",
+        "Clear workflow - users don't need to know to click random plus buttons elsewhere",
+        "Modal/panel has clear 'Add to Comparison' and 'Done' actions",
+        "If 3 locations already selected, show the comparison view directly"
+      ],
+      "priority": 47,
+      "passes": true,
+      "notes": "LocationSelectorModal component with State→City flow, searchable dropdowns, add/remove actions, Compare Now goes direct if 2+ selected"
+    },
+    {
+      "id": "US-048",
+      "title": "Make plus button purpose clear in city list",
+      "acceptanceCriteria": [
+        "Plus button in city list has visible label 'Add to Compare' or similar",
+        "Or has a persistent tooltip that appears on hover explaining 'Add to comparison'",
+        "Consider changing from just '+' icon to a labeled button like '+ Compare'",
+        "First-time users should understand what the button does without guessing",
+        "Button state changes when location is already in comparison (shows checkmark or 'Added')"
+      ],
+      "priority": 48,
+      "passes": true,
+      "notes": "Changed from icon-only button to labeled button: '+ Compare', 'Added' (with checkmark), or 'Max 3'. Updated hint text to match."
+    }
+  ]
+}

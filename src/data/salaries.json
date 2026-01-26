@@ -1,0 +1,5402 @@
+[
+  {
+    "city": "Chicago",
+    "state": "IL",
+    "stateCode": "IL",
+    "roles": {
+      "director": {
+        "min": 175900,
+        "max": 220000,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 165920,
+        "max": 182590,
+        "trend": "stable"
+      },
+      "manager": {
+        "min": 132950,
+        "max": 162350,
+        "trend": "stable"
+      },
+      "seniorEstimator": {
+        "min": 118300,
+        "max": 136950,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 96150,
+        "max": 122300,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 80850,
+        "max": 94500,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 11,
+        "max": 22
+      },
+      "flexPercent": 20,
+      "esopPercent": 25,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Rockford",
+    "state": "IL",
+    "stateCode": "IL",
+    "roles": {
+      "director": {
+        "min": 160680,
+        "max": 179200,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 144790,
+        "max": 158400,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 121000,
+        "max": 149750,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 100980,
+        "max": 125900,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 85490,
+        "max": 105000,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 71070,
+        "max": 84960,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 15
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 15
+      },
+      "flexPercent": 15,
+      "esopPercent": 10,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Springfield",
+    "state": "IL",
+    "stateCode": "IL",
+    "roles": {
+      "director": {
+        "min": 151950,
+        "max": 169050,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 135400,
+        "max": 152500,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 104300,
+        "max": 150800,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 92450,
+        "max": 114750,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 82850,
+        "max": 102900,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 70500,
+        "max": 83500,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 15
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 15
+      },
+      "flexPercent": 18,
+      "esopPercent": 10,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Helena",
+    "state": "MT",
+    "stateCode": "MT",
+    "roles": {
+      "director": {
+        "min": 167000,
+        "max": 192450,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 138000,
+        "max": 171050,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 125605,
+        "max": 138952,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 122050,
+        "max": 145850,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 93500,
+        "max": 122600,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 68400,
+        "max": 89800,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 15
+      },
+      "flexPercent": 25,
+      "esopPercent": 10,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Missoula",
+    "state": "MT",
+    "stateCode": "MT",
+    "roles": {
+      "director": {
+        "min": 139300,
+        "max": 173900,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 125950,
+        "max": 152070,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 118350,
+        "max": 129400,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 102305,
+        "max": 129500,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 77505,
+        "max": 103800,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 63350,
+        "max": 75950,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 15
+      },
+      "flexPercent": 20,
+      "esopPercent": 10,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Las Vegas",
+    "state": "NV",
+    "stateCode": "NV",
+    "roles": {
+      "director": {
+        "min": 159600,
+        "max": 210500,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 151205,
+        "max": 192000,
+        "trend": "stable"
+      },
+      "manager": {
+        "min": 128065,
+        "max": 161083,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 120504,
+        "max": 148900,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 88075,
+        "max": 118503,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 74504,
+        "max": 92070,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 15,
+        "max": 25
+      },
+      "flexPercent": 30,
+      "esopPercent": 20,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Seattle",
+    "state": "WA",
+    "stateCode": "WA",
+    "roles": {
+      "director": {
+        "min": 185245,
+        "max": 230108,
+        "trend": "stable"
+      },
+      "seniorManager": {
+        "min": 160250,
+        "max": 190000,
+        "trend": "stable"
+      },
+      "manager": {
+        "min": 135500,
+        "max": 161500,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 135000,
+        "max": 158000,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 110220,
+        "max": 125050,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 88900,
+        "max": 108200,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 26
+      },
+      "bonusPercent": {
+        "min": 20,
+        "max": 30
+      },
+      "flexPercent": 10,
+      "esopPercent": 20,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Phoenix",
+    "state": "AZ",
+    "stateCode": "AZ",
+    "roles": {
+      "director": {
+        "min": 172440,
+        "max": 201534,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 153276,
+        "max": 185621,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 136753,
+        "max": 169351,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 117164,
+        "max": 174244,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 83434,
+        "max": 115826,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 75517,
+        "max": 83320,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 18
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 19
+      },
+      "flexPercent": 31,
+      "esopPercent": 16,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Tucson",
+    "state": "AZ",
+    "stateCode": "AZ",
+    "roles": {
+      "director": {
+        "min": 152538,
+        "max": 185756,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 146226,
+        "max": 171978,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 119630,
+        "max": 163912,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 116457,
+        "max": 158567,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 75352,
+        "max": 110133,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 72752,
+        "max": 80868,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 16
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 18
+      },
+      "flexPercent": 27,
+      "esopPercent": 11,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Miami-Fort Lauderdale",
+    "state": "FL",
+    "stateCode": "FL",
+    "roles": {
+      "director": {
+        "min": 185483,
+        "max": 210522,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 157257,
+        "max": 179826,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 134654,
+        "max": 168356,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 126753,
+        "max": 164842,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 88979,
+        "max": 116125,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 79451,
+        "max": 89106,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 23
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 22
+      },
+      "flexPercent": 31,
+      "esopPercent": 19,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Fort Myers",
+    "state": "FL",
+    "stateCode": "FL",
+    "roles": {
+      "director": {
+        "min": 173485,
+        "max": 189651,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 144893,
+        "max": 168241,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 126323,
+        "max": 149442,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 118212,
+        "max": 151458,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 85759,
+        "max": 115832,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 72698,
+        "max": 84964,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 18
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 18
+      },
+      "flexPercent": 25,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Jacksonville",
+    "state": "FL",
+    "stateCode": "FL",
+    "roles": {
+      "director": {
+        "min": 166763,
+        "max": 190113,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 147652,
+        "max": 165959,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 123581,
+        "max": 154744,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 114355,
+        "max": 141659,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 84821,
+        "max": 114108,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 74387,
+        "max": 85653,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 18
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 18
+      },
+      "flexPercent": 28,
+      "esopPercent": 12,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Orlando",
+    "state": "FL",
+    "stateCode": "FL",
+    "roles": {
+      "director": {
+        "min": 175944,
+        "max": 205202,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 149454,
+        "max": 176588,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 125736,
+        "max": 161621,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 119152,
+        "max": 148327,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 85353,
+        "max": 114462,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 75251,
+        "max": 87808,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 20
+      },
+      "flexPercent": 32,
+      "esopPercent": 21,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Tampa",
+    "state": "FL",
+    "stateCode": "FL",
+    "roles": {
+      "director": {
+        "min": 181955,
+        "max": 208411,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 153184,
+        "max": 179731,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 126205,
+        "max": 164512,
+        "trend": "stable"
+      },
+      "seniorEstimator": {
+        "min": 121424,
+        "max": 148266,
+        "trend": "stable"
+      },
+      "estimator": {
+        "min": 83281,
+        "max": 117859,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 74153,
+        "max": 85637,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 20
+      },
+      "flexPercent": 29,
+      "esopPercent": 18,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Burlington",
+    "state": "VT",
+    "stateCode": "VT",
+    "roles": {
+      "director": {
+        "min": 143826,
+        "max": 195371,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 133639,
+        "max": 161399,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 121821,
+        "max": 153847,
+        "trend": "stable"
+      },
+      "seniorEstimator": {
+        "min": 102773,
+        "max": 144283,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 96882,
+        "max": 111831,
+        "trend": "down"
+      },
+      "junior": {
+        "min": 66721,
+        "max": 85729,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 16
+      },
+      "flexPercent": 31,
+      "esopPercent": 12,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Los Angeles",
+    "state": "CA",
+    "stateCode": "CA",
+    "roles": {
+      "director": {
+        "min": 193441,
+        "max": 271892,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 166254,
+        "max": 201240,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 148732,
+        "max": 182471,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 141428,
+        "max": 191751,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 111568,
+        "max": 149214,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 85607,
+        "max": 109739,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 12,
+        "max": 26
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 21
+      },
+      "flexPercent": 41,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Sacramento",
+    "state": "CA",
+    "stateCode": "CA",
+    "roles": {
+      "director": {
+        "min": 177849,
+        "max": 257144,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 144571,
+        "max": 192903,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 139565,
+        "max": 178217,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 133501,
+        "max": 179911,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 93276,
+        "max": 127510,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 75092,
+        "max": 99332,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 11,
+        "max": 25
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 16
+      },
+      "flexPercent": 39,
+      "esopPercent": 12,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "San Diego",
+    "state": "CA",
+    "stateCode": "CA",
+    "roles": {
+      "director": {
+        "min": 172937,
+        "max": 253838,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 163417,
+        "max": 201816,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 129381,
+        "max": 173282,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 135781,
+        "max": 177178,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 102719,
+        "max": 149291,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 76146,
+        "max": 101803,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 23
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 14
+      },
+      "flexPercent": 41,
+      "esopPercent": 18,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "San Francisco",
+    "state": "CA",
+    "stateCode": "CA",
+    "roles": {
+      "director": {
+        "min": 213290,
+        "max": 303852,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 179253,
+        "max": 236718,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 167192,
+        "max": 235803,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 145198,
+        "max": 223381,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 115082,
+        "max": 174821,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 88396,
+        "max": 114732,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 29
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 23
+      },
+      "flexPercent": 33,
+      "esopPercent": 16,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Boston",
+    "state": "MA",
+    "stateCode": "MA",
+    "roles": {
+      "director": {
+        "min": 180600,
+        "max": 255120,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 168130,
+        "max": 217030,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 132300,
+        "max": 170550,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 132020,
+        "max": 155100,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 99930,
+        "max": 126500,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 75700,
+        "max": 102600,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 15,
+        "max": 25
+      },
+      "flexPercent": 35,
+      "esopPercent": 25,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Augusta",
+    "state": "ME",
+    "stateCode": "ME",
+    "roles": {
+      "director": {
+        "min": 151926,
+        "max": 189440,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 148150,
+        "max": 178348,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 107918,
+        "max": 144518,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 111391,
+        "max": 158821,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 82595,
+        "max": 117607,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 65212,
+        "max": 86757,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 19
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 15
+      },
+      "flexPercent": 31,
+      "esopPercent": 11,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Portland",
+    "state": "ME",
+    "stateCode": "ME",
+    "roles": {
+      "director": {
+        "min": 167813,
+        "max": 203914,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 157810,
+        "max": 189639,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 129912,
+        "max": 179481,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 133715,
+        "max": 182957,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 90386,
+        "max": 129731,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 76415,
+        "max": 93116,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 18
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 13
+      },
+      "flexPercent": 29,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Detroit",
+    "state": "MI",
+    "stateCode": "MI",
+    "roles": {
+      "director": {
+        "min": 176816,
+        "max": 237704,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 157298,
+        "max": 205953,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 125121,
+        "max": 161239,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 126448,
+        "max": 179821,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 88298,
+        "max": 132814,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 69238,
+        "max": 92401,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 19
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 16
+      },
+      "flexPercent": 32,
+      "esopPercent": 12,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Grand Rapids",
+    "state": "MI",
+    "stateCode": "MI",
+    "roles": {
+      "director": {
+        "min": 146848,
+        "max": 198722,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 141513,
+        "max": 192669,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 118618,
+        "max": 158291,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 121882,
+        "max": 162732,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 86713,
+        "max": 121791,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 65118,
+        "max": 82794,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 17
+      },
+      "bonusPercent": {
+        "min": 5,
+        "max": 12
+      },
+      "flexPercent": 35,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Kalamazoo",
+    "state": "MI",
+    "stateCode": "MI",
+    "roles": {
+      "director": {
+        "min": 145621,
+        "max": 187251,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 139712,
+        "max": 182855,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 117214,
+        "max": 151351,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 107822,
+        "max": 161346,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 82943,
+        "max": 127392,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 65650,
+        "max": 82833,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 7,
+        "max": 17
+      },
+      "flexPercent": 39,
+      "esopPercent": 9,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Albany",
+    "state": "NY",
+    "stateCode": "NY",
+    "roles": {
+      "director": {
+        "min": 153921,
+        "max": 248219,
+        "trend": "down"
+      },
+      "seniorManager": {
+        "min": 148169,
+        "max": 233958,
+        "trend": "down"
+      },
+      "manager": {
+        "min": 111733,
+        "max": 165893,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 112429,
+        "max": 169929,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 93484,
+        "max": 121522,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 78912,
+        "max": 101722,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 19
+      },
+      "flexPercent": 33,
+      "esopPercent": 11,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Buffalo",
+    "state": "NY",
+    "stateCode": "NY",
+    "roles": {
+      "director": {
+        "min": 175665,
+        "max": 257115,
+        "trend": "down"
+      },
+      "seniorManager": {
+        "min": 161558,
+        "max": 241022,
+        "trend": "down"
+      },
+      "manager": {
+        "min": 117912,
+        "max": 166729,
+        "trend": "down"
+      },
+      "seniorEstimator": {
+        "min": 111192,
+        "max": 191778,
+        "trend": "down"
+      },
+      "estimator": {
+        "min": 98779,
+        "max": 134910,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 72178,
+        "max": 97331,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 24
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 17
+      },
+      "flexPercent": 31,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Manhattan",
+    "state": "NY",
+    "stateCode": "NY",
+    "roles": {
+      "director": {
+        "min": 221922,
+        "max": 307721,
+        "trend": "down"
+      },
+      "seniorManager": {
+        "min": 202817,
+        "max": 287220,
+        "trend": "down"
+      },
+      "manager": {
+        "min": 124712,
+        "max": 201955,
+        "trend": "down"
+      },
+      "seniorEstimator": {
+        "min": 122692,
+        "max": 209117,
+        "trend": "down"
+      },
+      "estimator": {
+        "min": 88418,
+        "max": 133998,
+        "trend": "down"
+      },
+      "junior": {
+        "min": 86116,
+        "max": 99421,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 27
+      },
+      "flexPercent": 41,
+      "esopPercent": 26,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Portland",
+    "state": "OR",
+    "stateCode": "OR",
+    "roles": {
+      "director": {
+        "min": 169390,
+        "max": 193005,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 161009,
+        "max": 198757,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 113525,
+        "max": 168878,
+        "trend": "down"
+      },
+      "seniorEstimator": {
+        "min": 118773,
+        "max": 171394,
+        "trend": "down"
+      },
+      "estimator": {
+        "min": 96121,
+        "max": 128490,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 68639,
+        "max": 89460,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 18
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 19
+      },
+      "flexPercent": 37,
+      "esopPercent": 11,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Salem",
+    "state": "OR",
+    "stateCode": "OR",
+    "roles": {
+      "director": {
+        "min": 144565,
+        "max": 187921,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 134228,
+        "max": 161870,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 118770,
+        "max": 164382,
+        "trend": "down"
+      },
+      "seniorEstimator": {
+        "min": 111439,
+        "max": 162339,
+        "trend": "down"
+      },
+      "estimator": {
+        "min": 87214,
+        "max": 121447,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 68334,
+        "max": 89318,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 19
+      },
+      "flexPercent": 35,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Newark",
+    "state": "NJ",
+    "stateCode": "NJ",
+    "roles": {
+      "director": {
+        "min": 169779,
+        "max": 244823,
+        "trend": "down"
+      },
+      "seniorManager": {
+        "min": 155818,
+        "max": 265729,
+        "trend": "down"
+      },
+      "manager": {
+        "min": 123288,
+        "max": 189194,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 118773,
+        "max": 192667,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 88731,
+        "max": 129446,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 69135,
+        "max": 91934,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 19
+      },
+      "bonusPercent": {
+        "min": 7,
+        "max": 18
+      },
+      "flexPercent": 30,
+      "esopPercent": 12,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Trenton",
+    "state": "NJ",
+    "stateCode": "NJ",
+    "roles": {
+      "director": {
+        "min": 159718,
+        "max": 196294,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 133848,
+        "max": 166782,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 114923,
+        "max": 143726,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 98262,
+        "max": 122875,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 91721,
+        "max": 112721,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 74741,
+        "max": 89732,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 22
+      },
+      "flexPercent": 33,
+      "esopPercent": 16,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Jersey City",
+    "state": "NJ",
+    "stateCode": "NJ",
+    "roles": {
+      "director": {
+        "min": 177921,
+        "max": 277205,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 165442,
+        "max": 251926,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 118774,
+        "max": 177926,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 111406,
+        "max": 191295,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 92434,
+        "max": 128105,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 72975,
+        "max": 98716,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 19
+      },
+      "flexPercent": 29,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Providence",
+    "state": "RI",
+    "stateCode": "RI",
+    "roles": {
+      "director": {
+        "min": 161821,
+        "max": 188718,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 149776,
+        "max": 173834,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 137290,
+        "max": 153723,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 125814,
+        "max": 157934,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 88736,
+        "max": 127776,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 66727,
+        "max": 88119,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 23
+      },
+      "flexPercent": 31,
+      "esopPercent": 17,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "New Haven",
+    "state": "CT",
+    "stateCode": "CT",
+    "roles": {
+      "director": {
+        "min": 207771,
+        "max": 279406,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 188973,
+        "max": 260730,
+        "trend": "down"
+      },
+      "manager": {
+        "min": 133820,
+        "max": 183923,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 129993,
+        "max": 188338,
+        "trend": "down"
+      },
+      "estimator": {
+        "min": 86733,
+        "max": 125713,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 76118,
+        "max": 94726,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 24
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 19
+      },
+      "flexPercent": 37,
+      "esopPercent": 16,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Wilmington",
+    "state": "DE",
+    "stateCode": "DE",
+    "roles": {
+      "director": {
+        "min": 148108,
+        "max": 183912,
+        "trend": "down"
+      },
+      "seniorManager": {
+        "min": 121201,
+        "max": 157116,
+        "trend": "down"
+      },
+      "manager": {
+        "min": 108736,
+        "max": 133914,
+        "trend": "down"
+      },
+      "seniorEstimator": {
+        "min": 98301,
+        "max": 133014,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 88912,
+        "max": 128107,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 68238,
+        "max": 83810,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 18
+      },
+      "flexPercent": 35,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Honolulu County",
+    "state": "HI",
+    "stateCode": "HI",
+    "roles": {
+      "director": {
+        "min": 194396,
+        "max": 247002,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 177741,
+        "max": 214156,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 138996,
+        "max": 181277,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 132715,
+        "max": 188304,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 99867,
+        "max": 139479,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 81858,
+        "max": 90183,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 23
+      },
+      "bonusPercent": {
+        "min": 5,
+        "max": 23
+      },
+      "flexPercent": 41,
+      "esopPercent": 12,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Boise",
+    "state": "ID",
+    "stateCode": "ID",
+    "roles": {
+      "director": {
+        "min": 133187,
+        "max": 179553,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 129610,
+        "max": 154708,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 119811,
+        "max": 157923,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 102779,
+        "max": 135788,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 88711,
+        "max": 106389,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 66733,
+        "max": 87698,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 19
+      },
+      "bonusPercent": {
+        "min": 5,
+        "max": 18
+      },
+      "flexPercent": 37,
+      "esopPercent": 12,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Manchester",
+    "state": "NH",
+    "stateCode": "NH",
+    "roles": {
+      "director": {
+        "min": 174391,
+        "max": 196717,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 149219,
+        "max": 179728,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 128292,
+        "max": 147119,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 126846,
+        "max": 141099,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 90193,
+        "max": 128113,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 70117,
+        "max": 88290,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 19
+      },
+      "bonusPercent": {
+        "min": 4,
+        "max": 16
+      },
+      "flexPercent": 31,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Cheyenne",
+    "state": "WY",
+    "stateCode": "WY",
+    "roles": {
+      "director": {
+        "min": 145934,
+        "max": 184724,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 136733,
+        "max": 161857,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 128713,
+        "max": 156443,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 109714,
+        "max": 141682,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 91927,
+        "max": 113726,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 67512,
+        "max": 92917,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 6,
+        "max": 14
+      },
+      "flexPercent": 32,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Charlotte",
+    "state": "NC",
+    "stateCode": "NC",
+    "roles": {
+      "director": {
+        "min": 166290,
+        "max": 216750,
+        "trend": "stable"
+      },
+      "seniorManager": {
+        "min": 162250,
+        "max": 182210,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 141600,
+        "max": 168250,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 133700,
+        "max": 160000,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 92400,
+        "max": 131370,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 71900,
+        "max": 91875,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 15,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 15,
+        "max": 20
+      },
+      "flexPercent": 20,
+      "esopPercent": 22,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Raleigh",
+    "state": "NC",
+    "stateCode": "NC",
+    "roles": {
+      "director": {
+        "min": 162500,
+        "max": 210070,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 155200,
+        "max": 174580,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 137550,
+        "max": 162860,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 128570,
+        "max": 154320,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 86250,
+        "max": 129850,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 74400,
+        "max": 89600,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 15,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 15,
+        "max": 20
+      },
+      "flexPercent": 20,
+      "esopPercent": 18,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Wilmington",
+    "state": "NC",
+    "stateCode": "NC",
+    "roles": {
+      "director": {
+        "min": 158600,
+        "max": 187890,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 137490,
+        "max": 153160,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 125660,
+        "max": 141170,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 123650,
+        "max": 138790,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 85520,
+        "max": 121380,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 67980,
+        "max": 86150,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 15,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 15
+      },
+      "flexPercent": 28,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Winston-Salem",
+    "state": "NC",
+    "stateCode": "NC",
+    "roles": {
+      "director": {
+        "min": 161800,
+        "max": 189450,
+        "trend": "stable"
+      },
+      "seniorManager": {
+        "min": 151400,
+        "max": 161600,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 126400,
+        "max": 152100,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 124400,
+        "max": 144450,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 91670,
+        "max": 122520,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 72100,
+        "max": 87750,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 15,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 15
+      },
+      "flexPercent": 15,
+      "esopPercent": 10,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Atlanta",
+    "state": "GA",
+    "stateCode": "GA",
+    "roles": {
+      "director": {
+        "min": 171370,
+        "max": 202168,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 148693,
+        "max": 171326,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 124654,
+        "max": 159023,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 112483,
+        "max": 147740,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 80150,
+        "max": 112580,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 72150,
+        "max": 82450,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 21
+      },
+      "flexPercent": 39,
+      "esopPercent": 18,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Savannah",
+    "state": "GA",
+    "stateCode": "GA",
+    "roles": {
+      "director": {
+        "min": 163170,
+        "max": 192850,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 144650,
+        "max": 156250,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 119230,
+        "max": 144295,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 111633,
+        "max": 134190,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 78850,
+        "max": 100650,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 70800,
+        "max": 80289,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 11,
+        "max": 19
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 21
+      },
+      "flexPercent": 46,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Charleston",
+    "state": "SC",
+    "stateCode": "SC",
+    "roles": {
+      "director": {
+        "min": 166800,
+        "max": 192400,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 154700,
+        "max": 173100,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 136150,
+        "max": 161300,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 129780,
+        "max": 153600,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 88625,
+        "max": 128950,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 73400,
+        "max": 89650,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 15,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 15,
+        "max": 22
+      },
+      "flexPercent": 15,
+      "esopPercent": 10,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Columbia",
+    "state": "SC",
+    "stateCode": "SC",
+    "roles": {
+      "director": {
+        "min": 157500,
+        "max": 179950,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 146000,
+        "max": 161500,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 124500,
+        "max": 149150,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 114450,
+        "max": 146000,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 83050,
+        "max": 120300,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 66550,
+        "max": 81500,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 15,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 20
+      },
+      "flexPercent": 20,
+      "esopPercent": 10,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Greenville",
+    "state": "SC",
+    "stateCode": "SC",
+    "roles": {
+      "director": {
+        "min": 150750,
+        "max": 166980,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 136450,
+        "max": 166350,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 123800,
+        "max": 147450,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 111000,
+        "max": 142350,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 81500,
+        "max": 118400,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 68220,
+        "max": 81480,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 8,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 22
+      },
+      "flexPercent": 50,
+      "esopPercent": 10,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Washington",
+    "state": "DC",
+    "stateCode": "DC",
+    "roles": {
+      "director": {
+        "min": 178450,
+        "max": 212050,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 161200,
+        "max": 185700,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 134300,
+        "max": 162250,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 131600,
+        "max": 160300,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 95900,
+        "max": 132400,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 78000,
+        "max": 88850,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 11,
+        "max": 25
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 18
+      },
+      "flexPercent": 40,
+      "esopPercent": 16,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Baltimore",
+    "state": "MD",
+    "stateCode": "MD",
+    "roles": {
+      "director": {
+        "min": 173150,
+        "max": 207300,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 154700,
+        "max": 183550,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 131750,
+        "max": 156800,
+        "trend": "stable"
+      },
+      "seniorEstimator": {
+        "min": 127150,
+        "max": 156300,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 85450,
+        "max": 120950,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 73750,
+        "max": 84500,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 19
+      },
+      "flexPercent": 43,
+      "esopPercent": 18,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Rockville",
+    "state": "MD",
+    "stateCode": "MD",
+    "roles": {
+      "director": {
+        "min": 172450,
+        "max": 203350,
+        "trend": "stable"
+      },
+      "seniorManager": {
+        "min": 154250,
+        "max": 184400,
+        "trend": "stable"
+      },
+      "manager": {
+        "min": 131700,
+        "max": 157850,
+        "trend": "stable"
+      },
+      "seniorEstimator": {
+        "min": 128450,
+        "max": 158650,
+        "trend": "stable"
+      },
+      "estimator": {
+        "min": 81950,
+        "max": 121600,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 72150,
+        "max": 86120,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 11,
+        "max": 22
+      },
+      "flexPercent": 38,
+      "esopPercent": 19,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Northern",
+    "state": "VA",
+    "stateCode": "VA",
+    "roles": {
+      "director": {
+        "min": 177800,
+        "max": 220400,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 158600,
+        "max": 188650,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 133200,
+        "max": 160300,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 129900,
+        "max": 159400,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 96750,
+        "max": 130500,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 80550,
+        "max": 91750,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 25
+      },
+      "flexPercent": 45,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Richmond",
+    "state": "VA",
+    "stateCode": "VA",
+    "roles": {
+      "director": {
+        "min": 157950,
+        "max": 193150,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 142800,
+        "max": 160550,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 119350,
+        "max": 141500,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 116400,
+        "max": 140200,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 85100,
+        "max": 113700,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 71250,
+        "max": 83900,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 12,
+        "max": 18
+      },
+      "flexPercent": 30,
+      "esopPercent": null,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Birmingham",
+    "state": "AL",
+    "stateCode": "AL",
+    "roles": {
+      "director": {
+        "min": 156372,
+        "max": 231000,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 151290,
+        "max": 171203,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 134470,
+        "max": 156393,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 126921,
+        "max": 142555,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 87391,
+        "max": 120218,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 76961,
+        "max": 86102,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 9,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 12,
+        "max": 21
+      },
+      "flexPercent": 19,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Huntsville",
+    "state": "AL",
+    "stateCode": "AL",
+    "roles": {
+      "director": {
+        "min": 149168,
+        "max": 199891,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 127700,
+        "max": 158390,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 110271,
+        "max": 141294,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 103477,
+        "max": 129117,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 85034,
+        "max": 121192,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 73111,
+        "max": 84738,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 9,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 12,
+        "max": 21
+      },
+      "flexPercent": 19,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Montgomery",
+    "state": "AL",
+    "stateCode": "AL",
+    "roles": {
+      "director": {
+        "min": 148899,
+        "max": 185194,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 126805,
+        "max": 154139,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 111003,
+        "max": 140990,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 99190,
+        "max": 130122,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 84130,
+        "max": 122381,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 71908,
+        "max": 84810,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 9,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 12,
+        "max": 21
+      },
+      "flexPercent": 19,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Cedar Rapids",
+    "state": "IA",
+    "stateCode": "IA",
+    "roles": {
+      "director": {
+        "min": 162188,
+        "max": 194186,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 149785,
+        "max": 171487,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 127843,
+        "max": 154955,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 112953,
+        "max": 139454,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 87767,
+        "max": 113422,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 77380,
+        "max": 86965,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 19
+      },
+      "flexPercent": 26,
+      "esopPercent": 11,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Des Moines",
+    "state": "IA",
+    "stateCode": "IA",
+    "roles": {
+      "director": {
+        "min": 153665,
+        "max": 183720,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 141184,
+        "max": 162678,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 116905,
+        "max": 150085,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 110877,
+        "max": 133305,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 81002,
+        "max": 108774,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 71891,
+        "max": 85765,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 19
+      },
+      "flexPercent": 26,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Evansville",
+    "state": "IN",
+    "stateCode": "IN",
+    "roles": {
+      "director": {
+        "min": 145110,
+        "max": 184440,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 131240,
+        "max": 158610,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 109230,
+        "max": 149000,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 94290,
+        "max": 115235,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 81090,
+        "max": 109100,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 70150,
+        "max": 81970,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 12,
+        "max": 25
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 22
+      },
+      "flexPercent": 31,
+      "esopPercent": 18,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Fort Wayne",
+    "state": "IN",
+    "stateCode": "IN",
+    "roles": {
+      "director": {
+        "min": 149565,
+        "max": 186115,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 137110,
+        "max": 168940,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 101670,
+        "max": 150870,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 99890,
+        "max": 130180,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 82990,
+        "max": 112750,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 71100,
+        "max": 82280,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 12,
+        "max": 25
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 22
+      },
+      "flexPercent": 31,
+      "esopPercent": 18,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Indianapolis",
+    "state": "IN",
+    "stateCode": "IN",
+    "roles": {
+      "director": {
+        "min": 152020,
+        "max": 201490,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 131744,
+        "max": 183455,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 107298,
+        "max": 161315,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 110770,
+        "max": 155065,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 86100,
+        "max": 118590,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 73850,
+        "max": 85360,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 12,
+        "max": 25
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 22
+      },
+      "flexPercent": 31,
+      "esopPercent": 18,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Lexington",
+    "state": "KY",
+    "stateCode": "KY",
+    "roles": {
+      "director": {
+        "min": 163632,
+        "max": 196320,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 145300,
+        "max": 170745,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 111367,
+        "max": 152027,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 102721,
+        "max": 111805,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 88850,
+        "max": 102297,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 77268,
+        "max": 87080,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 9,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 18
+      },
+      "flexPercent": 26,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Louisville",
+    "state": "KY",
+    "stateCode": "KY",
+    "roles": {
+      "director": {
+        "min": 162176,
+        "max": 198336,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 142514,
+        "max": 168767,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 108999,
+        "max": 146195,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 102263,
+        "max": 115620,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 87360,
+        "max": 110237,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 76990,
+        "max": 86245,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 9,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 18
+      },
+      "flexPercent": 26,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Minneapolis",
+    "state": "MN",
+    "stateCode": "MN",
+    "roles": {
+      "director": {
+        "min": 149005,
+        "max": 192178,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 139857,
+        "max": 165290,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 120008,
+        "max": 152220,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 103594,
+        "max": 119105,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 92281,
+        "max": 116202,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 78950,
+        "max": 87471,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 9,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 21
+      },
+      "flexPercent": 23,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "St Paul",
+    "state": "MN",
+    "stateCode": "MN",
+    "roles": {
+      "director": {
+        "min": 150090,
+        "max": 194991,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 142236,
+        "max": 165060,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 117730,
+        "max": 153310,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 100865,
+        "max": 117740,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 86590,
+        "max": 107655,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 79335,
+        "max": 88250,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 9,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 21
+      },
+      "flexPercent": 23,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Greenville",
+    "state": "MS",
+    "stateCode": "MS",
+    "roles": {
+      "director": {
+        "min": 155270,
+        "max": 191359,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 149827,
+        "max": 164250,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 119945,
+        "max": 141492,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 105284,
+        "max": 123495,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 81204,
+        "max": 109349,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 73402,
+        "max": 85122,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 11,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 21
+      },
+      "flexPercent": 38,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Jackson",
+    "state": "MS",
+    "stateCode": "MS",
+    "roles": {
+      "director": {
+        "min": 162492,
+        "max": 190103,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 136200,
+        "max": 153030,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 116440,
+        "max": 144601,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 109561,
+        "max": 132502,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 83905,
+        "max": 108231,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 71856,
+        "max": 83204,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 11,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 21
+      },
+      "flexPercent": 38,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Biloxi",
+    "state": "MS",
+    "stateCode": "MS",
+    "roles": {
+      "director": {
+        "min": 160903,
+        "max": 193433,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 141877,
+        "max": 157320,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 118230,
+        "max": 140690,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 108399,
+        "max": 129343,
+        "trend": "stable"
+      },
+      "estimator": {
+        "min": 82103,
+        "max": 109442,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 70553,
+        "max": 81492,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 11,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 21
+      },
+      "flexPercent": 38,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Cincinnati",
+    "state": "OH",
+    "stateCode": "OH",
+    "roles": {
+      "director": {
+        "min": 156440,
+        "max": 187530,
+        "trend": "stable"
+      },
+      "seniorManager": {
+        "min": 134490,
+        "max": 166670,
+        "trend": "stable"
+      },
+      "manager": {
+        "min": 117720,
+        "max": 156400,
+        "trend": "stable"
+      },
+      "seniorEstimator": {
+        "min": 106200,
+        "max": 135310,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 85560,
+        "max": 117060,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 76590,
+        "max": 85030,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 11,
+        "max": 18
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 24
+      },
+      "flexPercent": 25,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Cleveland",
+    "state": "OH",
+    "stateCode": "OH",
+    "roles": {
+      "director": {
+        "min": 161930,
+        "max": 198200,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 133830,
+        "max": 164015,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 125150,
+        "max": 154305,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 110180,
+        "max": 138100,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 84170,
+        "max": 119940,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 75808,
+        "max": 86105,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 11,
+        "max": 18
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 24
+      },
+      "flexPercent": 25,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Columbus",
+    "state": "OH",
+    "stateCode": "OH",
+    "roles": {
+      "director": {
+        "min": 156990,
+        "max": 191115,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 131600,
+        "max": 164120,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 114870,
+        "max": 150470,
+        "trend": "stable"
+      },
+      "seniorEstimator": {
+        "min": 105100,
+        "max": 132101,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 84290,
+        "max": 114999,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 73120,
+        "max": 84950,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 11,
+        "max": 18
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 24
+      },
+      "flexPercent": 25,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Allentown",
+    "state": "PA",
+    "stateCode": "PA",
+    "roles": {
+      "director": {
+        "min": 156892,
+        "max": 193100,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 132337,
+        "max": 160392,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 119101,
+        "max": 140112,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 115775,
+        "max": 123501,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 88913,
+        "max": 124326,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 72871,
+        "max": 87565,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 23
+      },
+      "bonusPercent": {
+        "min": 11,
+        "max": 24
+      },
+      "flexPercent": 41,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Harrisburg",
+    "state": "PA",
+    "stateCode": "PA",
+    "roles": {
+      "director": {
+        "min": 155110,
+        "max": 215890,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 133150,
+        "max": 158565,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 125100,
+        "max": 151990,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 117225,
+        "max": 131505,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 87810,
+        "max": 123157,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 73995,
+        "max": 87190,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 23
+      },
+      "bonusPercent": {
+        "min": 11,
+        "max": 24
+      },
+      "flexPercent": 41,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Philadelphia",
+    "state": "PA",
+    "stateCode": "PA",
+    "roles": {
+      "director": {
+        "min": 169710,
+        "max": 219395,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 152600,
+        "max": 191130,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 133110,
+        "max": 168380,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 131385,
+        "max": 156290,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 90120,
+        "max": 134200,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 78995,
+        "max": 91209,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 23
+      },
+      "bonusPercent": {
+        "min": 11,
+        "max": 24
+      },
+      "flexPercent": 41,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Pittsburgh",
+    "state": "PA",
+    "stateCode": "PA",
+    "roles": {
+      "director": {
+        "min": 158220,
+        "max": 197315,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 139630,
+        "max": 167190,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 132195,
+        "max": 155550,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 119730,
+        "max": 141130,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 85315,
+        "max": 127390,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 77988,
+        "max": 87301,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 23
+      },
+      "bonusPercent": {
+        "min": 11,
+        "max": 24
+      },
+      "flexPercent": 41,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Knoxville",
+    "state": "TN",
+    "stateCode": "TN",
+    "roles": {
+      "director": {
+        "min": 153188,
+        "max": 187700,
+        "trend": "down"
+      },
+      "seniorManager": {
+        "min": 132810,
+        "max": 163111,
+        "trend": "stable"
+      },
+      "manager": {
+        "min": 115612,
+        "max": 138340,
+        "trend": "stable"
+      },
+      "seniorEstimator": {
+        "min": 105733,
+        "max": 124720,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 83999,
+        "max": 119135,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 70889,
+        "max": 85214,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 23
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 30
+      },
+      "flexPercent": 31,
+      "esopPercent": 17,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Chattanooga",
+    "state": "TN",
+    "stateCode": "TN",
+    "roles": {
+      "director": {
+        "min": 149810,
+        "max": 180133,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 135910,
+        "max": 169112,
+        "trend": "down"
+      },
+      "manager": {
+        "min": 105310,
+        "max": 137890,
+        "trend": "stable"
+      },
+      "seniorEstimator": {
+        "min": 100350,
+        "max": 127145,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 78111,
+        "max": 103288,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 66150,
+        "max": 81180,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 23
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 30
+      },
+      "flexPercent": 31,
+      "esopPercent": 17,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Memphis",
+    "state": "TN",
+    "stateCode": "TN",
+    "roles": {
+      "director": {
+        "min": 153005,
+        "max": 186890,
+        "trend": "down"
+      },
+      "seniorManager": {
+        "min": 120138,
+        "max": 163391,
+        "trend": "stable"
+      },
+      "manager": {
+        "min": 119836,
+        "max": 139922,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 101311,
+        "max": 125192,
+        "trend": "stable"
+      },
+      "estimator": {
+        "min": 82290,
+        "max": 119103,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 69310,
+        "max": 80900,
+        "trend": "down"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 23
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 30
+      },
+      "flexPercent": 31,
+      "esopPercent": 17,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Nashville",
+    "state": "TN",
+    "stateCode": "TN",
+    "roles": {
+      "director": {
+        "min": 172811,
+        "max": 230436,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 150199,
+        "max": 190455,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 136130,
+        "max": 165167,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 128355,
+        "max": 141777,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 88745,
+        "max": 130004,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 77190,
+        "max": 87370,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 23
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 30
+      },
+      "flexPercent": 31,
+      "esopPercent": 17,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Green Bay",
+    "state": "WI",
+    "stateCode": "WI",
+    "roles": {
+      "director": {
+        "min": 143280,
+        "max": 187260,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 127636,
+        "max": 153675,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 102535,
+        "max": 130285,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 94610,
+        "max": 127655,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 82008,
+        "max": 97990,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 66615,
+        "max": 81345,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 25
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 19
+      },
+      "flexPercent": 24,
+      "esopPercent": 12,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Madison",
+    "state": "WI",
+    "stateCode": "WI",
+    "roles": {
+      "director": {
+        "min": 137085,
+        "max": 178630,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 123075,
+        "max": 146050,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 102260,
+        "max": 124995,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 90888,
+        "max": 104180,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 78990,
+        "max": 91927,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 69285,
+        "max": 77560,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 25
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 19
+      },
+      "flexPercent": 24,
+      "esopPercent": 12,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Milwaukee",
+    "state": "WI",
+    "stateCode": "WI",
+    "roles": {
+      "director": {
+        "min": 138638,
+        "max": 179477,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 123290,
+        "max": 144300,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 103927,
+        "max": 124835,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 91255,
+        "max": 104600,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 77760,
+        "max": 94390,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 69920,
+        "max": 78690,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 25
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 19
+      },
+      "flexPercent": 24,
+      "esopPercent": 12,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Charleston",
+    "state": "WV",
+    "stateCode": "WV",
+    "roles": {
+      "director": {
+        "min": 138400,
+        "max": 165900,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 122700,
+        "max": 167550,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 125500,
+        "max": 143400,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 91700,
+        "max": 131300,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 78950,
+        "max": 95700,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 58700,
+        "max": 71250,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 24
+      },
+      "bonusPercent": {
+        "min": 7,
+        "max": 16
+      },
+      "flexPercent": 36,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Huntington",
+    "state": "WV",
+    "stateCode": "WV",
+    "roles": {
+      "director": {
+        "min": 135000,
+        "max": 155500,
+        "trend": "stable"
+      },
+      "seniorManager": {
+        "min": 124500,
+        "max": 137000,
+        "trend": "stable"
+      },
+      "manager": {
+        "min": 113850,
+        "max": 129900,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 95700,
+        "max": 114900,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 75100,
+        "max": 96250,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 60100,
+        "max": 67800,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 24
+      },
+      "bonusPercent": {
+        "min": 7,
+        "max": 16
+      },
+      "flexPercent": 36,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Fayetteville",
+    "state": "AR",
+    "stateCode": "AR",
+    "roles": {
+      "director": {
+        "min": 128733,
+        "max": 170286,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 121339,
+        "max": 146686,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 108315,
+        "max": 133929,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 99124,
+        "max": 125685,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 85180,
+        "max": 98940,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 63781,
+        "max": 72694,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 12,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 15
+      },
+      "flexPercent": 35,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Little Rock",
+    "state": "AR",
+    "stateCode": "AR",
+    "roles": {
+      "director": {
+        "min": 136404,
+        "max": 176733,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 129188,
+        "max": 153915,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 113035,
+        "max": 143561,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 105150,
+        "max": 133350,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 92725,
+        "max": 105925,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 65535,
+        "max": 76919,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 18
+      },
+      "flexPercent": 35,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Denver",
+    "state": "CO",
+    "stateCode": "CO",
+    "roles": {
+      "director": {
+        "min": 162500,
+        "max": 240650,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 157005,
+        "max": 191800,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 140005,
+        "max": 170550,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 138440,
+        "max": 165005,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 109665,
+        "max": 139455,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 85100,
+        "max": 103550,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 15,
+        "max": 25
+      },
+      "bonusPercent": {
+        "min": 15,
+        "max": 25
+      },
+      "flexPercent": 40,
+      "esopPercent": 17,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Colorado Springs",
+    "state": "CO",
+    "stateCode": "CO",
+    "roles": {
+      "director": {
+        "min": 152110,
+        "max": 229990,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 149100,
+        "max": 179005,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 131505,
+        "max": 164101,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 130770,
+        "max": 148650,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 103050,
+        "max": 128900,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 79050,
+        "max": 94500,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 15,
+        "max": 25
+      },
+      "bonusPercent": {
+        "min": 15,
+        "max": 20
+      },
+      "flexPercent": 40,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Kansas City",
+    "state": "KS",
+    "stateCode": "KS",
+    "roles": {
+      "director": {
+        "min": 165520,
+        "max": 237000,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 152870,
+        "max": 200000,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 121083,
+        "max": 138699,
+        "trend": "down"
+      },
+      "seniorEstimator": {
+        "min": 114350,
+        "max": 136353,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 93600,
+        "max": 111050,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 72700,
+        "max": 90430,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 21
+      },
+      "flexPercent": 43,
+      "esopPercent": 15,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Baton Rouge",
+    "state": "LA",
+    "stateCode": "LA",
+    "roles": {
+      "director": {
+        "min": 154704,
+        "max": 197232,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 147670,
+        "max": 176461,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 131375,
+        "max": 157689,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 120667,
+        "max": 134772,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 101371,
+        "max": 134032,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 80507,
+        "max": 91275,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 22
+      },
+      "flexPercent": 40,
+      "esopPercent": 18,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "New Orleans",
+    "state": "LA",
+    "stateCode": "LA",
+    "roles": {
+      "director": {
+        "min": 150047,
+        "max": 209041,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 149680,
+        "max": 175989,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 140363,
+        "max": 164250,
+        "trend": "stable"
+      },
+      "seniorEstimator": {
+        "min": 126085,
+        "max": 144653,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 103855,
+        "max": 132710,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 82352,
+        "max": 93836,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 20
+      },
+      "flexPercent": 40,
+      "esopPercent": 19,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Lafayette",
+    "state": "LA",
+    "stateCode": "LA",
+    "roles": {
+      "director": {
+        "min": 148880,
+        "max": 188110,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 142840,
+        "max": 165465,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 123005,
+        "max": 151850,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 110155,
+        "max": 125005,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 93550,
+        "max": 118220,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 75050,
+        "max": 87650,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 20
+      },
+      "flexPercent": 35,
+      "esopPercent": 16,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Kansas City",
+    "state": "MO",
+    "stateCode": "MO",
+    "roles": {
+      "director": {
+        "min": 165520,
+        "max": 237000,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 152870,
+        "max": 200000,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 121083,
+        "max": 138699,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 114350,
+        "max": 136353,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 93600,
+        "max": 111050,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 72700,
+        "max": 90430,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 21
+      },
+      "flexPercent": 43,
+      "esopPercent": 11,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "St Louis",
+    "state": "MO",
+    "stateCode": "MO",
+    "roles": {
+      "director": {
+        "min": 161750,
+        "max": 212230,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 130609,
+        "max": 147235,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 118067,
+        "max": 135597,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 100602,
+        "max": 121237,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 87286,
+        "max": 102232,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 66205,
+        "max": 84300,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 14
+      },
+      "flexPercent": 40,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Bismarck",
+    "state": "ND",
+    "stateCode": "ND",
+    "roles": {
+      "director": {
+        "min": 136880,
+        "max": 173005,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 132980,
+        "max": 148150,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 123005,
+        "max": 152330,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 108960,
+        "max": 136330,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 92840,
+        "max": 108350,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 73470,
+        "max": 83880,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 21
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 15
+      },
+      "flexPercent": 30,
+      "esopPercent": 8,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Grand Forks",
+    "state": "ND",
+    "stateCode": "ND",
+    "roles": {
+      "director": {
+        "min": 131650,
+        "max": 160390,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 125410,
+        "max": 139110,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 122550,
+        "max": 138415,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 107650,
+        "max": 123480,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 91660,
+        "max": 107750,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 69001,
+        "max": 80145,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 15
+      },
+      "flexPercent": 35,
+      "esopPercent": 10,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Lincoln",
+    "state": "NE",
+    "stateCode": "NE",
+    "roles": {
+      "director": {
+        "min": 131950,
+        "max": 162850,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 125770,
+        "max": 135450,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 117630,
+        "max": 135890,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 105170,
+        "max": 119450,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 86680,
+        "max": 101740,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 69005,
+        "max": 79440,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 12,
+        "max": 14
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 16
+      },
+      "flexPercent": 30,
+      "esopPercent": 11,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Albuquerque",
+    "state": "NM",
+    "stateCode": "NM",
+    "roles": {
+      "director": {
+        "min": 153901,
+        "max": 188144,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 133188,
+        "max": 152300,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 121809,
+        "max": 142216,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 112443,
+        "max": 127204,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 83302,
+        "max": 104533,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 70800,
+        "max": 79660,
+        "trend": "stable"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 22
+      },
+      "bonusPercent": {
+        "min": 8,
+        "max": 14
+      },
+      "flexPercent": 39,
+      "esopPercent": 12,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Oklahoma City",
+    "state": "OK",
+    "stateCode": "OK",
+    "roles": {
+      "director": {
+        "min": 146405,
+        "max": 175005,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 132560,
+        "max": 155400,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 126770,
+        "max": 148500,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 111880,
+        "max": 137105,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 95405,
+        "max": 110890,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 73780,
+        "max": 85250,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 12,
+        "max": 16
+      },
+      "bonusPercent": {
+        "min": 14,
+        "max": 17
+      },
+      "flexPercent": 35,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Tulsa",
+    "state": "OK",
+    "stateCode": "OK",
+    "roles": {
+      "director": {
+        "min": 139540,
+        "max": 169405,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 124630,
+        "max": 145805,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 120950,
+        "max": 139840,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 108350,
+        "max": 130540,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 90100,
+        "max": 108400,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 70890,
+        "max": 79150,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 12,
+        "max": 16
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 19
+      },
+      "flexPercent": 30,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Pierre",
+    "state": "SD",
+    "stateCode": "SD",
+    "roles": {
+      "director": {
+        "min": 135960,
+        "max": 173540,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 126150,
+        "max": 151350,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 123780,
+        "max": 145080,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 107450,
+        "max": 128860,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 95150,
+        "max": 114750,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 73330,
+        "max": 80015,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 16
+      },
+      "bonusPercent": {
+        "min": 10,
+        "max": 17
+      },
+      "flexPercent": 33,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Austin",
+    "state": "TX",
+    "stateCode": "TX",
+    "roles": {
+      "director": {
+        "min": 163220,
+        "max": 197300,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 155040,
+        "max": 178550,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 142960,
+        "max": 173705,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 132650,
+        "max": 161900,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 102880,
+        "max": 130855,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 79250,
+        "max": 88200,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 15,
+        "max": 25
+      },
+      "bonusPercent": {
+        "min": 15,
+        "max": 25
+      },
+      "flexPercent": 39,
+      "esopPercent": 13,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Dallas",
+    "state": "TX",
+    "stateCode": "TX",
+    "roles": {
+      "director": {
+        "min": 165350,
+        "max": 198100,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 154305,
+        "max": 180810,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 145020,
+        "max": 165410,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 132690,
+        "max": 157105,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 105330,
+        "max": 129640,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 80220,
+        "max": 91010,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 15,
+        "max": 25
+      },
+      "bonusPercent": {
+        "min": 15,
+        "max": 25
+      },
+      "flexPercent": 40,
+      "esopPercent": 14,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Houston",
+    "state": "TX",
+    "stateCode": "TX",
+    "roles": {
+      "director": {
+        "min": 161410,
+        "max": 191660,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 144900,
+        "max": 166105,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 139500,
+        "max": 161010,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 120550,
+        "max": 142070,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 95905,
+        "max": 121300,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 76660,
+        "max": 83885,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 14,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 15,
+        "max": 20
+      },
+      "flexPercent": 40,
+      "esopPercent": 11,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "San Antonio",
+    "state": "TX",
+    "stateCode": "TX",
+    "roles": {
+      "director": {
+        "min": 149150,
+        "max": 184410,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 138220,
+        "max": 160770,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 131940,
+        "max": 154880,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 118705,
+        "max": 138650,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 91450,
+        "max": 111440,
+        "trend": "up"
+      },
+      "junior": {
+        "min": 74660,
+        "max": 81120,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 14,
+        "max": 20
+      },
+      "bonusPercent": {
+        "min": 15,
+        "max": 20
+      },
+      "flexPercent": 39,
+      "esopPercent": 11,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Salt Lake City",
+    "state": "UT",
+    "stateCode": "UT",
+    "roles": {
+      "director": {
+        "min": 172294,
+        "max": 202559,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 133209,
+        "max": 157364,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 123880,
+        "max": 149492,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 111401,
+        "max": 123311,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 85201,
+        "max": 107230,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 71705,
+        "max": 84655,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 16
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 18
+      },
+      "flexPercent": 34,
+      "esopPercent": 12,
+      "autoAllowance": null
+    }
+  },
+  {
+    "city": "Cedar City",
+    "state": "UT",
+    "stateCode": "UT",
+    "roles": {
+      "director": {
+        "min": 167233,
+        "max": 189103,
+        "trend": "up"
+      },
+      "seniorManager": {
+        "min": 130884,
+        "max": 153395,
+        "trend": "up"
+      },
+      "manager": {
+        "min": 118400,
+        "max": 142155,
+        "trend": "up"
+      },
+      "seniorEstimator": {
+        "min": 102903,
+        "max": 120592,
+        "trend": "up"
+      },
+      "estimator": {
+        "min": 82355,
+        "max": 104503,
+        "trend": "stable"
+      },
+      "junior": {
+        "min": 69495,
+        "max": 80544,
+        "trend": "up"
+      }
+    },
+    "benefits": {
+      "ptoDays": {
+        "min": 10,
+        "max": 16
+      },
+      "bonusPercent": {
+        "min": 9,
+        "max": 17
+      },
+      "flexPercent": 30,
+      "esopPercent": 10,
+      "autoAllowance": null
+    }
+  }
+]
