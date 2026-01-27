@@ -774,6 +774,37 @@ Changed the cryptic "+" icon button to a clear labeled button:
 - 48/48 user stories passing ✅
 - Build succeeds (npm run build)
 - No TypeScript errors
-- Ready for Vercel deployment
+- Deployed to Cloudflare Pages
 
 **All user stories complete!**
+
+---
+
+## Deployment - 2026-01-27
+
+**Deployed to Cloudflare Pages via GitHub**
+
+**GitHub Repo:** https://github.com/wecreatewith/nichessp-salary-survey
+
+**Deployment Setup:**
+- Static export configured (next.config.mjs: output: 'export')
+- Build command: `npm run build`
+- Build output: `out/`
+- Connected to Cloudflare Pages for auto-deploy on push
+
+**Password Protection (Preview):**
+- Basic auth middleware in `functions/_middleware.js`
+- Username: `nichessp`
+- Password: `salary2026`
+- Remove this file when ready to go live publicly
+
+**Custom Domain (Pending):**
+- Target: `salary.nichessp.com`
+- Add in Cloudflare Pages settings when approved for public launch
+
+**Next Steps:**
+1. Share preview URL with Gareth & Luke for review
+2. Gather final feedback
+3. Remove password protection (`functions/_middleware.js`)
+4. Add custom domain `salary.nichessp.com`
+5. Launch publicly

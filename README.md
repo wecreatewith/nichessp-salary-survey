@@ -1,53 +1,85 @@
-# NicheSSP Interactive Salary Survey
+# NicheSSP Interactive Salary Survey 2026
 
 An interactive salary data explorer for preconstruction professionals, replacing the static PDF gated content with an impressive data visualization experience.
 
-## Project Status
+## Status: Deployed
 
-**Status:** Ready for Ralph
-**PRD:** 26 user stories defined
-**Data:** 109 US locations with salary + benefits data
+**Live Preview:** Cloudflare Pages (password protected)
+- Username: `nichessp`
+- Password: `salary2026`
 
-## How to Run Ralph
+**GitHub:** https://github.com/wecreatewith/nichessp-salary-survey
 
-From the WCW-HQ root:
+**Target Domain:** `salary.nichessp.com` (pending final approval)
 
-```bash
-# Human-in-the-loop (watch it work)
-cd clients/niche-ssp/projects/salary-survey-interactive
-/Users/dommcglynn/Documents/WCW-HQ/scripts/ralph/ralph-once.sh
+## Features
 
-# AFK mode (let it run)
-/Users/dommcglynn/Documents/WCW-HQ/scripts/ralph/ralph.sh 30
-```
-
-## Project Files
-
-```
-salary-survey-interactive/
-├── prd.json              # 26 user stories with acceptance criteria
-├── prompt.md             # Ralph instructions
-├── progress.txt          # Learning log (updated each iteration)
-├── README.md             # This file
-└── source-data/
-    └── salaries-2025.csv # Clean salary data (109 locations)
-```
-
-## Data Structure
-
-Each location has:
-- 6 role salary ranges (Director → Junior Estimator)
-- Trend indicators (up/down/stable)
-- Benefits: PTO, Bonus %, Flex %, ESOP %
+- Interactive US map with state/city salary data
+- 108 locations across all 50 states
+- 6 role levels (Director of Preconstruction → Junior Estimator)
+- Location comparison tool (up to 3 locations side-by-side)
+- Benefits analysis (PTO, Bonus, Flex, ESOP, Auto Allowance)
+- "How Do I Stack Up?" salary calculator with percentile ranking
+- Deep-dive analysis for individual benefits
+- Fully responsive (mobile-optimized with slide-up panels)
+- NicheSSP branding throughout
 
 ## Tech Stack
 
-- Next.js 14 (App Router)
+- Next.js 14 (App Router) with Static Export
 - TypeScript
 - Tailwind CSS
 - Recharts (charts)
 - react-simple-maps (US map)
-- Deploy to Vercel or Cloudflare Pages
+- Cloudflare Pages (deployment)
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run dev server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Deployment
+
+Deployed via Cloudflare Pages with GitHub integration. Pushes to `main` trigger automatic deployments.
+
+**Build settings:**
+- Build command: `npm run build`
+- Build output: `out/`
+
+**Password protection:**
+- `functions/_middleware.js` provides basic auth
+- Remove this file when ready for public launch
+
+## Project Structure
+
+```
+salary-survey-interactive/
+├── src/
+│   ├── app/              # Next.js app router pages
+│   ├── components/       # React components
+│   ├── lib/              # Utility functions
+│   ├── data/             # Salary data JSON
+│   └── types/            # TypeScript types
+├── public/               # Static assets
+├── functions/            # Cloudflare Pages functions (auth)
+├── prd.json              # 48 user stories (all passing)
+├── progress.txt          # Development log
+└── source-data/          # Raw CSV data
+```
+
+## Brand Guidelines
+
+- NEVER use "recruitment" → "our consultants"
+- NEVER use "candidates" → "preconstruction professionals"
+- Brand colors: Navy #1a365d, Sky #0ea5e9, Orange #E59941
 
 ## User Flow
 
@@ -57,12 +89,7 @@ Each location has:
 4. User explores interactive salary data
 5. CTAs drive to NicheSSP services
 
-## Brand Rules
-
-- NEVER use "recruitment" → "our consultants"
-- NEVER use "candidates" → "preconstruction professionals"
-- Brand colors: Navy #1a365d, Gold #d69e2e
-
 ---
 
-*Created: 2026-01-25 by We Create With*
+*Built: 2026-01-25 to 2026-01-27 by We Create With using Ralph (autonomous AI coding loop)*
+*48/48 user stories completed*
