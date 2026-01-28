@@ -24,7 +24,8 @@ export const metadata: Metadata = {
     description: "Explore preconstruction salary data across 108 US cities. Compare salaries by role, location, and see market trends.",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
   },
 };
 
