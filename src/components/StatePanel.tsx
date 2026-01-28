@@ -10,7 +10,7 @@ type SortOrder = 'high-to-low' | 'low-to-high';
 interface StatePanelProps {
   stateCode: string;
   stateName: string;
-  selectedRole: RoleKey;
+  selectedRole: RoleKey | null;
   onClose: () => void;
   onLocationSelect?: (location: Location) => void;
   onCompareAdd?: (location: Location) => void;
@@ -36,6 +36,9 @@ export function StatePanel({
 }: StatePanelProps) {
   const [sortOrder, setSortOrder] = useState<SortOrder>('high-to-low');
 
+  // Use estimator as default display role when "All Roles" is selected
+  const displayRole: RoleKey = selectedRole ?? 'estimator';
+
   const isInComparison = (location: Location) => {
     return comparisonLocations.some(
       (loc) => loc.city === location.city && loc.stateCode === location.stateCode
@@ -50,11 +53,11 @@ export function StatePanel({
 
   const sortedLocations = useMemo(() => {
     return [...locations].sort((a, b) => {
-      const salaryA = (a.roles[selectedRole].min + a.roles[selectedRole].max) / 2;
-      const salaryB = (b.roles[selectedRole].min + b.roles[selectedRole].max) / 2;
+      const salaryA = (a.roles[displayRole].min + a.roles[displayRole].max) / 2;
+      const salaryB = (b.roles[displayRole].min + b.roles[displayRole].max) / 2;
       return sortOrder === 'high-to-low' ? salaryB - salaryA : salaryA - salaryB;
     });
-  }, [locations, selectedRole, sortOrder]);
+  }, [locations, displayRole, sortOrder]);
 
   const toggleSortOrder = () => {
     setSortOrder((prev) => (prev === 'high-to-low' ? 'low-to-high' : 'high-to-low'));
@@ -109,7 +112,7 @@ export function StatePanel({
       {/* Sort controls */}
       <div className="px-4 py-2 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
         <span className="text-sm font-medium text-navy-700">
-          {ROLE_DISPLAY_NAMES[selectedRole]}
+          {selectedRole ? ROLE_DISPLAY_NAMES[selectedRole] : 'All Roles (showing Estimator)'}
         </span>
         <button
           onClick={toggleSortOrder}
@@ -132,7 +135,7 @@ export function StatePanel({
       <div className="max-h-96 overflow-y-auto">
         <ul className="divide-y divide-gray-100">
           {sortedLocations.map((location) => {
-            const salaryRange = location.roles[selectedRole];
+            const salaryRange = location.roles[displayRole];
             const inComparison = isInComparison(location);
             return (
               <li

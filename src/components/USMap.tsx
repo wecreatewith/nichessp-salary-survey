@@ -3,7 +3,7 @@
 import { memo, useState, useCallback, useMemo } from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 import { RoleKey } from '@/types/salary';
-import { getLocationsByState, calculateStateSalaryAverage, getAllStates } from '@/lib/data';
+import { getLocationsByState, calculateStateSalaryAverage, calculateStateSalaryAverageAllRoles, getAllStates } from '@/lib/data';
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 
@@ -36,7 +36,7 @@ interface TooltipPosition {
 }
 
 interface USMapProps {
-  selectedRole: RoleKey;
+  selectedRole: RoleKey | null;
   onStateClick?: (stateCode: string) => void;
   selectedState?: string | null;
 }
@@ -92,7 +92,10 @@ function USMapComponent({ selectedRole, onStateClick, selectedState }: USMapProp
     let max = 0;
 
     statesWithData.forEach(stateCode => {
-      const avg = calculateStateSalaryAverage(stateCode, selectedRole);
+      // Use all-roles average if no specific role selected
+      const avg = selectedRole
+        ? calculateStateSalaryAverage(stateCode, selectedRole)
+        : calculateStateSalaryAverageAllRoles(stateCode);
       const locations = getLocationsByState(stateCode);
       salaries[stateCode] = avg;
       cityCounts[stateCode] = locations.length;

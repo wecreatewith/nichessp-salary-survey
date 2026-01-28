@@ -11,18 +11,21 @@ import {
 } from '@/lib/data';
 
 interface NationalOverviewProps {
-  selectedRole: RoleKey;
+  selectedRole: RoleKey | null;
   onLocationClick?: (city: string, stateCode: string) => void;
 }
 
 export function NationalOverview({ selectedRole, onLocationClick }: NationalOverviewProps) {
+  // Use estimator as default display role when "All Roles" is selected
+  const displayRole: RoleKey = selectedRole ?? 'estimator';
+
   const { topCities, nationalRange, trendDist } = useMemo(() => {
     return {
-      topCities: getTopPayingLocations(selectedRole, 5),
-      nationalRange: getNationalSalaryRange(selectedRole),
-      trendDist: getTrendDistribution(selectedRole),
+      topCities: getTopPayingLocations(displayRole, 5),
+      nationalRange: getNationalSalaryRange(displayRole),
+      trendDist: getTrendDistribution(displayRole),
     };
-  }, [selectedRole]);
+  }, [displayRole]);
 
   const totalLocations = trendDist.up + trendDist.down + trendDist.stable;
 
@@ -31,7 +34,7 @@ export function NationalOverview({ selectedRole, onLocationClick }: NationalOver
       {/* Header */}
       <div className="bg-navy px-4 py-3">
         <h3 className="text-white font-semibold">National Overview</h3>
-        <p className="text-navy-200 text-sm">{ROLE_DISPLAY_NAMES[selectedRole]}</p>
+        <p className="text-navy-200 text-sm">{selectedRole ? ROLE_DISPLAY_NAMES[selectedRole] : 'All Roles (showing Estimator)'}</p>
       </div>
 
       <div className="p-4 space-y-5">
@@ -55,7 +58,7 @@ export function NationalOverview({ selectedRole, onLocationClick }: NationalOver
           <h4 className="text-sm font-medium text-gray-700 mb-3">Top 5 Highest Paying Cities</h4>
           <div className="space-y-3">
             {topCities.map((location, index) => {
-              const roleData = location.roles[selectedRole];
+              const roleData = location.roles[displayRole];
               return (
                 <button
                   key={`${location.city}-${location.stateCode}`}
@@ -77,7 +80,7 @@ export function NationalOverview({ selectedRole, onLocationClick }: NationalOver
                     <SalaryBar
                       min={roleData.min}
                       max={roleData.max}
-                      role={selectedRole}
+                      role={displayRole}
                       showLabels={true}
                       showNationalAverage={false}
                     />

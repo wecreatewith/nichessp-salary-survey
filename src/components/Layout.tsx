@@ -8,9 +8,19 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen bg-navy-900 flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      {/* Blurred cityscape background */}
+      <div className="fixed inset-0 -z-10">
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-110"
+          style={{
+            backgroundImage: 'url(https://cdn.prod.website-files.com/617923509295278867c6726d/64ef2d81cf57b355de207b63_210506f0ca62fa0289c9037812dff14b_ny.webp)',
+            filter: 'blur(8px)'
+          }}
+        />
+        <div className="absolute inset-0 bg-white/30" />
+      </div>
       <Header />
-      <HeroHeader />
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 flex-1 w-full">
         {children}
       </main>
@@ -22,86 +32,45 @@ export function Layout({ children }: LayoutProps) {
 
 function Header() {
   return (
-    <header className="bg-navy-900 text-white border-b border-navy-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <a
-            href="https://nichessp.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center group"
-          >
-            <Image
-              src="/niche-logo.webp"
-              alt="NicheSSP"
-              width={140}
-              height={48}
-              className="h-8 w-auto sm:h-10 brightness-0 invert transition-transform group-hover:scale-105"
-              priority
-            />
-          </a>
-
-          {/* Back to site link */}
-          <a
-            href="https://nichessp.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-sky-300 hover:text-white transition-colors flex items-center gap-1"
-          >
-            <span className="hidden sm:inline">Visit</span> nichessp.com
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-function HeroHeader() {
-  return (
-    <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-sky-900 text-white relative overflow-hidden">
+    <header className="bg-gradient-to-br from-navy-900 via-navy-800 to-sky-900 text-white relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky-400 rounded-full filter blur-3xl" />
         <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-orange-400 rounded-full filter blur-3xl" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative text-center">
-        {/* Main Title */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-          <span className="block">Salary Survey</span>
-          <span className="block bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400 bg-clip-text text-transparent">
-            2026
-          </span>
-        </h1>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 relative">
+        <div className="flex items-center justify-between">
+          {/* Logo - slightly larger */}
+          <a
+            href="https://nichessp.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center group flex-shrink-0"
+          >
+            <Image
+              src="/niche-logo.webp"
+              alt="NicheSSP"
+              width={160}
+              height={56}
+              className="h-10 w-auto sm:h-12 lg:h-14 brightness-0 invert transition-transform group-hover:scale-105"
+              priority
+            />
+          </a>
 
-        {/* Subtitle */}
-        <p className="text-xl sm:text-2xl lg:text-3xl text-sky-200 font-medium mb-6">
-          Preconstruction & Estimating
-        </p>
-
-        {/* Stats tagline */}
-        <div className="flex items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base text-sky-300">
-          <div className="flex items-center gap-2">
-            <svg className="h-5 w-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <span>108 US Locations</span>
-          </div>
-          <div className="w-px h-4 bg-sky-700" />
-          <div className="flex items-center gap-2">
-            <svg className="h-5 w-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-            <span>6 Role Levels</span>
+          {/* Centered Title - Single Line */}
+          <div className="flex-1 flex justify-center whitespace-nowrap">
+            <h1 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-extrabold tracking-tight flex items-baseline gap-1 sm:gap-2">
+              <span>Preconstruction & Estimating</span>
+              <span className="text-sky-300">Salary Survey</span>
+              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400 bg-clip-text text-transparent">
+                2026
+              </span>
+            </h1>
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 
@@ -248,7 +217,7 @@ function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/company/nichessp"
+                href="https://www.linkedin.com/company/niche-specialist-staffing-partners/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-sky-400 transition-colors"

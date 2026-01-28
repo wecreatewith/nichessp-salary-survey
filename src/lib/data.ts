@@ -51,6 +51,28 @@ export function calculateStateSalaryAverage(stateCode: string, role: RoleKey): n
 }
 
 /**
+ * Calculate the average salary across ALL roles for a state (used for "All Roles" view)
+ */
+export function calculateStateSalaryAverageAllRoles(stateCode: string): number {
+  const stateLocations = getLocationsByState(stateCode);
+  if (stateLocations.length === 0) return 0;
+
+  const roleKeys: RoleKey[] = ['director', 'seniorManager', 'manager', 'seniorEstimator', 'estimator', 'junior'];
+  let total = 0;
+  let count = 0;
+
+  stateLocations.forEach(loc => {
+    roleKeys.forEach(role => {
+      const roleData = loc.roles[role];
+      total += (roleData.min + roleData.max) / 2;
+      count++;
+    });
+  });
+
+  return count > 0 ? Math.round(total / count) : 0;
+}
+
+/**
  * Get the average salary range for a role in a specific state
  */
 export function getStateSalaryRange(stateCode: string, role: RoleKey): { min: number; max: number } | null {
@@ -69,38 +91,140 @@ export function getStateSalaryRange(stateCode: string, role: RoleKey): { min: nu
 /**
  * Get percentile rank for a salary in a specific role
  * Returns a number between 0 and 100
+ *
+ * Uses interpolation to provide accurate percentiles - never returns 0% or 100%.
+ * Matches the methodology of getStateSalaryPercentile for consistency.
  */
 export function getSalaryPercentile(salary: number, role: RoleKey): number {
-  // Get all midpoint salaries for this role
+  // Get all midpoint salaries for this role, sorted
   const midpoints = locations.map((loc) => {
     const roleData = loc.roles[role];
     return (roleData.min + roleData.max) / 2;
-  });
+  }).sort((a, b) => a - b);
 
-  // Count how many salaries are below the given salary
-  const belowCount = midpoints.filter((mid) => mid < salary).length;
+  const n = midpoints.length;
+  const minSalary = midpoints[0];
+  const maxSalary = midpoints[n - 1];
 
-  return Math.round((belowCount / midpoints.length) * 100);
+  // Handle edge cases: salary at or beyond boundaries
+  if (salary <= minSalary) {
+    // Even at the minimum, you're not at 0% - use 1/(n+1) * 100 as minimum percentile
+    return Math.round((1 / (n + 1)) * 100);
+  }
+
+  if (salary >= maxSalary) {
+    // At or above the max, use n/(n+1) * 100 as the maximum percentile
+    return Math.round((n / (n + 1)) * 100);
+  }
+
+  // For salaries in between, use the midrank method
+  // Count how many salaries are strictly below the given salary
+  let belowCount = 0;
+  for (const mid of midpoints) {
+    if (mid < salary) {
+      belowCount++;
+    } else {
+      break;
+    }
+  }
+
+  // Count how many salaries are exactly equal
+  const equalCount = midpoints.filter(mid => mid === salary).length;
+
+  // Use (belowCount + 0.5 * equalCount) / n for better percentile estimation (midrank method)
+  const effectiveRank = belowCount + (equalCount * 0.5);
+
+  return Math.round((effectiveRank / n) * 100);
 }
 
 /**
  * Get percentile rank for a salary within a specific state
  * Returns a number between 0 and 100, or null if state has no data
+ *
+ * Uses interpolation to provide more accurate percentiles, especially
+ * when there are few data points in a state.
  */
 export function getStateSalaryPercentile(salary: number, role: RoleKey, stateCode: string): number | null {
   const stateLocations = getLocationsByState(stateCode);
   if (stateLocations.length === 0) return null;
 
-  // Get all midpoint salaries for this role in the state
+  // Get all midpoint salaries for this role in the state, sorted
   const midpoints = stateLocations.map((loc) => {
     const roleData = loc.roles[role];
     return (roleData.min + roleData.max) / 2;
-  });
+  }).sort((a, b) => a - b);
 
-  // Count how many salaries are below the given salary
-  const belowCount = midpoints.filter((mid) => mid < salary).length;
+  const minSalary = midpoints[0];
+  const maxSalary = midpoints[midpoints.length - 1];
 
-  return Math.round((belowCount / midpoints.length) * 100);
+  // Handle edge cases: salary at or beyond boundaries
+  if (salary <= minSalary) {
+    // Even at the minimum, you're not at 0% - you're at the lowest observed
+    // Use 1/(n+1) * 100 as the minimum percentile (statistical convention)
+    return Math.round((1 / (midpoints.length + 1)) * 100);
+  }
+
+  if (salary >= maxSalary) {
+    // At or above the max, use n/(n+1) * 100 as the maximum percentile
+    return Math.round((midpoints.length / (midpoints.length + 1)) * 100);
+  }
+
+  // For salaries in between, use linear interpolation
+  // Find where this salary falls in the sorted list
+  let belowCount = 0;
+  for (const mid of midpoints) {
+    if (mid < salary) {
+      belowCount++;
+    } else {
+      break;
+    }
+  }
+
+  // If exactly equal to a midpoint, count it as being at that rank
+  const equalCount = midpoints.filter(mid => mid === salary).length;
+
+  // Use (belowCount + 0.5 * equalCount) / n for better percentile estimation
+  // This is the midrank method
+  const effectiveRank = belowCount + (equalCount * 0.5);
+
+  return Math.round((effectiveRank / midpoints.length) * 100);
+}
+
+/**
+ * Get actual rank of a salary within a state (1st, 2nd, 3rd, etc.)
+ * Returns { rank: number, total: number, isAboveAverage: boolean } or null if state has no data
+ *
+ * Useful for small sample sizes where percentile is confusing.
+ * Rank 1 = highest salary, Rank N = lowest salary
+ */
+export function getStateSalaryRank(salary: number, role: RoleKey, stateCode: string): { rank: number; total: number; isAboveAverage: boolean } | null {
+  const stateLocations = getLocationsByState(stateCode);
+  if (stateLocations.length === 0) return null;
+
+  // Get all midpoint salaries for this role in the state, sorted high to low
+  const midpoints = stateLocations.map((loc) => {
+    const roleData = loc.roles[role];
+    return (roleData.min + roleData.max) / 2;
+  }).sort((a, b) => b - a); // High to low
+
+  const total = midpoints.length;
+  const average = midpoints.reduce((sum, m) => sum + m, 0) / total;
+  const isAboveAverage = salary >= average;
+
+  // Find where this salary would rank (1 = highest)
+  let rank = 1;
+  for (const mid of midpoints) {
+    if (salary >= mid) {
+      break;
+    }
+    rank++;
+  }
+
+  // If salary is lower than all, rank equals total + 1 (below all)
+  // Cap at total for display purposes
+  if (rank > total) rank = total;
+
+  return { rank, total, isAboveAverage };
 }
 
 /**
@@ -181,10 +305,16 @@ export function searchLocations(query: string): Location[] {
   if (!q) return locations;
 
   return locations.filter(
-    (loc) =>
-      loc.city.toLowerCase().includes(q) ||
-      loc.state.toLowerCase().includes(q) ||
-      loc.stateCode.toLowerCase().includes(q)
+    (loc) => {
+      // Get the full state name for this location
+      const fullStateName = STATE_NAMES[loc.stateCode] || '';
+      return (
+        loc.city.toLowerCase().includes(q) ||
+        loc.state.toLowerCase().includes(q) ||
+        loc.stateCode.toLowerCase().includes(q) ||
+        fullStateName.toLowerCase().includes(q)
+      );
+    }
   );
 }
 

@@ -7,7 +7,7 @@ import { TrendIndicator } from './TrendIndicator';
 
 interface SearchResultsProps {
   query: string;
-  selectedRole: RoleKey;
+  selectedRole: RoleKey | null;
   onLocationClick: (location: Location) => void;
   onStateClick: (stateCode: string) => void;
 }
@@ -26,6 +26,9 @@ export function SearchResults({
   onLocationClick,
   onStateClick,
 }: SearchResultsProps) {
+  // Use estimator as default display role when "All Roles" is selected
+  const displayRole: RoleKey = selectedRole ?? 'estimator';
+
   const results = useMemo(() => {
     if (!query.trim()) return [];
     return searchLocations(query);
@@ -68,7 +71,7 @@ export function SearchResults({
       </div>
       <ul className="divide-y divide-gray-100 max-h-96 overflow-y-auto">
         {results.map((location) => {
-          const salaryRange = location.roles[selectedRole];
+          const salaryRange = location.roles[displayRole];
           return (
             <li
               key={`${location.city}-${location.stateCode}`}

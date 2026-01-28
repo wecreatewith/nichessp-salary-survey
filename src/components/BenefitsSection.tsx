@@ -124,13 +124,13 @@ export function BenefitsSection({ selectedState, selectedLocation, onLocationCli
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-xl p-6">
+    <div className="bg-navy-900 rounded-2xl shadow-xl p-6">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-bold text-navy-900">Benefits Comparison</h2>
+        <h2 className="text-lg font-bold text-white">Benefits Comparison</h2>
         <div
           className={`
             text-sm px-4 py-1.5 rounded-full font-medium transition-all duration-300
-            ${selectedLocation ? 'bg-gradient-to-r from-sky-500 to-sky-600 text-white shadow-sm' : selectedState ? 'bg-sky-100 text-sky-700' : 'bg-gray-100 text-gray-600'}
+            ${selectedLocation ? 'bg-white text-navy-900 shadow-sm' : selectedState ? 'bg-white/20 text-white' : 'bg-white/10 text-white/80'}
             ${isAnimating ? 'scale-105' : 'scale-100'}
           `}
         >
@@ -138,61 +138,64 @@ export function BenefitsSection({ selectedState, selectedLocation, onLocationCli
         </div>
       </div>
 
-      <div className={`h-64 sm:h-72 transition-opacity duration-300 ${isAnimating ? 'opacity-70' : 'opacity-100'}`}>
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            data={chartData}
-            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-            <XAxis
-              dataKey="name"
-              tick={{ fill: '#64748b', fontSize: 12, fontWeight: 500 }}
-              axisLine={{ stroke: '#e2e8f0' }}
-            />
-            <YAxis
-              tick={{ fill: '#64748b', fontSize: 12 }}
-              axisLine={{ stroke: '#e2e8f0' }}
-            />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: '#fff',
-                border: '1px solid #e2e8f0',
-                borderRadius: '12px',
-                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-              }}
-              labelStyle={{ color: '#0f172a', fontWeight: 700 }}
-              formatter={(value, name) => [
-                typeof value === 'number' ? value.toFixed(1) : value,
-                name === 'current' ? displayName : 'National Average'
-              ]}
-            />
-            <Legend
-              wrapperStyle={{ paddingTop: 16 }}
-              iconType="circle"
-              formatter={(value) => value === 'current' ? displayName : 'National Average'}
-            />
-            <Bar
-              dataKey="current"
-              name="current"
-              fill="#0ea5e9"
-              radius={[6, 6, 0, 0]}
-              animationDuration={500}
-            />
-            <Bar
-              dataKey="national"
-              name="national"
-              fill="#E59941"
-              radius={[6, 6, 0, 0]}
-              animationDuration={500}
-            />
-          </BarChart>
-        </ResponsiveContainer>
+      {/* Chart in white card */}
+      <div className="bg-white rounded-xl p-4">
+        <div className={`h-64 sm:h-72 transition-opacity duration-300 ${isAnimating ? 'opacity-70' : 'opacity-100'}`}>
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              data={chartData}
+              margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <XAxis
+                dataKey="name"
+                tick={{ fill: '#64748b', fontSize: 12, fontWeight: 500 }}
+                axisLine={{ stroke: '#e2e8f0' }}
+              />
+              <YAxis
+                tick={{ fill: '#64748b', fontSize: 12 }}
+                axisLine={{ stroke: '#e2e8f0' }}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: '#fff',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '12px',
+                  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                }}
+                labelStyle={{ color: '#0f172a', fontWeight: 700 }}
+                formatter={(value, name) => [
+                  typeof value === 'number' ? value.toFixed(1) : value,
+                  name === 'current' ? displayName : 'National Average'
+                ]}
+              />
+              <Legend
+                wrapperStyle={{ paddingTop: 16 }}
+                iconType="circle"
+                formatter={(value) => value === 'current' ? displayName : 'National Average'}
+              />
+              <Bar
+                dataKey="current"
+                name="current"
+                fill="#1a365d"
+                radius={[6, 6, 0, 0]}
+                animationDuration={500}
+              />
+              <Bar
+                dataKey="national"
+                name="national"
+                fill="#E59941"
+                radius={[6, 6, 0, 0]}
+                animationDuration={500}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </div>
 
       {/* Deep dive buttons */}
-      <div className="mt-4 pt-4 border-t border-gray-100">
-        <p className="text-xs text-gray-500 mb-3 text-center">
+      <div className="mt-4 pt-4 border-t border-white/10">
+        <p className="text-xs text-white/60 mb-3 text-center">
           Click a benefit to explore in detail across all locations
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
@@ -200,11 +203,11 @@ export function BenefitsSection({ selectedState, selectedLocation, onLocationCli
             <button
               key={benefit.key}
               onClick={() => setDeepDiveBenefit(benefit.key)}
-              className="flex items-center justify-center gap-1 px-3 py-2.5 bg-gray-50 hover:bg-sky-50 text-navy-800 text-sm font-medium rounded-lg transition-all duration-200 group hover:shadow-sm border border-transparent hover:border-sky-200"
+              className="flex items-center justify-center gap-1 px-3 py-2.5 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-xl transition-all duration-200 group border border-white/10 hover:border-white/30"
             >
               <span>{benefit.label}</span>
               <svg
-                className="h-4 w-4 text-gray-400 group-hover:text-sky-500 transition-colors"
+                className="h-4 w-4 text-white/50 group-hover:text-white transition-colors"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -217,7 +220,7 @@ export function BenefitsSection({ selectedState, selectedLocation, onLocationCli
         </div>
       </div>
 
-      <p className="text-xs text-gray-500 mt-4 text-center">
+      <p className="text-xs text-white/50 mt-4 text-center">
         {selectedLocation
           ? `Benefits in ${selectedLocation.city} compared to national average`
           : selectedState

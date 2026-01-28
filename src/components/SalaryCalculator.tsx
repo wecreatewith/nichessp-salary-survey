@@ -15,7 +15,7 @@ import {
 } from '@/lib/data';
 
 interface SalaryCalculatorProps {
-  defaultRole?: RoleKey;
+  defaultRole?: RoleKey | null;
 }
 
 function formatCurrency(amount: number): string {
@@ -153,8 +153,8 @@ function SearchableSelect({
   );
 }
 
-export function SalaryCalculator({ defaultRole = 'estimator' }: SalaryCalculatorProps) {
-  const [selectedRole, setSelectedRole] = useState<RoleKey>(defaultRole);
+export function SalaryCalculator({ defaultRole }: SalaryCalculatorProps) {
+  const [selectedRole, setSelectedRole] = useState<RoleKey>(defaultRole ?? 'estimator');
   const [selectedState, setSelectedState] = useState<string>('');
   const [selectedCity, setSelectedCity] = useState<string>('');
   const [currentSalary, setCurrentSalary] = useState<string>('');
@@ -252,275 +252,335 @@ export function SalaryCalculator({ defaultRole = 'estimator' }: SalaryCalculator
   }, [showResults, currentSalary, selectedRole, selectedState, selectedCity, hasCitiesForState]);
 
   return (
-    <div className="bg-white rounded-xl shadow-xl overflow-hidden">
-      <div className="bg-navy px-6 py-4">
-        <h2 className="text-xl font-semibold text-white">How Do I Stack Up?</h2>
-        <p className="text-sm text-navy-200">
-          Compare your salary to the market
-        </p>
-      </div>
-
+    <div className="bg-navy-900 rounded-2xl shadow-xl overflow-hidden">
       {!showResults ? (
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
-          {/* Role Selector */}
-          <div>
-            <label htmlFor="calc-role" className="block text-sm font-medium text-gray-700 mb-1">
-              Your Role
-            </label>
-            <select
-              id="calc-role"
-              value={selectedRole}
-              onChange={(e) => setSelectedRole(e.target.value as RoleKey)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy"
-            >
-              {ROLE_KEYS.map((key) => (
-                <option key={key} value={key}>
-                  {ROLE_DISPLAY_NAMES[key]}
-                </option>
-              ))}
-            </select>
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          {/* Left Column - Description */}
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-sky-900 p-8 flex flex-col justify-center relative overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500 rounded-full filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-orange-500 rounded-full filter blur-3xl opacity-15 transform -translate-x-1/2 translate-y-1/2" />
+
+            <div className="relative">
+              <h2 className="text-3xl font-bold text-white mb-4">
+                How Do I Stack Up?
+              </h2>
+              <p className="text-lg text-sky-100 mb-6">
+                Find out where your salary ranks compared to{' '}
+                <span className="text-orange-300 font-semibold">108 markets nationwide</span>.
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-4 h-4 text-orange-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">National & State Percentile</p>
+                    <p className="text-sm text-sky-200">See how you rank across the US and in your state</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-4 h-4 text-orange-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">Top Markets Revealed</p>
+                    <p className="text-sm text-sky-200">Discover where you could earn more</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-4 h-4 text-orange-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">100% Confidential</p>
+                    <p className="text-sm text-sky-200">Your data never leaves your browser</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* State Selector */}
-          <SearchableSelect
-            id="calc-state"
-            label="Your State"
-            placeholder="Select a state..."
-            value={selectedState}
-            options={stateOptions}
-            onChange={setSelectedState}
-            emptyMessage="No states found"
-          />
+          {/* Right Column - Form */}
+          <div className="bg-white p-8">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Role Selector */}
+              <div>
+                <label htmlFor="calc-role" className="block text-sm font-medium text-gray-700 mb-1">
+                  Your Role
+                </label>
+                <select
+                  id="calc-role"
+                  value={selectedRole}
+                  onChange={(e) => setSelectedRole(e.target.value as RoleKey)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-navy-900"
+                >
+                  {ROLE_KEYS.map((key) => (
+                    <option key={key} value={key}>
+                      {ROLE_DISPLAY_NAMES[key]}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-          {/* City Selector - only show if state is selected */}
-          {selectedState && (
-            <div>
-              {hasCitiesForState ? (
-                <SearchableSelect
-                  id="calc-city"
-                  label="Your City (optional)"
-                  placeholder="Select a city or use state average..."
-                  value={selectedCity}
-                  options={cityOptions}
-                  onChange={setSelectedCity}
-                  emptyMessage="No cities found"
-                />
-              ) : (
-                <div className="bg-navy-50 border border-navy-100 rounded-lg p-3">
-                  <p className="text-sm text-navy-700">
-                    <span className="font-medium">No city data available</span> - we&apos;ll use the state average for {STATE_NAMES[selectedState] || selectedState}.
-                  </p>
+              {/* State Selector */}
+              <SearchableSelect
+                id="calc-state"
+                label="Your State"
+                placeholder="Select a state..."
+                value={selectedState}
+                options={stateOptions}
+                onChange={setSelectedState}
+                emptyMessage="No states found"
+              />
+
+              {/* City Selector - only show if state is selected */}
+              {selectedState && (
+                <div>
+                  {hasCitiesForState ? (
+                    <SearchableSelect
+                      id="calc-city"
+                      label="Your City (optional)"
+                      placeholder="Select a city or use state average..."
+                      value={selectedCity}
+                      options={cityOptions}
+                      onChange={setSelectedCity}
+                      emptyMessage="No cities found"
+                    />
+                  ) : (
+                    <div className="bg-sky-50 border border-sky-200 rounded-lg p-3">
+                      <p className="text-sm text-sky-700">
+                        <span className="font-medium">No city data available</span> - we&apos;ll use the state average for {STATE_NAMES[selectedState] || selectedState}.
+                      </p>
+                    </div>
+                  )}
                 </div>
               )}
-            </div>
-          )}
 
-          {/* Current Salary Input */}
-          <div>
-            <label htmlFor="calc-salary" className="block text-sm font-medium text-gray-700 mb-1">
-              Current Annual Salary
-            </label>
-            <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
-              <input
-                type="text"
-                id="calc-salary"
-                value={currentSalary}
-                onChange={(e) => {
-                  // Format as currency
-                  const value = e.target.value.replace(/[^0-9]/g, '');
-                  if (value) {
-                    setCurrentSalary(parseInt(value, 10).toLocaleString());
-                  } else {
-                    setCurrentSalary('');
-                  }
-                }}
-                placeholder="e.g., 150,000"
-                className="w-full pl-7 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-navy"
-              />
-            </div>
+              {/* Current Salary Input */}
+              <div>
+                <label htmlFor="calc-salary" className="block text-sm font-medium text-gray-700 mb-1">
+                  Current Annual Salary
+                </label>
+                <div className="relative">
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-medium">$</span>
+                  <input
+                    type="text"
+                    id="calc-salary"
+                    value={currentSalary}
+                    onChange={(e) => {
+                      // Format as currency
+                      const value = e.target.value.replace(/[^0-9]/g, '');
+                      if (value) {
+                        setCurrentSalary(parseInt(value, 10).toLocaleString());
+                      } else {
+                        setCurrentSalary('');
+                      }
+                    }}
+                    placeholder="e.g., 150,000"
+                    className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-lg"
+                  />
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={!selectedRole || !selectedState || !currentSalary}
+                className={`
+                  w-full py-4 rounded-xl font-bold text-lg transition-all duration-200
+                  ${selectedRole && selectedState && currentSalary
+                    ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 shadow-lg shadow-orange-200 transform hover:scale-[1.02]'
+                    : 'bg-gray-200 text-gray-400 cursor-not-allowed'}
+                `}
+              >
+                Calculate My Position
+              </button>
+            </form>
           </div>
-
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={!selectedRole || !selectedState || !currentSalary}
-            className={`
-              w-full py-3 rounded-lg font-medium transition-colors
-              ${selectedRole && selectedState && currentSalary
-                ? 'bg-gold text-navy hover:bg-gold-600'
-                : 'bg-gray-200 text-gray-400 cursor-not-allowed'}
-            `}
-          >
-            Calculate My Position
-          </button>
-        </form>
+        </div>
       ) : results && (
-        <div className="p-6 space-y-6">
-          {/* Dual Percentile Results */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* National Percentile */}
-            <div className="bg-gray-50 rounded-lg p-4 text-center border-2 border-gray-200">
-              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                Nationwide
-              </div>
-              {results.percentile >= 50 ? (
-                <>
-                  <div className="text-3xl font-bold text-green-600 mb-1">
-                    Top {100 - results.percentile}%
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    of all {ROLE_DISPLAY_NAMES[selectedRole]} professionals
-                  </p>
-                </>
-              ) : results.percentile === 50 ? (
-                <>
-                  <div className="text-3xl font-bold text-navy mb-1">
-                    Median
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    exactly average nationwide
-                  </p>
-                </>
-              ) : (
-                <>
-                  <div className="text-3xl font-bold text-amber-600 mb-1">
-                    Bottom {results.percentile}%
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    of all {ROLE_DISPLAY_NAMES[selectedRole]} professionals
-                  </p>
-                </>
-              )}
-            </div>
+        <div className="p-6">
+          {/* Results header */}
+          <h2 className="text-xl font-bold text-white mb-4">Your Results</h2>
 
-            {/* State Percentile */}
-            <div className="bg-sky-50 rounded-lg p-4 text-center border-2 border-sky-200">
-              <div className="text-xs font-semibold text-sky-600 uppercase tracking-wide mb-2">
-                In {results.stateName}
-              </div>
-              {results.statePercentile !== null ? (
-                results.statePercentile >= 50 ? (
+          {/* White card containing results */}
+          <div className="bg-white rounded-xl p-6 space-y-6">
+            {/* Dual Percentile Results */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* National Percentile */}
+              <div className="bg-navy-50 rounded-xl p-4 text-center border-2 border-navy-100">
+                <div className="text-xs font-semibold text-navy-600 uppercase tracking-wide mb-2">
+                  Nationwide
+                </div>
+                {results.percentile >= 50 ? (
                   <>
                     <div className="text-3xl font-bold text-green-600 mb-1">
-                      Top {100 - results.statePercentile}%
+                      Top {100 - results.percentile}%
                     </div>
                     <p className="text-sm text-gray-600">
-                      of {results.stateLocationsCount} {results.stateName} locations
+                      of all {ROLE_DISPLAY_NAMES[selectedRole]} professionals
                     </p>
                   </>
-                ) : results.statePercentile === 50 ? (
+                ) : results.percentile === 50 ? (
                   <>
                     <div className="text-3xl font-bold text-navy mb-1">
                       Median
                     </div>
                     <p className="text-sm text-gray-600">
-                      average for {results.stateName}
+                      exactly average nationwide
                     </p>
                   </>
                 ) : (
                   <>
                     <div className="text-3xl font-bold text-amber-600 mb-1">
-                      Bottom {results.statePercentile}%
+                      Bottom {results.percentile}%
                     </div>
                     <p className="text-sm text-gray-600">
-                      of {results.stateLocationsCount} {results.stateName} locations
+                      of all {ROLE_DISPLAY_NAMES[selectedRole]} professionals
                     </p>
                   </>
-                )
-              ) : (
-                <p className="text-sm text-gray-600">
-                  Not enough state data
-                </p>
-              )}
-            </div>
-          </div>
+                )}
+              </div>
 
-          {/* Contextual explanation */}
-          {results.statePercentile !== null && Math.abs(results.percentile - results.statePercentile) >= 15 && (
-            <div className="bg-navy-50 border border-navy-100 rounded-lg p-3 text-sm text-navy-700">
-              {results.statePercentile > results.percentile ? (
-                <>
-                  <strong>Why the difference?</strong> You rank higher in {results.stateName} because salaries there
-                  tend to be {results.stateAverage < results.nationalAverage ? 'lower' : 'higher'} than the national average
-                  ({formatCurrency(results.stateAverage)} vs {formatCurrency(results.nationalAverage)}).
-                </>
-              ) : (
-                <>
-                  <strong>Why the difference?</strong> You rank lower in {results.stateName} because salaries there
-                  tend to be {results.stateAverage > results.nationalAverage ? 'higher' : 'lower'} than the national average
-                  ({formatCurrency(results.stateAverage)} vs {formatCurrency(results.nationalAverage)}).
-                </>
-              )}
+              {/* State Percentile */}
+              <div className="bg-sky-50 rounded-xl p-4 text-center border-2 border-sky-100">
+                <div className="text-xs font-semibold text-sky-600 uppercase tracking-wide mb-2">
+                  In {results.stateName}
+                </div>
+                {results.statePercentile !== null ? (
+                  results.statePercentile >= 50 ? (
+                    <>
+                      <div className="text-3xl font-bold text-green-600 mb-1">
+                        Top {100 - results.statePercentile}%
+                      </div>
+                      <p className="text-sm text-gray-600">
+                        of {results.stateLocationsCount} {results.stateName} locations
+                      </p>
+                    </>
+                  ) : results.statePercentile === 50 ? (
+                    <>
+                      <div className="text-3xl font-bold text-navy mb-1">
+                        Median
+                      </div>
+                      <p className="text-sm text-gray-600">
+                        average for {results.stateName}
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-3xl font-bold text-amber-600 mb-1">
+                        Bottom {results.statePercentile}%
+                      </div>
+                      <p className="text-sm text-gray-600">
+                        of {results.stateLocationsCount} {results.stateName} locations
+                      </p>
+                    </>
+                  )
+                ) : (
+                  <p className="text-sm text-gray-600">
+                    Not enough state data
+                  </p>
+                )}
+              </div>
             </div>
-          )}
 
-          {/* Low percentile encouragement */}
-          {results.percentile < 25 && (
-            <div className="text-center text-sm text-navy font-medium">
-              There may be significant opportunities to increase your compensation.
+            {/* Contextual explanation */}
+            {results.statePercentile !== null && Math.abs(results.percentile - results.statePercentile) >= 15 && (
+              <div className="bg-sky-50 border border-sky-100 rounded-xl p-3 text-sm text-navy-700">
+                {results.statePercentile > results.percentile ? (
+                  <>
+                    <strong>Why the difference?</strong> You rank higher in {results.stateName} because salaries there
+                    tend to be {results.stateAverage < results.nationalAverage ? 'lower' : 'higher'} than the national average
+                    ({formatCurrency(results.stateAverage)} vs {formatCurrency(results.nationalAverage)}).
+                  </>
+                ) : (
+                  <>
+                    <strong>Why the difference?</strong> You rank lower in {results.stateName} because salaries there
+                    tend to be {results.stateAverage > results.nationalAverage ? 'higher' : 'lower'} than the national average
+                    ({formatCurrency(results.stateAverage)} vs {formatCurrency(results.nationalAverage)}).
+                  </>
+                )}
+              </div>
+            )}
+
+            {/* Low percentile encouragement */}
+            {results.percentile < 25 && (
+              <div className="text-center text-sm text-navy font-medium">
+                There may be significant opportunities to increase your compensation.
+              </div>
+            )}
+
+            {/* Comparison Stats */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-gray-50 rounded-xl p-4 text-center">
+                <div className="text-sm text-gray-500 mb-1">National Average</div>
+                <div className="text-lg font-semibold text-navy">
+                  {formatCurrency(results.nationalAverage)}
+                </div>
+                <div className={`text-sm ${results.nationalDifference >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                  {results.nationalDifference >= 0 ? '+' : ''}{formatCurrency(results.nationalDifference)}
+                </div>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-4 text-center">
+                <div className="text-sm text-gray-500 mb-1">{results.stateName} Average</div>
+                <div className="text-lg font-semibold text-navy">
+                  {formatCurrency(results.stateAverage)}
+                </div>
+                <div className={`text-sm ${results.stateDifference >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                  {results.stateDifference >= 0 ? '+' : ''}{formatCurrency(results.stateDifference)}
+                </div>
+              </div>
             </div>
-          )}
 
-          {/* Comparison Stats */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-gray-50 rounded-lg p-4 text-center">
-              <div className="text-sm text-gray-500 mb-1">National Average</div>
+            {/* Top market info */}
+            <div className="bg-gray-50 rounded-xl p-4 text-center">
+              <div className="text-sm text-gray-500 mb-1">Highest Paying Market</div>
               <div className="text-lg font-semibold text-navy">
-                {formatCurrency(results.nationalAverage)}
+                {formatCurrency(results.topLocation.roles[selectedRole].max)}
               </div>
-              <div className={`text-sm ${results.nationalDifference >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                {results.nationalDifference >= 0 ? '+' : ''}{formatCurrency(results.nationalDifference)}
-              </div>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-4 text-center">
-              <div className="text-sm text-gray-500 mb-1">{results.stateName} Average</div>
-              <div className="text-lg font-semibold text-navy">
-                {formatCurrency(results.stateAverage)}
-              </div>
-              <div className={`text-sm ${results.stateDifference >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                {results.stateDifference >= 0 ? '+' : ''}{formatCurrency(results.stateDifference)}
+              <div className="text-sm text-gray-600">
+                {results.topLocation.city}, {results.topLocation.stateCode}
               </div>
             </div>
-          </div>
 
-          {/* Top market info */}
-          <div className="bg-gray-50 rounded-lg p-4 text-center">
-            <div className="text-sm text-gray-500 mb-1">Highest Paying Market</div>
-            <div className="text-lg font-semibold text-navy">
-              {formatCurrency(results.topLocation.roles[selectedRole].max)}
+            {/* CTA Section */}
+            <div className="bg-navy-900 rounded-xl p-5 text-center">
+              <h3 className="font-bold text-white text-lg mb-2">
+                Ready for Your Next Opportunity?
+              </h3>
+              <p className="text-sm text-sky-100 mb-4">
+                Our consultants specialize in connecting preconstruction professionals
+                with the best opportunities in the industry.
+              </p>
+              <a
+                href="https://nichessp.com/about"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-white text-navy-900 px-6 py-3 rounded-xl font-bold hover:bg-gray-100 transition-colors"
+              >
+                Talk to Our Consultants
+              </a>
             </div>
-            <div className="text-sm text-gray-600">
-              {results.topLocation.city}, {results.topLocation.stateCode}
-            </div>
-          </div>
 
-          {/* CTA Section */}
-          <div className="bg-navy-50 rounded-lg p-4 border border-navy-100">
-            <h3 className="font-semibold text-navy mb-2">
-              Ready for Your Next Opportunity?
-            </h3>
-            <p className="text-sm text-gray-600 mb-3">
-              Our consultants specialize in connecting preconstruction professionals
-              with the best opportunities in the industry.
-            </p>
-            <a
-              href="https://nichessp.com/about"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-gold text-navy px-6 py-2 rounded-lg font-medium hover:bg-gold-600 transition-colors"
+            {/* Reset Button */}
+            <button
+              onClick={handleReset}
+              className="w-full py-3 text-navy-600 hover:text-navy-900 transition-colors font-medium"
             >
-              Talk to Our Consultants
-            </a>
+              Calculate Again
+            </button>
           </div>
-
-          {/* Reset Button */}
-          <button
-            onClick={handleReset}
-            className="w-full py-2 text-navy hover:text-gold transition-colors text-sm"
-          >
-            Calculate Again
-          </button>
         </div>
       )}
     </div>

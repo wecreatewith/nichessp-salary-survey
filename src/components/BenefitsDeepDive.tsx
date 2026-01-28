@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState, useCallback } from 'react';
 import {
   BarChart,
   Bar,
@@ -10,6 +10,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 import {
   BenefitType,
   getTopLocationsByBenefit,
@@ -18,7 +19,25 @@ import {
   getNationalAverageBenefits,
   getAllStates,
   getStateBenefitAverage,
+  STATE_NAMES,
 } from '@/lib/data';
+
+const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
+
+// State FIPS codes to state abbreviations mapping
+const FIPS_TO_STATE: Record<string, string> = {
+  '01': 'AL', '02': 'AK', '04': 'AZ', '05': 'AR', '06': 'CA',
+  '08': 'CO', '09': 'CT', '10': 'DE', '11': 'DC', '12': 'FL',
+  '13': 'GA', '15': 'HI', '16': 'ID', '17': 'IL', '18': 'IN',
+  '19': 'IA', '20': 'KS', '21': 'KY', '22': 'LA', '23': 'ME',
+  '24': 'MD', '25': 'MA', '26': 'MI', '27': 'MN', '28': 'MS',
+  '29': 'MO', '30': 'MT', '31': 'NE', '32': 'NV', '33': 'NH',
+  '34': 'NJ', '35': 'NM', '36': 'NY', '37': 'NC', '38': 'ND',
+  '39': 'OH', '40': 'OK', '41': 'OR', '42': 'PA', '44': 'RI',
+  '45': 'SC', '46': 'SD', '47': 'TN', '48': 'TX', '49': 'UT',
+  '50': 'VT', '51': 'VA', '53': 'WA', '54': 'WV', '55': 'WI',
+  '56': 'WY',
+};
 
 interface BenefitsDeepDiveProps {
   benefitType: BenefitType;
@@ -57,7 +76,21 @@ function formatBenefitDiff(value: number, benefitType: BenefitType): string {
   return `${value.toFixed(1)} ${BENEFIT_UNITS[benefitType]}`;
 }
 
+interface MapTooltipData {
+  stateName: string;
+  stateCode: string;
+  value: number | null;
+}
+
+interface MapTooltipPosition {
+  x: number;
+  y: number;
+}
+
 export function BenefitsDeepDive({ benefitType, onBack, onLocationClick }: BenefitsDeepDiveProps) {
+  const [tooltipData, setTooltipData] = useState<MapTooltipData | null>(null);
+  const [tooltipPosition, setTooltipPosition] = useState<MapTooltipPosition>({ x: 0, y: 0 });
+
   const { topLocations, distribution, nationalAvg, stateAverages } = useMemo(() => {
     const top = getTopLocationsByBenefit(benefitType, 5);
     const dist = getBenefitDistribution(benefitType);
@@ -107,14 +140,39 @@ export function BenefitsDeepDive({ benefitType, onBack, onLocationClick }: Benef
   }, [stateAverages]);
 
   const getColorForValue = (value: number | null): string => {
-    if (value === null) return '#e5e7eb'; // gray-200
+    if (value === null) return '#e2e8f0'; // slate-200 for no data
     const range = maxAvg - minAvg;
-    if (range === 0) return '#1a365d'; // navy
+    if (range === 0) return '#0ea5e9'; // sky-500
     const normalized = (value - minAvg) / range;
-    // Light to dark blue gradient
-    const lightness = 90 - normalized * 50; // 90% to 40%
-    return `hsl(212, 54%, ${lightness}%)`;
+    // Sky blue color scale matching USMap
+    if (normalized < 0.2) return '#e0f2fe'; // sky-100
+    if (normalized < 0.4) return '#7dd3fc'; // sky-300
+    if (normalized < 0.6) return '#38bdf8'; // sky-400
+    if (normalized < 0.8) return '#0ea5e9'; // sky-500
+    return '#0369a1'; // sky-700
   };
+
+  const statesWithData = useMemo(() => {
+    return Object.keys(stateAverages).filter(state => stateAverages[state] !== null);
+  }, [stateAverages]);
+
+  const handleMouseEnter = useCallback((stateCode: string, event: React.MouseEvent) => {
+    const value = stateAverages[stateCode] ?? null;
+    setTooltipData({
+      stateName: STATE_NAMES[stateCode] || stateCode,
+      stateCode,
+      value,
+    });
+    setTooltipPosition({ x: event.clientX, y: event.clientY });
+  }, [stateAverages]);
+
+  const handleMouseMove = useCallback((event: React.MouseEvent) => {
+    setTooltipPosition({ x: event.clientX, y: event.clientY });
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setTooltipData(null);
+  }, []);
 
   return (
     <div className="bg-white rounded-xl shadow-xl overflow-hidden">
@@ -207,38 +265,94 @@ export function BenefitsDeepDive({ benefitType, onBack, onLocationClick }: Benef
           </div>
         </div>
 
-        {/* Mini Map - State Grid */}
+        {/* US Map */}
         <div>
           <h3 className="text-lg font-semibold text-navy mb-4">By State</h3>
-          <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-1">
-            {Object.entries(stateAverages)
-              .sort(([a], [b]) => a.localeCompare(b))
-              .map(([state, value]) => (
-                <div
-                  key={state}
-                  className="aspect-square rounded flex items-center justify-center text-xs font-medium transition-transform hover:scale-110 cursor-default"
-                  style={{
-                    backgroundColor: getColorForValue(value),
-                    color: value !== null && (value - minAvg) / (maxAvg - minAvg) > 0.5 ? '#fff' : '#1a365d',
-                  }}
-                  title={`${state}: ${value !== null ? formatBenefitValue(value, benefitType) : 'No data'}`}
-                >
-                  {state}
-                </div>
-              ))}
+          <div className="relative w-full" style={{ minHeight: '450px' }}>
+            <ComposableMap
+              projection="geoAlbersUsa"
+              projectionConfig={{ scale: 1000 }}
+              style={{ width: '100%', height: '100%' }}
+            >
+              <Geographies geography={GEO_URL}>
+                {({ geographies }) =>
+                  geographies.map((geo) => {
+                    const fips = geo.id;
+                    const stateCode = FIPS_TO_STATE[fips];
+                    const value = stateAverages[stateCode] ?? null;
+                    const hasData = statesWithData.includes(stateCode);
+
+                    return (
+                      <Geography
+                        key={geo.rsmKey}
+                        geography={geo}
+                        onMouseEnter={(e) => handleMouseEnter(stateCode, e)}
+                        onMouseMove={handleMouseMove}
+                        onMouseLeave={handleMouseLeave}
+                        style={{
+                          default: {
+                            fill: getColorForValue(value),
+                            stroke: '#fff',
+                            strokeWidth: 0.5,
+                            outline: 'none',
+                            transition: 'all 300ms ease-out',
+                          },
+                          hover: {
+                            fill: hasData ? '#E59941' : getColorForValue(value),
+                            stroke: hasData ? '#d08530' : '#fff',
+                            strokeWidth: hasData ? 1.5 : 0.5,
+                            outline: 'none',
+                            transition: 'all 150ms ease-out',
+                          },
+                          pressed: {
+                            fill: '#d08530',
+                            stroke: '#ad6a24',
+                            strokeWidth: 1.5,
+                            outline: 'none',
+                          },
+                        }}
+                      />
+                    );
+                  })
+                }
+              </Geographies>
+            </ComposableMap>
+
+            {/* Tooltip */}
+            {tooltipData && (
+              <div
+                className="fixed z-50 bg-white rounded-xl shadow-xl border border-gray-200 p-3 pointer-events-none"
+                style={{
+                  left: tooltipPosition.x + 10,
+                  top: tooltipPosition.y + 10,
+                }}
+              >
+                <p className="font-bold text-navy-900">{tooltipData.stateName}</p>
+                {tooltipData.value !== null ? (
+                  <p className="text-sm font-semibold text-sky-600">
+                    {formatBenefitValue(tooltipData.value, benefitType)}
+                  </p>
+                ) : (
+                  <p className="text-sm text-gray-400">No data available</p>
+                )}
+              </div>
+            )}
           </div>
-          <div className="flex items-center justify-center gap-2 mt-3 text-xs text-gray-500">
-            <span>Low</span>
-            <div className="flex h-3">
-              {[0, 0.25, 0.5, 0.75, 1].map((v) => (
-                <div
-                  key={v}
-                  className="w-6 h-full"
-                  style={{ backgroundColor: getColorForValue(minAvg + v * (maxAvg - minAvg)) }}
-                />
-              ))}
+
+          {/* Legend */}
+          <div className="flex items-center justify-center gap-4 mt-4 text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-md bg-gray-200" />
+              <span>No data</span>
             </div>
-            <span>High</span>
+            <div className="flex items-center gap-1">
+              <div className="w-4 h-4 rounded-md bg-sky-100" />
+              <div className="w-4 h-4 rounded-md bg-sky-300" />
+              <div className="w-4 h-4 rounded-md bg-sky-400" />
+              <div className="w-4 h-4 rounded-md bg-sky-500" />
+              <div className="w-4 h-4 rounded-md bg-sky-700" />
+              <span className="ml-1 font-medium">Low to High</span>
+            </div>
           </div>
         </div>
       </div>

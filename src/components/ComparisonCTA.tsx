@@ -6,7 +6,7 @@ import { getTopPayingLocations, getLowestPayingLocations } from '@/lib/data';
 import { LocationSelectorModal } from './LocationSelectorModal';
 
 interface ComparisonCTAProps {
-  selectedRole: RoleKey;
+  selectedRole: RoleKey | null;
   comparisonLocations: Location[];
   onAddToComparison: (location: Location) => void;
   onRemoveFromComparison: (location: Location) => void;
@@ -31,9 +31,12 @@ export function ComparisonCTA({
   const [showQuickAdd, setShowQuickAdd] = useState(false);
   const [showLocationModal, setShowLocationModal] = useState(false);
 
+  // Use estimator as default display role when "All Roles" is selected
+  const displayRole: RoleKey = selectedRole ?? 'estimator';
+
   // Get top and contrasting locations for quick add suggestions
-  const topLocations = getTopPayingLocations(selectedRole, 3);
-  const lowLocations = getLowestPayingLocations(selectedRole, 3);
+  const topLocations = getTopPayingLocations(displayRole, 3);
+  const lowLocations = getLowestPayingLocations(displayRole, 3);
 
   const isInComparison = (location: Location) => {
     return comparisonLocations.some(
@@ -84,7 +87,7 @@ export function ComparisonCTA({
             <div className="space-y-4">
               <p className="text-gray-700">
                 Compare salaries, benefits, and trends across up to <strong>3 locations</strong> side-by-side.
-                See which city offers the best {ROLE_DISPLAY_NAMES[selectedRole]} compensation.
+                See which city offers the best {selectedRole ? ROLE_DISPLAY_NAMES[selectedRole] : 'overall'} compensation.
               </p>
 
               {/* Sample comparison preview */}
@@ -94,21 +97,21 @@ export function ComparisonCTA({
                   <div className="text-center">
                     <p className="font-semibold text-navy-900">{previewLoc1.city}, {previewLoc1.stateCode}</p>
                     <p className="text-lg font-bold text-sky-600">
-                      {formatCurrency(previewLoc1.roles[selectedRole].max)}
+                      {formatCurrency(previewLoc1.roles[displayRole].max)}
                     </p>
                     <p className="text-xs text-gray-500">Top salary</p>
                   </div>
                   <div className="text-center">
                     <p className="font-semibold text-navy-900">{previewLoc2.city}, {previewLoc2.stateCode}</p>
                     <p className="text-lg font-bold text-sky-600">
-                      {formatCurrency(previewLoc2.roles[selectedRole].max)}
+                      {formatCurrency(previewLoc2.roles[displayRole].max)}
                     </p>
                     <p className="text-xs text-gray-500">Top salary</p>
                   </div>
                 </div>
                 <div className="mt-3 text-center">
                   <span className="text-sm text-orange-600 font-medium">
-                    {formatCurrency(previewLoc1.roles[selectedRole].max - previewLoc2.roles[selectedRole].max)} difference
+                    {formatCurrency(previewLoc1.roles[displayRole].max - previewLoc2.roles[displayRole].max)} difference
                   </span>
                 </div>
               </div>
@@ -222,7 +225,7 @@ export function ComparisonCTA({
                     <div>
                       <p className="font-semibold">{loc.city}, {loc.stateCode}</p>
                       <p className="text-xs text-sky-600">
-                        {formatCurrency(loc.roles[selectedRole].min)} - {formatCurrency(loc.roles[selectedRole].max)}
+                        {formatCurrency(loc.roles[displayRole].min)} - {formatCurrency(loc.roles[displayRole].max)}
                       </p>
                     </div>
                     <button

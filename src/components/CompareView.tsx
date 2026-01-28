@@ -5,7 +5,7 @@ import { TrendIndicator } from './TrendIndicator';
 
 interface CompareViewProps {
   locations: Location[];
-  selectedRole?: RoleKey; // Optional, reserved for future highlighting
+  selectedRole?: RoleKey | null; // Optional, reserved for future highlighting
   onBack: () => void;
 }
 

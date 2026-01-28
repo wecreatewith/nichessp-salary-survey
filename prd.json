@@ -732,8 +732,8 @@
         "Overall effect: professional, bold, content stands out"
       ],
       "priority": 51,
-      "passes": true,
-      "notes": "Changed main bg to navy-900, removed borders, added shadow-xl to all white content sections for depth"
+      "passes": false,
+      "notes": "ROLLED BACK - Navy background looked bad. Reverted to light gray (bg-gray-100). Shadow-xl kept on cards."
     },
     {
       "id": "US-052",
@@ -795,6 +795,313 @@
       "priority": 55,
       "passes": true,
       "notes": "Changed to fixed centered modal approach with z-50, larger readable card, backdrop click to close. Never clips regardless of screen size."
+    },
+    {
+      "id": "US-056",
+      "title": "Remove benefits cards from LocationDetail panel",
+      "acceptanceCriteria": [
+        "Remove the Benefits section (PTO Days, Bonus, Flex Time, ESOP, Auto Allowance cards) from LocationDetail component",
+        "LocationDetail should only show salary ranges by role",
+        "Benefits are already shown in the main BenefitsSection - no need to duplicate"
+      ],
+      "priority": 56,
+      "passes": true,
+      "notes": "Removed entire Benefits section and unused helper functions from LocationDetail.tsx"
+    },
+    {
+      "id": "US-057",
+      "title": "Simplify hero header - reorder title and remove stats",
+      "acceptanceCriteria": [
+        "Remove 'Visit nichessp.com' link from header",
+        "Remove '108 US Locations' and '6 Role Levels' stats tagline from hero",
+        "Reorder hero text: 'Preconstruction & Estimating' should appear ABOVE 'Salary Survey 2026'",
+        "Keep the hero visually clean with just the title"
+      ],
+      "priority": 57,
+      "passes": true,
+      "notes": "Removed Visit nichessp.com link, removed stats tagline, reordered to show Preconstruction & Estimating above Salary Survey 2026"
+    },
+    {
+      "id": "US-058",
+      "title": "Make role selector full width",
+      "acceptanceCriteria": [
+        "Role selector (Director/Senior Manager/Manager/Senior Estimator/Estimator/Junior) spans full width",
+        "Remove the search input from the same row OR move it elsewhere",
+        "Role selector should be prominent and easy to access"
+      ],
+      "priority": 58,
+      "passes": true,
+      "notes": "Role selector now in its own full-width card, search moved to separate row below"
+    },
+    {
+      "id": "US-059",
+      "title": "Move map section above compare locations CTA",
+      "acceptanceCriteria": [
+        "The 'Salary by State' map section appears BEFORE the Compare Locations CTA",
+        "Order should be: Role Selector -> Map/Panel -> Compare CTA -> Benefits -> Calculator",
+        "Map is the primary interactive element and should be prominent"
+      ],
+      "priority": 59,
+      "passes": true,
+      "notes": "Reordered: Role Selector -> Search -> Map/Panel -> Compare CTA -> Benefits -> Calculator"
+    },
+    {
+      "id": "US-060",
+      "title": "Remove stats preview and make calculator full width",
+      "acceptanceCriteria": [
+        "Remove the stats preview block showing role name, national average, and top 3 paying locations",
+        "The 'How Do I Stack Up?' salary calculator becomes full width",
+        "Calculator is the only element in that row",
+        "Stats info is redundant - already visible elsewhere"
+      ],
+      "priority": 60,
+      "passes": true,
+      "notes": "Removed stats preview block entirely, SalaryCalculator now renders as full-width component"
+    },
+    {
+      "id": "US-061",
+      "title": "Add deselect option to role selector for national overview",
+      "acceptanceCriteria": [
+        "User can click the currently selected role again to deselect it",
+        "OR add a clear/reset button or 'All Roles' option",
+        "When no specific role is selected, show national overview data",
+        "Visual indication of how to return to national view",
+        "Intuitive UX - users shouldn't feel 'stuck' on a role"
+      ],
+      "priority": 61,
+      "passes": true,
+      "notes": "Added 'All Roles' button to RoleSelector, toggle behavior on role click, updated all components to handle null selectedRole"
+    },
+    {
+      "id": "US-062",
+      "title": "Improve search to match full state names",
+      "acceptanceCriteria": [
+        "Searching 'Texas' or 'tex' finds Texas/TX results",
+        "Searching 'California' or 'cal' finds California/CA results",
+        "Search matches against both full state names AND state codes",
+        "Partial matches work (e.g., 'tex' matches 'Texas')",
+        "Case insensitive matching",
+        "All 50 state names mapped to their codes"
+      ],
+      "priority": 62,
+      "passes": true,
+      "notes": "Updated searchLocations function to also match against STATE_NAMES full names"
+    },
+    {
+      "id": "US-063",
+      "title": "Replace state code grid with map in benefits deep dive",
+      "acceptanceCriteria": [
+        "The 'By State' breakdown in benefits deep dive shows a US map instead of a grid of state codes",
+        "Map is color-coded by benefit value (like the salary map)",
+        "Hovering a state shows the benefit value for that state",
+        "Consistent visual language with the main salary map",
+        "Remove the AL, AR, AZ... grid entirely"
+      ],
+      "priority": 63,
+      "passes": true,
+      "notes": "Replaced state code grid with react-simple-maps US map using same sky blue color scale as main USMap"
+    },
+    {
+      "id": "US-064",
+      "title": "Redesign salary calculator as two-column layout",
+      "acceptanceCriteria": [
+        "Left column: 'How Do I Stack Up?' title with descriptive text explaining the feature",
+        "Right column: The actual form (role selector, location, salary input, submit button)",
+        "Two columns on desktop, stacks on mobile",
+        "Left side provides context/value prop, right side is the interactive form",
+        "Visually balanced and professional"
+      ],
+      "priority": 64,
+      "passes": true,
+      "notes": "Two-column layout with gradient navy left side (title, 3 feature bullets with icons), form on right"
+    },
+    {
+      "id": "US-065",
+      "title": "Design refresh - dark navy sections with light text",
+      "acceptanceCriteria": [
+        "Main content sections use dark navy background (#1a365d or similar) with white/light text",
+        "Sections have generous rounded corners (rounded-2xl or similar)",
+        "Cards within sections can be white with navy text for contrast",
+        "Buttons: white background with navy text (like NicheSSP brand style)",
+        "Overall aesthetic matches the reference image - premium, clean, NicheSSP branded",
+        "Role selector, map section, benefits section, calculator all get this treatment",
+        "Page background can remain light gray to make navy sections pop",
+        "Think top 1% UI designer - polish every detail"
+      ],
+      "priority": 65,
+      "passes": true,
+      "notes": "Navy sections: role selector (bg-navy-900), search input, map container, benefits section, calculator. White cards inside for content. Rounded-2xl corners. White/semi-transparent buttons. Role selector buttons are white when selected, white/10 with white text when not."
+    },
+    {
+      "id": "US-066",
+      "title": "Remove All Roles button from role selector",
+      "acceptanceCriteria": [
+        "Remove the 'All Roles' button from the role selector",
+        "Clicking an already-selected role deselects it (toggles back to no selection/all roles view)",
+        "No explicit 'All Roles' button needed - toggle behavior is intuitive",
+        "Keep the 'Select Role' header",
+        "Visual feedback when clicking to deselect (smooth transition)"
+      ],
+      "priority": 66,
+      "passes": true,
+      "notes": "Removed All Roles button. Toggle behavior already existed (handleRoleClick). Mobile dropdown now shows 'Select a role...' for empty state."
+    },
+    {
+      "id": "US-067",
+      "title": "Make benefits deep dive map larger",
+      "acceptanceCriteria": [
+        "The US map in benefits deep dive (PTO, Bonus, ESOP, Flex analysis) is significantly larger",
+        "Map should be at least 400-500px tall, not cramped",
+        "Map should be prominent and easy to interact with",
+        "Consistent with the importance of the visualization",
+        "Works well on desktop and tablet sizes"
+      ],
+      "priority": 67,
+      "passes": true,
+      "notes": "Map container now has minHeight: 450px, removed max-w-lg constraint, increased projection scale to 1000"
+    },
+    {
+      "id": "US-068",
+      "title": "Fix state percentile calculation showing Bottom 0%",
+      "acceptanceCriteria": [
+        "State percentile calculation shows accurate values, never 'Bottom 0%'",
+        "If user salary equals or exceeds all locations in state, show appropriate message",
+        "Example: $103,000 in Alabama should NOT show 'Bottom 0%' if it's competitive",
+        "Percentile should reflect actual ranking among state salaries",
+        "Handle edge cases: states with few data points, salaries at boundaries",
+        "Debug and fix the getStateSalaryPercentile function logic"
+      ],
+      "priority": 68,
+      "passes": true,
+      "notes": "Fixed getStateSalaryPercentile to use interpolation. Minimum percentile is now 1/(n+1)*100 (e.g., 25% for 3 locations), maximum is n/(n+1)*100 (e.g., 75% for 3 locations). Uses midrank method for salaries within range."
+    },
+    {
+      "id": "US-069",
+      "title": "Move title into header alongside logo",
+      "acceptanceCriteria": [
+        "Remove the separate HeroHeader section entirely",
+        "Move 'Preconstruction & Estimating / Salary Survey 2026' into the main header",
+        "Title should be centered in the header",
+        "Logo stays on the left but should be slightly larger",
+        "Header section will be taller to accommodate the title",
+        "Keep the navy gradient background for the header",
+        "Clean, unified header with logo + title - no separate hero section"
+      ],
+      "priority": 69,
+      "passes": true,
+      "notes": "Removed HeroHeader component, integrated title into Header with centered positioning. Logo increased from h-8/h-10 to h-10/h-12/h-14. Header now has navy gradient background with decorative blur elements."
+    },
+    {
+      "id": "US-070",
+      "title": "Put header title on single line",
+      "acceptanceCriteria": [
+        "Title 'Preconstruction & Estimating Salary Survey 2026' all on ONE line",
+        "Not stacked/multi-line - should flow horizontally",
+        "Adjust font size as needed to fit on one line",
+        "Keep '2026' with the orange gradient styling",
+        "Responsive: may need smaller text on mobile but still one line if possible"
+      ],
+      "priority": 70,
+      "passes": true,
+      "notes": "Title now on single line with whitespace-nowrap. Font sizes adjusted (sm to 2xl) to fit. 2026 keeps orange gradient."
+    },
+    {
+      "id": "US-071",
+      "title": "Fix LinkedIn footer link",
+      "acceptanceCriteria": [
+        "LinkedIn icon in footer links to: https://www.linkedin.com/company/niche-specialist-staffing-partners/",
+        "Link opens in new tab"
+      ],
+      "priority": 71,
+      "passes": true,
+      "notes": "Updated LinkedIn URL in footer to correct company page URL"
+    },
+    {
+      "id": "US-072",
+      "title": "Style header title - different color for Salary Survey, right align",
+      "acceptanceCriteria": [
+        "'Salary Survey' should be a slightly different color from 'Preconstruction & Estimating'",
+        "Consider sky blue or lighter shade for 'Salary Survey' to create visual distinction",
+        "Right align the entire title in the header (instead of centered)",
+        "Keep '2026' with the orange gradient",
+        "Overall: 'Preconstruction & Estimating' (white) + 'Salary Survey' (sky/light) + '2026' (orange gradient)"
+      ],
+      "priority": 72,
+      "passes": true,
+      "notes": "Split title into three spans: 'Preconstruction & Estimating' (white), 'Salary Survey' (sky-300), '2026' (orange gradient). Right-aligned using flex-1 + justify-end instead of absolute positioning."
+    },
+    {
+      "id": "US-073",
+      "title": "Fix salary calculator percentile display comprehensively",
+      "acceptanceCriteria": [
+        "Fix national getSalaryPercentile to use same interpolation method as state - never show 0%",
+        "For states with <5 locations, use simpler messaging instead of percentiles",
+        "Small sample messaging: 'Your salary vs X [State] markets' with above/below average comparison",
+        "Or show actual rank: 'Ranks 2nd of 3 in Alabama' instead of 'Bottom 25%'",
+        "Remove confusing 'Bottom X%' language for small samples",
+        "Keep percentile display for national (108 locations) and states with 5+ locations",
+        "Explanation text should make intuitive sense - no contradictory feeling messages",
+        "Test edge cases: salary at min, max, and middle of ranges"
+      ],
+      "priority": 73,
+      "passes": true,
+      "notes": "Fixed: 1) getSalaryPercentile now uses interpolation (min 1/(n+1)*100, max n/(n+1)*100, midrank method). 2) Added getStateSalaryRank function. 3) States with <5 locations show '2nd of 3' with 'Above/Below average' instead of percentiles."
+    },
+    {
+      "id": "US-074",
+      "title": "Use percentile for all states - remove rank special case",
+      "acceptanceCriteria": [
+        "Remove the <5 locations special case that shows '1st of 4' rank format",
+        "Show percentile (Top X% / Bottom X%) for ALL states regardless of location count",
+        "The interpolation method already handles small samples appropriately",
+        "Consistent display: national and state both show percentile format",
+        "State percentile compares salary against state average/distribution"
+      ],
+      "priority": 74,
+      "passes": true,
+      "notes": "Removed stateLocationsCount < 5 conditional. Now all states show percentile format. Cleaned up unused getStateSalaryRank import and getOrdinalSuffix function."
+    },
+    {
+      "id": "US-075",
+      "title": "Center header title",
+      "acceptanceCriteria": [
+        "The header title 'Preconstruction & Estimating Salary Survey 2026' is centered",
+        "Logo stays on the left",
+        "Title positioned in the center of the header area"
+      ],
+      "priority": 75,
+      "passes": true,
+      "notes": "Changed justify-end to justify-center. Logo remains on left, title centered in header."
+    },
+    {
+      "id": "US-076",
+      "title": "Add blurred cityscape background image",
+      "acceptanceCriteria": [
+        "Add the NicheSSP cityscape/skyline background image to the page",
+        "Image should be fixed position, cover the full viewport",
+        "Apply a blur filter (blur(8px) or similar) to add texture without distraction",
+        "May need a slight dark overlay to ensure content remains readable",
+        "The navy content sections will pop against this textured background",
+        "Background should be visible in the gaps between content sections",
+        "Works well on all screen sizes",
+        "Image can be sourced from NicheSSP website or a similar royalty-free cityscape"
+      ],
+      "priority": 76,
+      "passes": true,
+      "notes": "Added fixed position background with NY cityscape image from NicheSSP CDN. Applied 8px blur filter with scale-110 to prevent blur edge artifacts. Added black/30 dark overlay for readability. Content sections pop against the textured background."
+    },
+    {
+      "id": "US-077",
+      "title": "Lighten background overlay",
+      "acceptanceCriteria": [
+        "Reduce the dark overlay opacity to brighten the background",
+        "Change from bg-black/30 to bg-black/15 or bg-black/20",
+        "Background should feel lighter while still maintaining readability",
+        "Test to ensure content is still readable against lighter background"
+      ],
+      "priority": 77,
+      "passes": true,
+      "notes": "Changed overlay from bg-black/30 to bg-black/15 - lighter and brighter"
     }
   ]
 }

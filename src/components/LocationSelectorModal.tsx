@@ -7,7 +7,7 @@ import { getAllStates, getLocationsByState, getStateName } from '@/lib/data';
 interface LocationSelectorModalProps {
   isOpen: boolean;
   onClose: () => void;
-  selectedRole: RoleKey;
+  selectedRole: RoleKey | null;
   comparisonLocations: Location[];
   onAddToComparison: (location: Location) => void;
   onRemoveFromComparison: (location: Location) => void;
@@ -35,6 +35,9 @@ export function LocationSelectorModal({
   const [stateSearch, setStateSearch] = useState('');
   const [citySearch, setCitySearch] = useState('');
   const modalRef = useRef<HTMLDivElement>(null);
+
+  // Use estimator as default display role when "All Roles" is selected
+  const displayRole: RoleKey = selectedRole ?? 'estimator';
 
   // Get states that have data
   const statesWithData = getAllStates();
@@ -118,7 +121,7 @@ export function LocationSelectorModal({
           <div>
             <h2 className="text-xl font-bold text-white">Select Locations to Compare</h2>
             <p className="text-sky-200 text-sm">
-              Compare {ROLE_DISPLAY_NAMES[selectedRole]} salaries across up to 3 locations
+              Compare {selectedRole ? ROLE_DISPLAY_NAMES[selectedRole] : 'all role'} salaries across up to 3 locations
             </p>
           </div>
           <button
@@ -235,7 +238,7 @@ export function LocationSelectorModal({
                           <div>
                             <span className="font-medium">{city.city}</span>
                             <span className="block text-xs text-gray-500">
-                              {formatCurrency(city.roles[selectedRole].min)} - {formatCurrency(city.roles[selectedRole].max)}
+                              {formatCurrency(city.roles[displayRole].min)} - {formatCurrency(city.roles[displayRole].max)}
                             </span>
                           </div>
                           {alreadyAdded ? (

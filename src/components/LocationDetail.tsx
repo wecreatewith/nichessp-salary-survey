@@ -10,20 +10,6 @@ interface LocationDetailProps {
   onBack: () => void;
 }
 
-function formatBenefit(value: number | null, suffix: string = '%'): string {
-  if (value === null) return 'N/A';
-  return `${value}${suffix}`;
-}
-
-function formatCurrency(value: number | null): string {
-  if (value === null) return 'N/A';
-  return `$${value.toLocaleString()}`;
-}
-
-function formatBenefitRange(min: number, max: number, suffix: string = ''): string {
-  if (min === max) return `${min}${suffix}`;
-  return `${min}-${max}${suffix}`;
-}
 
 export function LocationDetail({ location, onBack }: LocationDetailProps) {
   return (
@@ -80,53 +66,6 @@ export function LocationDetail({ location, onBack }: LocationDetailProps) {
         </div>
       </div>
 
-      {/* Benefits Section */}
-      <div className="p-4">
-        <h3 className="text-lg font-semibold text-navy mb-4">Benefits</h3>
-        <div className="grid grid-cols-2 gap-4">
-          {/* PTO Days */}
-          <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-sm text-gray-500 mb-1">PTO Days</div>
-            <div className="text-lg font-semibold text-navy">
-              {formatBenefitRange(location.benefits.ptoDays.min, location.benefits.ptoDays.max, ' days')}
-            </div>
-          </div>
-
-          {/* Bonus % */}
-          <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-sm text-gray-500 mb-1">Bonus</div>
-            <div className="text-lg font-semibold text-navy">
-              {location.benefits.bonusPercent
-                ? formatBenefitRange(location.benefits.bonusPercent.min, location.benefits.bonusPercent.max, '%')
-                : 'N/A'}
-            </div>
-          </div>
-
-          {/* Flex % */}
-          <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-sm text-gray-500 mb-1">Flex Time</div>
-            <div className="text-lg font-semibold text-navy">
-              {formatBenefit(location.benefits.flexPercent)}
-            </div>
-          </div>
-
-          {/* ESOP % */}
-          <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-sm text-gray-500 mb-1">ESOP</div>
-            <div className="text-lg font-semibold text-navy">
-              {formatBenefit(location.benefits.esopPercent)}
-            </div>
-          </div>
-
-          {/* Auto Allowance */}
-          <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-sm text-gray-500 mb-1">Auto Allowance</div>
-            <div className="text-lg font-semibold text-navy">
-              {formatCurrency(location.benefits.autoAllowance)}
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

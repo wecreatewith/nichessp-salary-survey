@@ -883,10 +883,80 @@ Fixed the SalaryBarLegend popup to never be clipped:
 
 ---
 
+## Iteration 32 - 2026-01-28
+
+**US-056: Remove benefits cards from LocationDetail panel** ✓ PASSED
+
+Removed the entire Benefits section from LocationDetail component:
+- Removed Benefits section with PTO, Bonus, Flex, ESOP, and Auto Allowance cards (lines 83-129)
+- Removed unused helper functions: formatBenefit, formatCurrency, formatBenefitRange
+- LocationDetail now only shows salary ranges by role
+- Benefits already shown in main BenefitsSection - no duplication
+
+**Files modified:**
+- src/components/LocationDetail.tsx - Removed Benefits section and helper functions
+
+---
+
+**US-057: Simplify hero header - reorder title and remove stats** ✓ PASSED
+
+Simplified the hero header in Layout.tsx:
+- Removed "Visit nichessp.com" link from Header component
+- Removed stats tagline ("108 US Locations" and "6 Role Levels")
+- Reordered title: "Preconstruction & Estimating" now appears ABOVE "Salary Survey 2026"
+- Hero is now cleaner with just the main title
+
+**Files modified:**
+- src/components/Layout.tsx - Simplified Header and HeroHeader components
+
+---
+
+**US-058: Make role selector full width** ✓ PASSED
+
+Changed layout from 2-column grid to stacked full-width sections:
+- Role selector now in its own full-width card
+- Search input moved to a separate full-width card below
+- Both elements more prominent and easier to access
+
+**Files modified:**
+- src/app/page.tsx - Changed grid layout to stacked sections
+
+---
+
+**US-059: Move map section above compare locations CTA** ✓ PASSED
+
+Reordered page sections:
+- Previous order: Role Selector + Search -> Compare CTA -> Map -> Benefits -> Calculator
+- New order: Role Selector -> Search -> Map/Panel -> Compare CTA -> Benefits -> Calculator
+- Map is now the primary interactive element appearing before Compare CTA
+
+**Files modified:**
+- src/app/page.tsx - Moved ComparisonCTA after the map grid section
+
+---
+
+**US-060: Remove stats preview and make calculator full width** ✓ PASSED
+
+Removed redundant stats preview block:
+- Removed the 2-column grid with stats preview and calculator
+- Stats preview showed role name, national average, and top 3 locations (now removed)
+- SalaryCalculator is now a full-width component
+- Removed unused imports: calculateAverageSalary, getTopPayingLocations
+- Removed unused variables: averageSalary, topLocations
+
+**Files modified:**
+- src/app/page.tsx - Removed stats preview, made calculator full width, cleaned up imports
+
+---
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+---
+
 ## PROJECT STATUS
 
 **Current Status:**
-- 55/55 user stories passing ✅
+- 60/60 user stories passing ✅
 - Build succeeds (npm run build)
 - No TypeScript errors
 - Deployed to Cloudflare Pages
@@ -923,3 +993,253 @@ Fixed the SalaryBarLegend popup to never be clipped:
 3. Remove password protection (`functions/_middleware.js`)
 4. Add custom domain `salary.nichessp.com`
 5. Launch publicly
+
+---
+
+## Iteration 33 - 2026-01-28
+
+**US-061: Add deselect option to role selector for national overview** ✓ PASSED
+
+Added "All Roles" option and toggle behavior to role selector:
+- Added "All Roles" button as first option in RoleSelector
+- Clicking currently selected role deselects it (toggle behavior)
+- When selectedRole is null, shows "All Roles" as selected
+- Updated page.tsx state to be RoleKey | null
+- Updated all components to handle null selectedRole:
+  - USMap: Uses calculateStateSalaryAverageAllRoles for null role
+  - StatePanel, SearchResults, NationalOverview: Use 'estimator' as displayRole when null
+  - ComparisonCTA, LocationSelectorModal, CompareView: Handle null selectedRole
+  - SalaryCalculator: Uses defaultRole ?? 'estimator'
+- Added calculateStateSalaryAverageAllRoles function to data.ts
+- Title shows "All Roles" when no role selected
+
+**Files modified:**
+- src/components/RoleSelector.tsx - Added All Roles button, toggle behavior
+- src/app/page.tsx - Changed selectedRole state to RoleKey | null
+- src/lib/data.ts - Added calculateStateSalaryAverageAllRoles function
+- src/components/USMap.tsx - Handle null role with all-roles average
+- src/components/StatePanel.tsx - Handle null role with displayRole
+- src/components/SearchResults.tsx - Handle null role with displayRole
+- src/components/NationalOverview.tsx - Handle null role with displayRole
+- src/components/ComparisonCTA.tsx - Handle null role with displayRole
+- src/components/LocationSelectorModal.tsx - Handle null role with displayRole
+- src/components/CompareView.tsx - Allow null in selectedRole type
+- src/components/SalaryCalculator.tsx - Handle null defaultRole
+
+---
+
+**US-062: Improve search to match full state names** ✓ PASSED
+
+Updated searchLocations function to match against full state names:
+- Search now matches against STATE_NAMES[stateCode] in addition to stateCode
+- "Texas" or "tex" now finds all Texas locations
+- "California" or "cal" now finds all California locations
+- Case insensitive matching already in place
+
+**Files modified:**
+- src/lib/data.ts - Updated searchLocations to include STATE_NAMES matching
+
+---
+
+**US-063: Replace state code grid with map in benefits deep dive** ✓ PASSED
+
+Replaced the grid of state codes (AL, AR, AZ...) with a proper US map:
+- Added react-simple-maps ComposableMap to BenefitsDeepDive
+- Map uses same sky blue color scale as main USMap
+- Hover shows tooltip with state name and benefit value
+- Added FIPS_TO_STATE mapping for TopoJSON
+- Removed the grid of colored state code boxes
+- Added legend showing color scale
+
+**Files modified:**
+- src/components/BenefitsDeepDive.tsx - Complete replacement of state grid with map
+
+---
+
+**US-064: Redesign salary calculator as two-column layout** ✓ PASSED
+
+Redesigned salary calculator with two-column layout:
+- Left column: Navy gradient background with title, description, 3 feature bullets with icons
+  - "National & State Percentile" with chart icon
+  - "Top Markets Revealed" with location icon
+  - "100% Confidential" with shield icon
+- Right column: White background with the form (role, state, city, salary, submit)
+- Two columns on desktop (lg:grid-cols-2), stacks on mobile
+- Updated submit button to orange gradient style
+- Results section now wrapped in white card inside navy container
+
+**Files modified:**
+- src/components/SalaryCalculator.tsx - Complete redesign with two-column layout
+
+---
+
+**US-065: Design refresh - dark navy sections with light text** ✓ PASSED
+
+Complete design refresh with dark navy sections and light text:
+
+**Page sections updated to navy backgrounds:**
+- Role selector: bg-navy-900 rounded-2xl with "Select Role" header
+- Search input: bg-navy-900 rounded-2xl with "Search Locations" header
+- Map container: bg-navy-900 rounded-2xl with white card inside for map
+- Benefits section: bg-navy-900 rounded-2xl with white card inside for chart
+- Salary calculator: bg-navy-900 rounded-2xl (already had navy left column)
+
+**Component styling changes:**
+- RoleSelector: White buttons when selected, white/10 with white text when not
+- SearchInput: White background input with shadow
+- BenefitsSection: Chart in white card, deep-dive buttons are white/10 with white text
+- SalaryCalculator results: White card inside navy container
+
+**Design details:**
+- All sections have rounded-2xl corners
+- Cards inside sections are white with rounded-xl corners
+- Buttons use white bg with navy text (brand style)
+- Section headers are white text with uppercase tracking
+- Page background remains light gray (bg-gray-100) so navy sections pop
+
+**Files modified:**
+- src/app/page.tsx - Navy sections for role selector, search, map
+- src/components/RoleSelector.tsx - White/transparent button styles
+- src/components/SearchInput.tsx - White input with shadow
+- src/components/BenefitsSection.tsx - Navy wrapper, white chart card
+- src/components/SalaryCalculator.tsx - Navy wrapper for both form and results
+
+---
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+---
+
+## Iteration 34 - 2026-01-28
+
+**US-066: Remove All Roles button from role selector** ✓ PASSED
+
+Removed redundant "All Roles" button from RoleSelector:
+- Removed the explicit "All Roles" button from desktop view (lines 29-46)
+- Toggle behavior already existed in handleRoleClick function (clicking selected role deselects it)
+- Mobile dropdown now shows "Select a role..." instead of "All Roles" for empty state
+- Users can still return to all-roles view by clicking the currently selected role
+
+**Files modified:**
+- src/components/RoleSelector.tsx - Removed All Roles button, updated mobile dropdown placeholder
+
+---
+
+**US-067: Make benefits deep dive map larger** ✓ PASSED
+
+Made the US map in benefits deep dive significantly larger:
+- Changed container from `aspect-[4/3] max-w-lg mx-auto` to `minHeight: 450px`
+- Increased ComposableMap projection scale from 800 to 1000
+- Map is now 450px+ tall instead of being constrained to max-w-lg
+- Works well on desktop and tablet sizes
+
+**Files modified:**
+- src/components/BenefitsDeepDive.tsx - Larger map container and projection scale
+
+---
+
+**US-068: Fix state percentile calculation showing Bottom 0%** ✓ PASSED
+
+Fixed the `getStateSalaryPercentile` function that was showing "Bottom 0%":
+
+**Bug analysis:**
+- With 3 Alabama locations, Estimator midpoints were ~$103,100-$103,800
+- A salary of $103,000 was slightly below ALL midpoints
+- Old calculation: `belowCount / total = 0 / 3 = 0%` → "Bottom 0%"
+- This was technically correct but misleading - user was essentially at median
+
+**Fix applied - new interpolation-based percentile:**
+- Minimum percentile: `1/(n+1)*100` (e.g., 25% for 3 locations)
+- Maximum percentile: `n/(n+1)*100` (e.g., 75% for 3 locations)
+- For salaries in between: uses midrank method for better estimation
+- Salaries now cannot show "Bottom 0%" or "Top 0%" - always meaningful values
+
+**Example fix:**
+- Before: $103,000 in AL → "Bottom 0%" (wrong)
+- After: $103,000 in AL → "Bottom 25%" (reasonable - just below 3 midpoints)
+
+**Files modified:**
+- src/lib/data.ts - Rewrote getStateSalaryPercentile with interpolation and edge case handling
+
+---
+
+## Iteration 35 - 2026-01-28
+
+**US-069: Move title into header alongside logo** ✓ PASSED
+
+Integrated the title into the main header and removed the separate HeroHeader section:
+
+**Changes made:**
+- Removed `<HeroHeader />` component call from Layout
+- Removed `HeroHeader` function entirely
+- Redesigned `Header` component to include centered title:
+  - Logo on left, slightly larger (h-10/h-12/h-14 vs previous h-8/h-10)
+  - Title absolutely positioned and centered in header
+  - "Preconstruction & Estimating" subtitle above "Salary Survey 2026"
+  - 2026 uses orange gradient text
+  - Spacer div on right to balance layout
+- Header now has navy gradient background (from-navy-900 via-navy-800 to-sky-900)
+- Added decorative blur elements for visual interest
+- Header has more padding (py-6/py-8) to accommodate title
+
+**Files modified:**
+- src/components/Layout.tsx - Merged HeroHeader into Header, removed HeroHeader component
+
+---
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+---
+
+## Iteration 36 - 2026-01-28
+
+**US-070: Put header title on single line** ✓ PASSED
+
+Changed the header title from two-line stacked format to a single horizontal line:
+
+**Before:**
+- Line 1: "Preconstruction & Estimating" (subtitle)
+- Line 2: "Salary Survey 2026" (main title)
+
+**After:**
+- Single line: "Preconstruction & Estimating Salary Survey 2026"
+- "2026" keeps the orange gradient styling
+- Added `whitespace-nowrap` to prevent wrapping
+- Adjusted font sizes for responsiveness:
+  - Mobile (sm): text-sm
+  - Small screens (sm:): text-lg
+  - Medium screens (md:): text-xl
+  - Large screens (lg:): text-2xl
+
+**Files modified:**
+- src/components/Layout.tsx - Consolidated title into single line with responsive sizing
+
+---
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+---
+
+**US-071: Fix LinkedIn footer link** ✓ PASSED
+
+Updated LinkedIn footer icon to link to the correct company page:
+
+**Before:**
+- `https://www.linkedin.com/company/nichessp`
+
+**After:**
+- `https://www.linkedin.com/company/niche-specialist-staffing-partners/`
+
+Link already had `target="_blank"` for opening in new tab.
+
+**Files modified:**
+- src/components/Layout.tsx - Updated LinkedIn href in Footer component
+
+---
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+**Current Status:**
+- 71/71 user stories passing ✅
+- Build succeeds (npm run build)
+- No TypeScript errors
