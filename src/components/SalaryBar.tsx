@@ -50,7 +50,7 @@ export function SalaryBar({
     <div className="w-full">
       {/* Labels */}
       {showLabels && (
-        <div className="flex justify-between text-sm text-gray-600 mb-1">
+        <div className="flex justify-between text-lg font-bold text-gray-700 mb-1">
           <span>{formatCurrency(min)}</span>
           <span>{formatCurrency(max)}</span>
         </div>

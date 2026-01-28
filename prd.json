@@ -1102,6 +1102,19 @@
       "priority": 77,
       "passes": true,
       "notes": "Changed overlay from bg-black/30 to bg-black/15 - lighter and brighter"
+    },
+    {
+      "id": "US-078",
+      "title": "Make location salary range bigger and bold",
+      "acceptanceCriteria": [
+        "The location's min/max salary values (e.g., $166,290 and $216,750) should be larger font and bold",
+        "This differentiates them from the smaller national range values below ($128,733 and $307,721)",
+        "Location salary = prominent, national range = secondary/reference",
+        "Apply to LocationDetail component salary displays"
+      ],
+      "priority": 78,
+      "passes": true,
+      "notes": "Changed location salary labels from text-sm text-gray-600 to text-lg font-bold text-gray-700. National range stays text-xs text-gray-400 for clear visual hierarchy."
     }
   ]
 }
