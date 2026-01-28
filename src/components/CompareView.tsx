@@ -43,7 +43,7 @@ export function CompareView({ locations, onBack }: CompareViewProps) {
   };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 shadow-lg overflow-hidden">
+    <div className="bg-white rounded-xl shadow-xl overflow-hidden">
       {/* Header */}
       <div className="bg-navy px-4 py-4">
         <button

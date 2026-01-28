@@ -27,7 +27,7 @@ export function NationalOverview({ selectedRole, onLocationClick }: NationalOver
   const totalLocations = trendDist.up + trendDist.down + trendDist.stable;
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+    <div className="bg-white rounded-xl shadow-xl overflow-hidden">
       {/* Header */}
       <div className="bg-navy px-4 py-3">
         <h3 className="text-white font-semibold">National Overview</h3>

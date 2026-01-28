@@ -124,7 +124,7 @@ export function BenefitsSection({ selectedState, selectedLocation, onLocationCli
   }
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-lg p-6">
+    <div className="bg-white rounded-xl shadow-xl p-6">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-bold text-navy-900">Benefits Comparison</h2>
         <div

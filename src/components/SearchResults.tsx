@@ -37,7 +37,7 @@ export function SearchResults({
 
   if (results.length === 0) {
     return (
-      <div className="bg-white rounded-lg border border-gray-200 p-6 text-center">
+      <div className="bg-white rounded-xl shadow-lg p-6 text-center">
         <svg
           className="h-12 w-12 text-gray-400 mx-auto mb-3"
           fill="none"
@@ -60,7 +60,7 @@ export function SearchResults({
   }
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden">
       <div className="px-4 py-2 bg-gray-50 border-b border-gray-200">
         <p className="text-sm text-gray-600">
           Found {results.length} {results.length === 1 ? 'location' : 'locations'} matching &quot;{query}&quot;

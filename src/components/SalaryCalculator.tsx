@@ -6,7 +6,9 @@ import {
   getAllStates,
   getLocationsByState,
   getSalaryPercentile,
+  getStateSalaryPercentile,
   calculateAverageSalary,
+  calculateStateSalaryAverage,
   getTopPayingLocations,
   getStateSalaryRange,
   STATE_NAMES,
@@ -206,9 +208,13 @@ export function SalaryCalculator({ defaultRole = 'estimator' }: SalaryCalculator
     if (isNaN(salary)) return null;
 
     const percentile = getSalaryPercentile(salary, selectedRole);
+    const statePercentile = getStateSalaryPercentile(salary, selectedRole, selectedState);
     const nationalAverage = calculateAverageSalary(selectedRole);
+    const stateAverage = calculateStateSalaryAverage(selectedState, selectedRole);
     const topLocation = getTopPayingLocations(selectedRole, 1)[0];
-    const difference = salary - nationalAverage;
+    const nationalDifference = salary - nationalAverage;
+    const stateDifference = salary - stateAverage;
+    const stateLocationsCount = getLocationsByState(selectedState).length;
 
     // If city selected, use city data; otherwise use state average
     let localMax = 0;
@@ -231,17 +237,22 @@ export function SalaryCalculator({ defaultRole = 'estimator' }: SalaryCalculator
 
     return {
       percentile,
+      statePercentile,
       nationalAverage,
-      difference,
+      stateAverage,
+      nationalDifference,
+      stateDifference,
       topLocation,
       localMax,
       salary,
       isStateAverage,
+      stateLocationsCount,
+      stateName: STATE_NAMES[selectedState] || selectedState,
     };
   }, [showResults, currentSalary, selectedRole, selectedState, selectedCity, hasCitiesForState]);
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 shadow-lg overflow-hidden">
+    <div className="bg-white rounded-xl shadow-xl overflow-hidden">
       <div className="bg-navy px-6 py-4">
         <h2 className="text-xl font-semibold text-white">How Do I Stack Up?</h2>
         <p className="text-sm text-navy-200">
@@ -346,54 +357,110 @@ export function SalaryCalculator({ defaultRole = 'estimator' }: SalaryCalculator
         </form>
       ) : results && (
         <div className="p-6 space-y-6">
-          {/* Percentile Result */}
-          <div className="text-center">
-            {results.percentile >= 50 ? (
-              <>
-                <div className="text-5xl font-bold text-green-600 mb-2">
-                  Top {100 - results.percentile}%
-                </div>
-                <p className="text-gray-600">
-                  Your salary of {formatCurrency(results.salary)} puts you in the{' '}
-                  <span className="font-semibold text-green-600">
-                    top {100 - results.percentile}%
-                  </span>{' '}
-                  of {ROLE_DISPLAY_NAMES[selectedRole]} professionals nationwide.
+          {/* Dual Percentile Results */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* National Percentile */}
+            <div className="bg-gray-50 rounded-lg p-4 text-center border-2 border-gray-200">
+              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                Nationwide
+              </div>
+              {results.percentile >= 50 ? (
+                <>
+                  <div className="text-3xl font-bold text-green-600 mb-1">
+                    Top {100 - results.percentile}%
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    of all {ROLE_DISPLAY_NAMES[selectedRole]} professionals
+                  </p>
+                </>
+              ) : results.percentile === 50 ? (
+                <>
+                  <div className="text-3xl font-bold text-navy mb-1">
+                    Median
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    exactly average nationwide
+                  </p>
+                </>
+              ) : (
+                <>
+                  <div className="text-3xl font-bold text-amber-600 mb-1">
+                    Bottom {results.percentile}%
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    of all {ROLE_DISPLAY_NAMES[selectedRole]} professionals
+                  </p>
+                </>
+              )}
+            </div>
+
+            {/* State Percentile */}
+            <div className="bg-sky-50 rounded-lg p-4 text-center border-2 border-sky-200">
+              <div className="text-xs font-semibold text-sky-600 uppercase tracking-wide mb-2">
+                In {results.stateName}
+              </div>
+              {results.statePercentile !== null ? (
+                results.statePercentile >= 50 ? (
+                  <>
+                    <div className="text-3xl font-bold text-green-600 mb-1">
+                      Top {100 - results.statePercentile}%
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      of {results.stateLocationsCount} {results.stateName} locations
+                    </p>
+                  </>
+                ) : results.statePercentile === 50 ? (
+                  <>
+                    <div className="text-3xl font-bold text-navy mb-1">
+                      Median
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      average for {results.stateName}
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <div className="text-3xl font-bold text-amber-600 mb-1">
+                      Bottom {results.statePercentile}%
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      of {results.stateLocationsCount} {results.stateName} locations
+                    </p>
+                  </>
+                )
+              ) : (
+                <p className="text-sm text-gray-600">
+                  Not enough state data
                 </p>
-              </>
-            ) : results.percentile === 50 ? (
-              <>
-                <div className="text-5xl font-bold text-navy mb-2">
-                  Right at the Median
-                </div>
-                <p className="text-gray-600">
-                  Your salary of {formatCurrency(results.salary)} is{' '}
-                  <span className="font-semibold text-navy">
-                    exactly at the median
-                  </span>{' '}
-                  for {ROLE_DISPLAY_NAMES[selectedRole]} professionals nationwide.
-                </p>
-              </>
-            ) : (
-              <>
-                <div className="text-5xl font-bold text-amber-600 mb-2">
-                  Bottom {results.percentile}%
-                </div>
-                <p className="text-gray-600">
-                  Your salary of {formatCurrency(results.salary)} puts you in the{' '}
-                  <span className="font-semibold text-amber-600">
-                    bottom {results.percentile}%
-                  </span>{' '}
-                  of {ROLE_DISPLAY_NAMES[selectedRole]} professionals nationwide.
-                  {results.percentile < 25 && (
-                    <span className="block mt-2 text-navy font-medium">
-                      There may be significant opportunities to increase your compensation.
-                    </span>
-                  )}
-                </p>
-              </>
-            )}
+              )}
+            </div>
           </div>
+
+          {/* Contextual explanation */}
+          {results.statePercentile !== null && Math.abs(results.percentile - results.statePercentile) >= 15 && (
+            <div className="bg-navy-50 border border-navy-100 rounded-lg p-3 text-sm text-navy-700">
+              {results.statePercentile > results.percentile ? (
+                <>
+                  <strong>Why the difference?</strong> You rank higher in {results.stateName} because salaries there
+                  tend to be {results.stateAverage < results.nationalAverage ? 'lower' : 'higher'} than the national average
+                  ({formatCurrency(results.stateAverage)} vs {formatCurrency(results.nationalAverage)}).
+                </>
+              ) : (
+                <>
+                  <strong>Why the difference?</strong> You rank lower in {results.stateName} because salaries there
+                  tend to be {results.stateAverage > results.nationalAverage ? 'higher' : 'lower'} than the national average
+                  ({formatCurrency(results.stateAverage)} vs {formatCurrency(results.nationalAverage)}).
+                </>
+              )}
+            </div>
+          )}
+
+          {/* Low percentile encouragement */}
+          {results.percentile < 25 && (
+            <div className="text-center text-sm text-navy font-medium">
+              There may be significant opportunities to increase your compensation.
+            </div>
+          )}
 
           {/* Comparison Stats */}
           <div className="grid grid-cols-2 gap-4">
@@ -402,18 +469,29 @@ export function SalaryCalculator({ defaultRole = 'estimator' }: SalaryCalculator
               <div className="text-lg font-semibold text-navy">
                 {formatCurrency(results.nationalAverage)}
               </div>
-              <div className={`text-sm ${results.difference >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                {results.difference >= 0 ? '+' : ''}{formatCurrency(results.difference)}
+              <div className={`text-sm ${results.nationalDifference >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                {results.nationalDifference >= 0 ? '+' : ''}{formatCurrency(results.nationalDifference)}
               </div>
             </div>
             <div className="bg-gray-50 rounded-lg p-4 text-center">
-              <div className="text-sm text-gray-500 mb-1">Highest Paying Market</div>
+              <div className="text-sm text-gray-500 mb-1">{results.stateName} Average</div>
               <div className="text-lg font-semibold text-navy">
-                {formatCurrency(results.topLocation.roles[selectedRole].max)}
+                {formatCurrency(results.stateAverage)}
               </div>
-              <div className="text-sm text-gray-600">
-                {results.topLocation.city}, {results.topLocation.stateCode}
+              <div className={`text-sm ${results.stateDifference >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                {results.stateDifference >= 0 ? '+' : ''}{formatCurrency(results.stateDifference)}
               </div>
+            </div>
+          </div>
+
+          {/* Top market info */}
+          <div className="bg-gray-50 rounded-lg p-4 text-center">
+            <div className="text-sm text-gray-500 mb-1">Highest Paying Market</div>
+            <div className="text-lg font-semibold text-navy">
+              {formatCurrency(results.topLocation.roles[selectedRole].max)}
+            </div>
+            <div className="text-sm text-gray-600">
+              {results.topLocation.city}, {results.topLocation.stateCode}
             </div>
           </div>
 

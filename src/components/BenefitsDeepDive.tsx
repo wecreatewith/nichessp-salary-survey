@@ -117,7 +117,7 @@ export function BenefitsDeepDive({ benefitType, onBack, onLocationClick }: Benef
   };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+    <div className="bg-white rounded-xl shadow-xl overflow-hidden">
       {/* Header */}
       <div className="bg-navy px-6 py-4 flex items-center justify-between">
         <div>

@@ -65,7 +65,7 @@ export function StatePanel({
   }
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-xl overflow-hidden">
+    <div className="bg-white rounded-xl shadow-xl overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-navy-900 to-sky-900 px-4 py-4 flex items-center justify-between relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">

@@ -11,7 +11,7 @@ import { CompareView } from '@/components/CompareView';
 import { SalaryCalculator } from '@/components/SalaryCalculator';
 import { SearchInput } from '@/components/SearchInput';
 import { SearchResults } from '@/components/SearchResults';
-import { NationalStats } from '@/components/NationalStats';
+// NationalStats removed per US-054
 import { BenefitsSection } from '@/components/BenefitsSection';
 import { MobilePanel } from '@/components/MobilePanel';
 import { NationalOverview } from '@/components/NationalOverview';
@@ -104,7 +104,7 @@ export default function Home() {
       <Layout>
         <div className="space-y-8">
           {/* Role Selector */}
-          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
+          <div className="bg-white rounded-xl shadow-lg p-4">
             <RoleSelector selectedRole={selectedRole} onChange={setSelectedRole} />
           </div>
 
@@ -124,20 +124,17 @@ export default function Home() {
       <div className="space-y-8">
         {/* Search and Role Selector */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
+          <div className="bg-white rounded-xl shadow-lg p-4">
             <SearchInput
               value={searchQuery}
               onChange={setSearchQuery}
               placeholder="Search cities or states..."
             />
           </div>
-          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
+          <div className="bg-white rounded-xl shadow-lg p-4">
             <RoleSelector selectedRole={selectedRole} onChange={setSelectedRole} />
           </div>
         </div>
-
-        {/* National Stats */}
-        <NationalStats selectedRole={selectedRole} />
 
         {/* Comparison CTA - Front and Center */}
         <ComparisonCTA
@@ -163,7 +160,7 @@ export default function Home() {
         <>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* US Map */}
-            <div className="lg:col-span-2 bg-white rounded-xl border border-gray-200 shadow-lg p-6">
+            <div className="lg:col-span-2 bg-white rounded-xl shadow-xl p-6">
               <h2 className="text-lg font-bold text-navy-900 mb-4">
                 Salary by State - {ROLE_DISPLAY_NAMES[selectedRole]}
               </h2>
@@ -240,34 +237,36 @@ export default function Home() {
         {/* Stats and Calculator Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Stats Preview */}
-          <div className="bg-gradient-to-br from-sky-50 to-sky-100 rounded-xl p-6 border border-sky-200 shadow-sm">
-            <h2 className="text-xl font-bold text-navy-900 mb-4">
-              {ROLE_DISPLAY_NAMES[selectedRole]}
-            </h2>
-            <p className="text-gray-700 mb-4">
-              National average salary:{' '}
-              <span className="font-bold text-sky-600">
-                ${averageSalary.toLocaleString()}
-              </span>
-            </p>
-            <div className="mt-4">
-              <h3 className="text-sm font-semibold text-navy-700 mb-2">Top 3 Paying Locations:</h3>
-              <ul className="space-y-2">
-                {topLocations.map((loc, index) => (
-                  <li key={`${loc.city}-${loc.stateCode}`} className="flex items-center gap-2">
-                    <span className={`flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold ${
-                      index === 0 ? 'bg-orange-500 text-white' :
-                      index === 1 ? 'bg-orange-400 text-white' :
-                      'bg-orange-300 text-white'
-                    }`}>
-                      {index + 1}
-                    </span>
-                    <span className="text-navy-800 font-medium">
-                      {loc.city}, {loc.stateCode} - <span className="text-sky-600 font-bold">${loc.roles[selectedRole].max.toLocaleString()}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
+          <div className="bg-white rounded-xl p-6 shadow-xl">
+            <div className="bg-gradient-to-br from-sky-50 to-sky-100 rounded-lg p-4 -m-2">
+              <h2 className="text-xl font-bold text-navy-900 mb-4">
+                {ROLE_DISPLAY_NAMES[selectedRole]}
+              </h2>
+              <p className="text-gray-700 mb-4">
+                National average salary:{' '}
+                <span className="font-bold text-sky-600">
+                  ${averageSalary.toLocaleString()}
+                </span>
+              </p>
+              <div className="mt-4">
+                <h3 className="text-sm font-semibold text-navy-700 mb-2">Top 3 Paying Locations:</h3>
+                <ul className="space-y-2">
+                  {topLocations.map((loc, index) => (
+                    <li key={`${loc.city}-${loc.stateCode}`} className="flex items-center gap-2">
+                      <span className={`flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold ${
+                        index === 0 ? 'bg-orange-500 text-white' :
+                        index === 1 ? 'bg-orange-400 text-white' :
+                        'bg-orange-300 text-white'
+                      }`}>
+                        {index + 1}
+                      </span>
+                      <span className="text-navy-800 font-medium">
+                        {loc.city}, {loc.stateCode} - <span className="text-sky-600 font-bold">${loc.roles[selectedRole].max.toLocaleString()}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
 

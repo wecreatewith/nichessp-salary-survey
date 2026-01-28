@@ -4,7 +4,6 @@ import { Location, ROLE_DISPLAY_NAMES, ROLE_KEYS } from '@/types/salary';
 import { SalaryBar } from './SalaryBar';
 import { SalaryBarLegend } from './SalaryBarLegend';
 import { TrendIndicator } from './TrendIndicator';
-import { BenefitsChart } from './BenefitsChart';
 
 interface LocationDetailProps {
   location: Location;
@@ -28,7 +27,7 @@ function formatBenefitRange(min: number, max: number, suffix: string = ''): stri
 
 export function LocationDetail({ location, onBack }: LocationDetailProps) {
   return (
-    <div className="bg-white rounded-lg border border-gray-200 shadow-lg overflow-hidden">
+    <div className="bg-white rounded-xl shadow-xl overflow-hidden">
       {/* Header */}
       <div className="bg-navy px-4 py-4">
         <button
@@ -126,14 +125,6 @@ export function LocationDetail({ location, onBack }: LocationDetailProps) {
               {formatCurrency(location.benefits.autoAllowance)}
             </div>
           </div>
-        </div>
-
-        {/* Benefits Comparison Chart */}
-        <div className="mt-6 pt-4 border-t border-gray-100">
-          <BenefitsChart
-            benefits={location.benefits}
-            locationName={`${location.city}, ${location.stateCode}`}
-          />
         </div>
       </div>
     </div>

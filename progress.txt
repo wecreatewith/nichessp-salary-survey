@@ -768,10 +768,125 @@ Changed the cryptic "+" icon button to a clear labeled button:
 
 ---
 
+## Iteration 31 - 2026-01-28
+
+**US-049: Add state-level percentile to salary calculator** ✓ PASSED
+
+Added state-level percentile alongside national percentile in calculator results:
+
+**New utility function:**
+- lib/data.ts: Added `getStateSalaryPercentile(salary, role, stateCode)` function
+
+**SalaryCalculator.tsx changes:**
+- Added dual-column percentile display (National vs State)
+- Clear visual separation with different background colors (gray vs sky-blue)
+- Shows state average salary alongside national average
+- Added contextual explanation when percentiles differ by 15%+ ("Why the difference?")
+- Explanation notes whether state salaries tend to be higher/lower than national
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+---
+
+**US-050: Remove duplicate benefits chart from location detail** ✓ PASSED
+
+Removed redundant BenefitsChart from LocationDetail component:
+
+**LocationDetail.tsx changes:**
+- Removed BenefitsChart import
+- Removed "Benefits Comparison Chart" section
+- Kept simple benefits grid (PTO, Bonus, Flex, ESOP, Auto Allowance cards)
+- Cleaner, more focused location detail view
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+---
+
+**US-051: Navy background with white content sections** ✓ PASSED
+
+Changed main page background to navy with white content sections that pop:
+
+**Layout.tsx changes:**
+- Main bg changed from gray-50 to navy-900
+- Increased main content padding (py-6 to py-8)
+
+**Component shadow updates (border removed, shadow-xl added):**
+- page.tsx: Search/role selectors, map container, stats preview
+- LocationDetail.tsx, NationalOverview.tsx, StatePanel.tsx
+- SalaryCalculator.tsx, CompareView.tsx, BenefitsDeepDive.tsx
+- SearchResults.tsx, BenefitsSection.tsx
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+---
+
+**US-052: Move page title to front and center as hero header** ✓ PASSED
+
+Created prominent hero header with centered title:
+
+**Layout.tsx changes:**
+- Simplified Header to just logo + nichessp.com link
+- Created new HeroHeader component:
+  - Large centered "Salary Survey 2026" title
+  - "Preconstruction & Estimating" subtitle
+  - Stats tagline: "108 US Locations • 6 Role Levels"
+  - Gradient background with decorative blurs
+  - Responsive sizing (4xl to 6xl title)
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+---
+
+**US-053: Fix footer links to correct NicheSSP URLs** ✓ PASSED
+
+Updated all footer links to correct NicheSSP URLs:
+
+**Layout.tsx changes:**
+- Apply Now: https://www.nichessp.com/construction-estimator-jobs
+- Charlotte NC: https://www.nichessp.com/construction-estimator-jobs/charlotte-nc
+- Nashville: https://www.nichessp.com/construction-estimator-jobs/nashville
+- Tampa FL: https://www.nichessp.com/construction-estimator-jobs/tampa-florida
+- Preconstruction Podcast: https://www.nichessp.com/pre-construction-podcast
+- Added "All Locations" link
+- All links have target="_blank"
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+---
+
+**US-054: Remove National Overview section** ✓ PASSED
+
+Removed NationalStats component from main page:
+
+**page.tsx changes:**
+- Commented out NationalStats import
+- Removed <NationalStats> component from render
+- Page now goes from search/role selector straight to comparison CTA
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+---
+
+**US-055: Fix 'How to read' popup being clipped by panel** ✓ PASSED
+
+Fixed the SalaryBarLegend popup to never be clipped:
+
+**SalaryBarLegend.tsx changes:**
+- Changed from absolute positioned tooltip to fixed centered modal
+- Modal appears centered in viewport with pt-24 for offset
+- Larger, more readable card with shadow-2xl
+- z-50 ensures it appears above all content
+- Backdrop click closes the modal
+- Works on all screen sizes without clipping
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+---
+
 ## PROJECT STATUS
 
 **Current Status:**
-- 48/48 user stories passing ✅
+- 55/55 user stories passing ✅
 - Build succeeds (npm run build)
 - No TypeScript errors
 - Deployed to Cloudflare Pages

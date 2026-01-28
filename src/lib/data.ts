@@ -84,6 +84,26 @@ export function getSalaryPercentile(salary: number, role: RoleKey): number {
 }
 
 /**
+ * Get percentile rank for a salary within a specific state
+ * Returns a number between 0 and 100, or null if state has no data
+ */
+export function getStateSalaryPercentile(salary: number, role: RoleKey, stateCode: string): number | null {
+  const stateLocations = getLocationsByState(stateCode);
+  if (stateLocations.length === 0) return null;
+
+  // Get all midpoint salaries for this role in the state
+  const midpoints = stateLocations.map((loc) => {
+    const roleData = loc.roles[role];
+    return (roleData.min + roleData.max) / 2;
+  });
+
+  // Count how many salaries are below the given salary
+  const belowCount = midpoints.filter((mid) => mid < salary).length;
+
+  return Math.round((belowCount / midpoints.length) * 100);
+}
+
+/**
  * Get top N highest paying locations for a role
  */
 export function getTopPayingLocations(role: RoleKey, limit: number = 10): Location[] {

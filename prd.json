@@ -688,6 +688,113 @@
       "priority": 48,
       "passes": true,
       "notes": "Changed from icon-only button to labeled button: '+ Compare', 'Added' (with checkmark), or 'Max 3'. Updated hint text to match."
+    },
+    {
+      "id": "US-049",
+      "title": "Add state-level percentile to salary calculator",
+      "acceptanceCriteria": [
+        "Calculator shows BOTH national AND state percentile rankings",
+        "State percentile calculates against all salaries in the selected state only",
+        "Clear visual separation between 'Nationwide' and 'In [State]' comparisons",
+        "Show state average salary alongside national average",
+        "User can see how they rank in their state vs nationwide (may differ significantly)",
+        "Handle edge cases: states with few data points should still calculate",
+        "Helpful context: 'You rank higher in your state because [State] salaries tend to be lower than the national average' or similar"
+      ],
+      "priority": 49,
+      "passes": true,
+      "notes": "Added getStateSalaryPercentile function and dual-column percentile display with contextual explanation"
+    },
+    {
+      "id": "US-050",
+      "title": "Remove duplicate benefits chart from location detail",
+      "acceptanceCriteria": [
+        "Remove the 'Benefits Comparison' chart section from LocationDetail component",
+        "Keep the simple benefits grid (PTO Days, Bonus, Flex, ESOP, Auto Allowance cards)",
+        "The main BenefitsSection on the dashboard already provides the full comparison functionality",
+        "LocationDetail should focus on salary data, not duplicate the benefits visualization",
+        "Cleaner, less cluttered location detail view"
+      ],
+      "priority": 50,
+      "passes": true,
+      "notes": "Removed BenefitsChart import and chart section; kept simple benefits grid cards"
+    },
+    {
+      "id": "US-051",
+      "title": "Navy background with white content sections",
+      "acceptanceCriteria": [
+        "Main page background is NicheSSP navy color (#1a365d or similar dark navy)",
+        "All content sections/cards are white with clean contrast against navy",
+        "White sections should 'pop' against the dark background",
+        "Ensure text remains readable (proper contrast ratios)",
+        "Cards may need subtle shadows to enhance depth against navy",
+        "Header and footer should blend well with new navy background",
+        "Overall effect: professional, bold, content stands out"
+      ],
+      "priority": 51,
+      "passes": true,
+      "notes": "Changed main bg to navy-900, removed borders, added shadow-xl to all white content sections for depth"
+    },
+    {
+      "id": "US-052",
+      "title": "Move page title to front and center as hero header",
+      "acceptanceCriteria": [
+        "The text 'Salary Survey 2026' and 'Preconstruction & Estimating' moves from top-right header to front and center",
+        "Title becomes a large, prominent hero-style header at the top of the page",
+        "Title should be visually striking and immediately set context for the page",
+        "Consider adding a brief subtitle or tagline below (e.g., '108 US Locations • 6 Role Levels')",
+        "The NicheSSP logo can remain in the corner/header area",
+        "Hero area should work with the new navy background (US-051) - white/light text on dark or white panel",
+        "Title is the first thing users see and understand what this tool is"
+      ],
+      "priority": 52,
+      "passes": true,
+      "notes": "Created HeroHeader component with large centered title, gradient 2026, subtitle, and stats tagline. Simplified header to just logo."
+    },
+    {
+      "id": "US-053",
+      "title": "Fix footer links to correct NicheSSP URLs",
+      "acceptanceCriteria": [
+        "Apply Now link goes to: https://www.nichessp.com/construction-estimator-jobs",
+        "Charlotte NC location link goes to: https://www.nichessp.com/construction-estimator-jobs/charlotte-nc",
+        "Nashville location link goes to: https://www.nichessp.com/construction-estimator-jobs/nashville",
+        "Tampa Florida location link goes to: https://www.nichessp.com/construction-estimator-jobs/tampa-florida",
+        "Preconstruction Podcast link goes to: https://www.nichessp.com/pre-construction-podcast",
+        "All links open in new tab (target='_blank')",
+        "Verify all links are clickable and styled correctly"
+      ],
+      "priority": 53,
+      "passes": true,
+      "notes": "Updated all footer URLs to correct NicheSSP pages. Replaced Austin/Miami with Charlotte/Nashville/Tampa per requirements."
+    },
+    {
+      "id": "US-054",
+      "title": "Remove National Overview section",
+      "acceptanceCriteria": [
+        "Remove the entire National Overview section from the main dashboard",
+        "This includes: Average Salary stat, Highest Paying city stat, Market Trend stat, Locations Tracked stat",
+        "Remove the NationalStats or NationalOverview component from the page",
+        "The page should go straight from hero header to the main content (map, panels, etc.)",
+        "Clean up any unused imports or components related to this section"
+      ],
+      "priority": 54,
+      "passes": true,
+      "notes": "Removed NationalStats component from page.tsx (import commented out, component removed from render)"
+    },
+    {
+      "id": "US-055",
+      "title": "Fix 'How to read' popup being clipped by panel",
+      "acceptanceCriteria": [
+        "The 'Understanding the Salary Bar' popup/tooltip must be fully visible when opened",
+        "Popup should not be cut off by the panel boundaries or overflow hidden",
+        "Fix z-index so popup appears above all other content",
+        "Consider repositioning popup to open to the left or inside the panel instead of extending outside",
+        "Popup should be fully readable with all content visible (Blue Bar, Gold Line, Gray Background explanations)",
+        "Test on different screen sizes to ensure it doesn't get clipped"
+      ],
+      "priority": 55,
+      "passes": true,
+      "notes": "Changed to fixed centered modal approach with z-50, larger readable card, backdrop click to close. Never clips regardless of screen size."
     }
   ]
 }
