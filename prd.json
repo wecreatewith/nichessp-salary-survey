@@ -1214,6 +1214,47 @@
       "priority": 85,
       "passes": true,
       "notes": "Reduced map minHeight from 450px to 280px, scale from 1000 to 700. Title now uses BENEFIT_LABELS[benefitType] + ' by State'."
+    },
+    {
+      "id": "US-086",
+      "title": "Change Download button text to PDF",
+      "acceptanceCriteria": [
+        "In LocationDetail.tsx, change 'Download' button text to 'PDF'",
+        "Keep the 'Generating...' text when PDF is being generated",
+        "Button icon remains the same (download arrow)"
+      ],
+      "priority": 86,
+      "passes": true,
+      "notes": "Changed 'Download' to 'PDF' in LocationDetail.tsx action footer"
+    },
+    {
+      "id": "US-087",
+      "title": "Fix job links to match actual Webflow URLs",
+      "acceptanceCriteria": [
+        "Create WEBFLOW_JOB_SLUGS mapping in lib/data.ts with actual Webflow URL slugs",
+        "Update getJobPageUrl to look up city in the mapping",
+        "If city not found in mapping, link to main jobs page: https://www.nichessp.com/construction-estimator-jobs",
+        "Mapping data source: clients/niche-ssp/source-data/webflow-job-location-categories-2026-01.csv",
+        "Handle cases like: Atlanta GA → atlanta-georgia, Houston TX → houston, Nashville TN → nashville",
+        "No more 404 errors when clicking job links"
+      ],
+      "priority": 87,
+      "passes": true,
+      "notes": "Added WEBFLOW_JOB_SLUGS mapping (70 locations) to lib/data.ts. Falls back to main jobs page for unmapped cities."
+    },
+    {
+      "id": "US-088",
+      "title": "Fix mobile header - title getting cut off",
+      "acceptanceCriteria": [
+        "On mobile (375px width), the header title should not be cut off",
+        "Consider wrapping title to two lines on mobile, or using smaller text",
+        "Logo and title should both be fully visible",
+        "No horizontal overflow or text clipping",
+        "Test at 375px width (iPhone SE)"
+      ],
+      "priority": 88,
+      "passes": true,
+      "notes": "Hide 'Preconstruction & Estimating' on mobile (hidden sm:inline). Shows 'Salary Survey 2026' only on small screens. Removed whitespace-nowrap, allow flex-wrap."
     }
   ]
 }

@@ -579,18 +579,95 @@ export function getStateBenefitAverage(stateCode: string, benefitType: BenefitTy
 }
 
 /**
+ * Mapping of salary survey locations to actual Webflow URL slugs
+ * Source: clients/niche-ssp/source-data/webflow-job-location-categories-2026-01.csv
+ * Key format: "City, StateCode" (e.g., "Atlanta, GA")
+ */
+const WEBFLOW_JOB_SLUGS: Record<string, string> = {
+  "Birmingham, AL": "birmingham-al",
+  "Huntsville, AL": "huntsville-alabama",
+  "Montgomery, AL": "montgomery-alabama",
+  "Fayetteville, AR": "fayetteville-arkansas",
+  "Little Rock, AR": "little-rock-arkansas",
+  "Phoenix, AZ": "phoenix-az",
+  "Tucson, AZ": "tucson-az",
+  "Los Angeles, CA": "los-angeles-ca",
+  "San Diego, CA": "san-diego-ca",
+  "Colorado Springs, CO": "colorado-springs-co",
+  "Denver, CO": "denver-co",
+  "Washington, DC": "washington-dc",
+  "Fort Myers, FL": "fort-myers-florida",
+  "Jacksonville, FL": "jacksonville-florida",
+  "Miami-Fort Lauderdale, FL": "miami-florida",
+  "Orlando, FL": "orlando-florida",
+  "Tampa, FL": "tampa-florida",
+  "Atlanta, GA": "atlanta-georgia",
+  "Savannah, GA": "savana-georgia",
+  "Chicago, IL": "chicago-il",
+  "Indianapolis, IN": "indianapolis-in",
+  "Kansas City, KS": "kansas-city-ks",
+  "Lexington, KY": "lexington-ky",
+  "Louisville, KY": "louisville-kentucky",
+  "Baton Rouge, LA": "baton-rouge-louisiana",
+  "Lafayette, LA": "lafayette-la",
+  "New Orleans, LA": "new-orleans-louisiana",
+  "Boston, MA": "boston-ma",
+  "Baltimore, MD": "baltimore-md",
+  "Rockville, MD": "rockville-maryland",
+  "Detroit, MI": "detroit-mi",
+  "Kansas City, MO": "kansas-city-missouri",
+  "St Louis, MO": "st-louis-missouri-oklahoma",
+  "Greenville, MS": "greenville-mississippi",
+  "Jackson, MS": "jackson-mississippi",
+  "Charlotte, NC": "charlotte-nc",
+  "Raleigh, NC": "raleigh-north-carolina",
+  "Wilmington, NC": "wilmington-north-carolina",
+  "Winston-Salem, NC": "winston-salem-north-carolina",
+  "Albuquerque, NM": "albuquerque-nm",
+  "Las Vegas, NV": "las-vegas-nv",
+  "Albany, NY": "albany-ny",
+  "Buffalo, NY": "buffalo-ny",
+  "Manhattan, NY": "manhattan-ny",
+  "Cincinnati, OH": "cincinnati-oh",
+  "Cleveland, OH": "cleveland-oh",
+  "Columbus, OH": "columbus-oh",
+  "Oklahoma City, OK": "oklahoma-city-oklahoma",
+  "Tulsa, OK": "tulsa-oklahoma",
+  "Portland, OR": "portland-or",
+  "Salem, OR": "salem-or",
+  "Allentown, PA": "allentown-pennsylvania",
+  "Harrisburg, PA": "harrisburg-pennsylvania",
+  "Philadelphia, PA": "philadelphia-pennsylvania",
+  "Pittsburgh, PA": "pittsburgh-pennsylvania",
+  "Charleston, SC": "charleston-south-carolina",
+  "Columbia, SC": "columbia-south-carolina",
+  "Greenville, SC": "greenville-south-carolina",
+  "Chattanooga, TN": "chattanooga-tn",
+  "Knoxville, TN": "knoxville-tennessee",
+  "Memphis, TN": "memphis",
+  "Nashville, TN": "nashville",
+  "Austin, TX": "austin-tx",
+  "Dallas, TX": "dallas-fort-worth",
+  "Houston, TX": "houston",
+  "San Antonio, TX": "san-antonio-texas",
+  "Salt Lake City, UT": "salt-lake-city-ut",
+  "Northern, VA": "northern-virginia",
+  "Richmond, VA": "richmond-virginia",
+  "Seattle, WA": "seattle-wa",
+};
+
+/**
  * Generate a NicheSSP job page URL for a city
- * Format: https://www.nichessp.com/construction-estimator-jobs/{city-slug}
- * City slug: lowercase, spaces to hyphens, city + stateCode (e.g., "austin-tx")
+ * Uses WEBFLOW_JOB_SLUGS mapping for known locations, falls back to main jobs page
  */
 export function getJobPageUrl(city: string, stateCode: string): string {
-  // Clean city name: lowercase, replace spaces with hyphens, remove special chars
-  const citySlug = city
-    .toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9-]/g, '');
+  const key = `${city}, ${stateCode}`;
+  const slug = WEBFLOW_JOB_SLUGS[key];
 
-  const stateSlug = stateCode.toLowerCase();
+  if (slug) {
+    return `https://www.nichessp.com/construction-estimator-jobs/${slug}`;
+  }
 
-  return `https://www.nichessp.com/construction-estimator-jobs/${citySlug}-${stateSlug}`;
+  // Fall back to main jobs page for cities without specific pages
+  return 'https://www.nichessp.com/construction-estimator-jobs';
 }

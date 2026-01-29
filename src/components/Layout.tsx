@@ -58,10 +58,10 @@ function Header() {
             />
           </a>
 
-          {/* Centered Title - Single Line */}
-          <div className="flex-1 flex justify-center whitespace-nowrap">
-            <h1 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-extrabold tracking-tight flex items-baseline gap-1 sm:gap-2">
-              <span>Preconstruction & Estimating</span>
+          {/* Centered Title - Responsive */}
+          <div className="flex-1 flex justify-center">
+            <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl font-extrabold tracking-tight flex items-baseline gap-1 sm:gap-2 flex-wrap justify-center">
+              <span className="hidden sm:inline">Preconstruction & Estimating</span>
               <span className="text-sky-300">Salary Survey</span>
               <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400 bg-clip-text text-transparent">
                 2026

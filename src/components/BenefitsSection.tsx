@@ -93,9 +93,9 @@ export function BenefitsSection({ selectedState, selectedLocation, onLocationCli
         national: nationalBenefits.esopPercent,
       },
       {
-        name: 'Auto ($K)',
-        current: Math.round((currentBenefits.autoAllowance / 1000) * 10) / 10,
-        national: Math.round((nationalBenefits.autoAllowance / 1000) * 10) / 10,
+        name: 'Auto ($100s)',
+        current: Math.round((currentBenefits.autoAllowance / 100) * 10) / 10,
+        national: Math.round((nationalBenefits.autoAllowance / 100) * 10) / 10,
       },
     ];
 

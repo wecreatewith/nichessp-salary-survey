@@ -1243,3 +1243,58 @@ Link already had `target="_blank"` for opening in new tab.
 - 71/71 user stories passing ✅
 - Build succeeds (npm run build)
 - No TypeScript errors
+
+---
+
+## Iteration 37 - 2026-01-29
+
+**US-086: Change Download button text to PDF** ✓ PASSED
+
+Simple text change in LocationDetail.tsx:
+- Changed 'Download' to 'PDF' in action footer button
+- 'Generating...' text unchanged during PDF creation
+
+**Files modified:**
+- src/components/LocationDetail.tsx - Button text changed
+
+---
+
+**US-087: Fix job links to match actual Webflow URLs** ✓ PASSED
+
+Created proper URL mapping for Webflow job pages:
+- Added WEBFLOW_JOB_SLUGS mapping with 70 locations in lib/data.ts
+- Updated getJobPageUrl to look up city in mapping first
+- Falls back to main jobs page for unmapped cities
+- Source data moved to clients/niche-ssp/source-data/webflow-job-location-categories-2026-01.csv
+
+**Key mappings (Webflow URLs are inconsistent):**
+- Atlanta, GA → atlanta-georgia
+- Houston, TX → houston (no state)
+- Nashville, TN → nashville (no state)
+- Memphis, TN → memphis
+- Dallas, TX → dallas-fort-worth
+
+**Files modified:**
+- src/lib/data.ts - Added WEBFLOW_JOB_SLUGS mapping, updated getJobPageUrl
+
+---
+
+**US-088: Fix mobile header - title getting cut off** ✓ PASSED
+
+Made header responsive for mobile:
+- Hide "Preconstruction & Estimating" on mobile (hidden sm:inline)
+- Shows only "Salary Survey 2026" on small screens
+- Removed whitespace-nowrap to allow wrapping
+- Added flex-wrap justify-center for better layout
+
+**Files modified:**
+- src/components/Layout.tsx - Responsive header title
+
+---
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
+**Current Status:**
+- 88/88 user stories passing ✅
+- Build succeeds (npm run build)
+- No TypeScript errors
