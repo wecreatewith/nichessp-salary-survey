@@ -267,11 +267,11 @@ export function BenefitsDeepDive({ benefitType, onBack, onLocationClick }: Benef
 
         {/* US Map */}
         <div>
-          <h3 className="text-lg font-semibold text-navy mb-4">By State</h3>
-          <div className="relative w-full" style={{ minHeight: '450px' }}>
+          <h3 className="text-lg font-semibold text-navy mb-4">{BENEFIT_LABELS[benefitType]} by State</h3>
+          <div className="relative w-full" style={{ minHeight: '280px' }}>
             <ComposableMap
               projection="geoAlbersUsa"
-              projectionConfig={{ scale: 1000 }}
+              projectionConfig={{ scale: 700 }}
               style={{ width: '100%', height: '100%' }}
             >
               <Geographies geography={GEO_URL}>

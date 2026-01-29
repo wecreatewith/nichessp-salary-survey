@@ -1174,6 +1174,46 @@
       "priority": 82,
       "passes": true,
       "notes": "ContributeBanner component added between CTABanner and Footer. Links to NicheSSP survey page."
+    },
+    {
+      "id": "US-083",
+      "title": "Side-by-side CTA banners",
+      "acceptanceCriteria": [
+        "The two CTA sections (Looking for Your Next Opportunity + Want to Contribute) are side-by-side",
+        "Desktop: two equal columns, mobile: stacks vertically",
+        "Each keeps its distinct color scheme (orange vs navy/sky)",
+        "Both have matching height and balanced visual weight",
+        "Not styled as dashboard blocks - distinct callout styling"
+      ],
+      "priority": 83,
+      "passes": true,
+      "notes": "DualCTASection component replaces separate CTABanner and ContributeBanner. Uses grid lg:grid-cols-2."
+    },
+    {
+      "id": "US-084",
+      "title": "Redesign action buttons at bottom of city panel",
+      "acceptanceCriteria": [
+        "Move Share, PDF, Jobs buttons from header to bottom of the panel",
+        "Buttons are integrated into a footer-style section",
+        "Share and PDF are subtle text-style links on the left",
+        "Jobs CTA is prominent orange button on the right",
+        "Better visual integration with the panel design"
+      ],
+      "priority": 84,
+      "passes": true,
+      "notes": "Action Footer section at bottom with gray-50 background. Share/PDF as icon+text links, Jobs as primary CTA button."
+    },
+    {
+      "id": "US-085",
+      "title": "Smaller benefits deep dive map with better title",
+      "acceptanceCriteria": [
+        "Reduce the map size in benefits deep dive (was too large at 450px)",
+        "Change 'By State' title to '[Benefit] by State' (e.g., 'Flex % by State', 'ESOP % by State')",
+        "Map should be appropriately sized for the content"
+      ],
+      "priority": 85,
+      "passes": true,
+      "notes": "Reduced map minHeight from 450px to 280px, scale from 1000 to 700. Title now uses BENEFIT_LABELS[benefitType] + ' by State'."
     }
   ]
 }

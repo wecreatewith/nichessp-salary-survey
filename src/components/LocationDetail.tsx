@@ -85,48 +85,13 @@ export function LocationDetail({ location, onBack }: LocationDetailProps) {
           </svg>
           <span className="text-sm">Back to {location.state}</span>
         </button>
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-white">
-            {location.city}, {location.stateCode}
-          </h2>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handleShareLinkedIn}
-              className="flex items-center gap-2 bg-[#0A66C2] hover:bg-[#004182] text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"
-              title="Share on LinkedIn"
-            >
-              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-              Share
-            </button>
-            <button
-              onClick={handleDownloadPdf}
-              disabled={isGeneratingPdf}
-              className="flex items-center gap-2 bg-sky-500 hover:bg-sky-400 disabled:bg-sky-300 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"
-            >
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              {isGeneratingPdf ? 'Generating...' : 'PDF'}
-            </button>
-            <a
-              href={getJobPageUrl(location.city, location.stateCode)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"
-            >
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              Jobs
-            </a>
-          </div>
-        </div>
+        <h2 className="text-xl font-semibold text-white">
+          {location.city}, {location.stateCode}
+        </h2>
       </div>
 
       {/* Salary Ranges by Role */}
-      <div className="p-4 border-b border-gray-100">
+      <div className="p-4">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-navy">Salary Ranges by Role</h3>
           <SalaryBarLegend />
@@ -152,6 +117,45 @@ export function LocationDetail({ location, onBack }: LocationDetailProps) {
               </div>
             );
           })}
+        </div>
+      </div>
+
+      {/* Action Footer */}
+      <div className="bg-gray-50 border-t border-gray-200 px-4 py-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={handleShareLinkedIn}
+              className="flex items-center gap-2 text-gray-600 hover:text-[#0A66C2] transition-colors text-sm"
+              title="Share on LinkedIn"
+            >
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+              <span>Share</span>
+            </button>
+            <button
+              onClick={handleDownloadPdf}
+              disabled={isGeneratingPdf}
+              className="flex items-center gap-2 text-gray-600 hover:text-sky-600 disabled:text-gray-400 transition-colors text-sm"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>{isGeneratingPdf ? 'Generating...' : 'Download PDF'}</span>
+            </button>
+          </div>
+          <a
+            href={getJobPageUrl(location.city, location.stateCode)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+          >
+            <span>View Jobs in {location.city}</span>
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
         </div>
       </div>
 

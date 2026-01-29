@@ -24,8 +24,7 @@ export function Layout({ children }: LayoutProps) {
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 flex-1 w-full">
         {children}
       </main>
-      <CTABanner />
-      <ContributeBanner />
+      <DualCTASection />
       <Footer />
     </div>
   );
@@ -76,64 +75,67 @@ function Header() {
 }
 
 
-function CTABanner() {
+function DualCTASection() {
   return (
-    <div className="bg-gradient-to-r from-orange-500 via-orange-500 to-orange-600 py-10 relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-white rounded-full filter blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-yellow-300 rounded-full filter blur-3xl" />
-      </div>
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative">
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-          Looking for Your Next Opportunity?
-        </h2>
-        <p className="text-orange-100 mb-6 text-lg max-w-2xl mx-auto">
-          Our consultants specialize in connecting preconstruction professionals with elite opportunities.
-        </p>
-        <a
-          href="https://nichessp.com/about"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-white text-orange-600 px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-        >
-          Talk to Our Consultants
-        </a>
-      </div>
-    </div>
-  );
-}
-
-function ContributeBanner() {
-  return (
-    <div className="bg-navy-900 py-10 relative overflow-hidden border-t border-navy-800">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 right-1/3 w-64 h-64 bg-sky-400 rounded-full filter blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 w-48 h-48 bg-sky-300 rounded-full filter blur-3xl" />
-      </div>
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative">
-        <div className="flex items-center justify-center gap-3 mb-3">
-          <svg className="h-8 w-8 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white">
-            Want to Contribute?
-          </h2>
+    <div className="grid grid-cols-1 lg:grid-cols-2">
+      {/* Looking for Your Next Opportunity - Orange */}
+      <div className="bg-gradient-to-br from-orange-500 via-orange-500 to-orange-600 py-12 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-white rounded-full filter blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-yellow-300 rounded-full filter blur-3xl" />
         </div>
-        <p className="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">
-          All data is anonymised. We run this survey quarterly — get your data in now and see how you compare.
-        </p>
-        <a
-          href="https://www.nichessp.com/2026-preconstruction-estimating-salary-survey"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-sky-500 hover:bg-sky-400 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-        >
-          Submit Your Data
-        </a>
+
+        <div className="max-w-lg mx-auto text-center relative">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <svg className="h-8 w-8 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <h2 className="text-xl sm:text-2xl font-bold text-white">
+              Looking for Your Next Opportunity?
+            </h2>
+          </div>
+          <p className="text-orange-100 mb-6 text-base">
+            Our consultants specialize in connecting preconstruction professionals with elite opportunities.
+          </p>
+          <a
+            href="https://nichessp.com/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-orange-600 px-6 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            Talk to Our Consultants
+          </a>
+        </div>
+      </div>
+
+      {/* Want to Contribute - Navy/Sky */}
+      <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-sky-900 py-12 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-1/4 w-64 h-64 bg-sky-400 rounded-full filter blur-3xl" />
+          <div className="absolute bottom-0 left-1/4 w-48 h-48 bg-sky-300 rounded-full filter blur-3xl" />
+        </div>
+
+        <div className="max-w-lg mx-auto text-center relative">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <svg className="h-8 w-8 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <h2 className="text-xl sm:text-2xl font-bold text-white">
+              Want to Contribute?
+            </h2>
+          </div>
+          <p className="text-gray-300 mb-6 text-base">
+            All data is anonymised. We run this survey quarterly — get your data in now and see how you compare.
+          </p>
+          <a
+            href="https://www.nichessp.com/2026-preconstruction-estimating-salary-survey"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-sky-500 hover:bg-sky-400 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            Submit Your Data
+          </a>
+        </div>
       </div>
     </div>
   );
