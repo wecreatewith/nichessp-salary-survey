@@ -25,6 +25,7 @@ export function Layout({ children }: LayoutProps) {
         {children}
       </main>
       <CTABanner />
+      <ContributeBanner />
       <Footer />
     </div>
   );
@@ -98,6 +99,40 @@ function CTABanner() {
           className="inline-block bg-white text-orange-600 px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
         >
           Talk to Our Consultants
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function ContributeBanner() {
+  return (
+    <div className="bg-navy-900 py-10 relative overflow-hidden border-t border-navy-800">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 right-1/3 w-64 h-64 bg-sky-400 rounded-full filter blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 w-48 h-48 bg-sky-300 rounded-full filter blur-3xl" />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative">
+        <div className="flex items-center justify-center gap-3 mb-3">
+          <svg className="h-8 w-8 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white">
+            Want to Contribute?
+          </h2>
+        </div>
+        <p className="text-gray-300 mb-6 text-lg max-w-2xl mx-auto">
+          All data is anonymised. We run this survey quarterly — get your data in now and see how you compare.
+        </p>
+        <a
+          href="https://www.nichessp.com/2026-preconstruction-estimating-salary-survey"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-sky-500 hover:bg-sky-400 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+        >
+          Submit Your Data
         </a>
       </div>
     </div>

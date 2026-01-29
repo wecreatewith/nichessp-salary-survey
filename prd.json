@@ -1115,6 +1115,65 @@
       "priority": 78,
       "passes": true,
       "notes": "Changed location salary labels from text-sm text-gray-600 to text-lg font-bold text-gray-700. National range stays text-xs text-gray-400 for clear visual hierarchy."
+    },
+    {
+      "id": "US-079",
+      "title": "Social Share / LinkedIn Share with text-based OG preview",
+      "acceptanceCriteria": [
+        "Share button on state/city panels allows sharing to LinkedIn",
+        "Shared link deep-links to specific state/city view via URL params",
+        "OG meta tags dynamically show location name and key stats in description",
+        "Text-only approach - no dynamic images needed",
+        "LinkedIn share URL format: https://www.linkedin.com/sharing/share-offsite/?url={encoded-url}",
+        "URL includes state/city params that the app reads on load to restore view"
+      ],
+      "priority": 79,
+      "passes": true,
+      "notes": "LinkedIn share button on city panel. URL params (?city=X&state=Y) for deep-linking. Page reads params on load to restore view."
+    },
+    {
+      "id": "US-080",
+      "title": "PDF Download of current panel",
+      "acceptanceCriteria": [
+        "Download button on state/city panel exports current view as PDF",
+        "PDF shows the state or city they're viewing with salary data",
+        "PDF is branded with NicheSSP logo and styling",
+        "Works client-side using html2canvas + jsPDF or similar",
+        "Button positioned clearly on the panel"
+      ],
+      "priority": 80,
+      "passes": true,
+      "notes": "Download PDF button on city panel using html2canvas + jsPDF. Client-side generation."
+    },
+    {
+      "id": "US-081",
+      "title": "Add job links to city data",
+      "acceptanceCriteria": [
+        "When viewing CITY data, show link to NicheSSP jobs for that city",
+        "Link text: 'View jobs in [City]' or similar CTA",
+        "Link opens in new tab",
+        "URL format: https://www.nichessp.com/construction-estimator-jobs/{city-slug}",
+        "City slug format: lowercase, hyphenated (e.g., 'austin-tx', 'charlotte-nc')",
+        "State-level views do NOT show job link (only cities have job pages)",
+        "Create mapping of city names to URL slugs"
+      ],
+      "priority": 81,
+      "passes": true,
+      "notes": "View Jobs button on city panel. URL generated from city+stateCode (e.g., austin-tx). getJobPageUrl() utility added to lib/data.ts."
+    },
+    {
+      "id": "US-082",
+      "title": "Add 'Want to Contribute?' CTA",
+      "acceptanceCriteria": [
+        "Add CTA section near bottom of page above footer",
+        "Message: 'Want to Contribute? All data is anonymised - we run this quarterly - get your data in now'",
+        "CTA button links to: https://www.nichessp.com/2026-preconstruction-estimating-salary-survey",
+        "Visually distinct section that encourages participation",
+        "Link opens in new tab"
+      ],
+      "priority": 82,
+      "passes": true,
+      "notes": "ContributeBanner component added between CTABanner and Footer. Links to NicheSSP survey page."
     }
   ]
 }

@@ -577,3 +577,20 @@ export function getStateBenefitAverage(stateCode: string, benefitType: BenefitTy
 
   return values.reduce((sum, v) => sum + v, 0) / values.length;
 }
+
+/**
+ * Generate a NicheSSP job page URL for a city
+ * Format: https://www.nichessp.com/construction-estimator-jobs/{city-slug}
+ * City slug: lowercase, spaces to hyphens, city + stateCode (e.g., "austin-tx")
+ */
+export function getJobPageUrl(city: string, stateCode: string): string {
+  // Clean city name: lowercase, replace spaces with hyphens, remove special chars
+  const citySlug = city
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '');
+
+  const stateSlug = stateCode.toLowerCase();
+
+  return `https://www.nichessp.com/construction-estimator-jobs/${citySlug}-${stateSlug}`;
+}

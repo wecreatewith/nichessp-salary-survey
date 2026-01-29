@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Layout } from '@/components/Layout';
 import { RoleSelector } from '@/components/RoleSelector';
 import { USMap } from '@/components/USMap';
@@ -28,6 +28,23 @@ export default function Home() {
   const [comparisonLocations, setComparisonLocations] = useState<Location[]>([]);
   const [viewMode, setViewMode] = useState<ViewMode>('explore');
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Handle URL parameters for deep-linking (from shared links)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const city = params.get('city');
+    const state = params.get('state');
+
+    if (city && state) {
+      const location = getLocationByCity(city, state);
+      if (location) {
+        setSelectedState(state);
+        setSelectedLocation(location);
+      }
+    } else if (state) {
+      setSelectedState(state);
+    }
+  }, []);
 
   const handleStateClick = (stateCode: string) => {
     setSelectedState(stateCode === selectedState ? null : stateCode);
