@@ -125,7 +125,7 @@ function DualCTASection() {
             </h2>
           </div>
           <p className="text-gray-300 mb-6 text-base">
-            All data is anonymised. We run this survey quarterly — get your data in now and see how you compare.
+            All data is anonymised. We update this survey quarterly — get your data in now and see how you compare.
           </p>
           <a
             href="https://www.nichessp.com/2026-preconstruction-estimating-salary-survey"

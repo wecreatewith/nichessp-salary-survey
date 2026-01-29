@@ -142,7 +142,7 @@ export function LocationDetail({ location, onBack }: LocationDetailProps) {
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              <span>{isGeneratingPdf ? 'Generating...' : 'Download PDF'}</span>
+              <span>{isGeneratingPdf ? 'Generating...' : 'Download'}</span>
             </button>
           </div>
           <a
@@ -151,7 +151,7 @@ export function LocationDetail({ location, onBack }: LocationDetailProps) {
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
           >
-            <span>View Jobs in {location.city}</span>
+            <span>{location.city} Jobs</span>
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
