@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react';
 import { Location, RoleKey } from '@/types/salary';
-import { searchLocations } from '@/lib/data';
+import { searchLocationsWithFallback } from '@/lib/data';
 import { TrendIndicator } from './TrendIndicator';
 
 interface SearchResultsProps {
@@ -29,10 +29,12 @@ export function SearchResults({
   // Use estimator as default display role when "All Roles" is selected
   const displayRole: RoleKey = selectedRole ?? 'estimator';
 
-  const results = useMemo(() => {
-    if (!query.trim()) return [];
-    return searchLocations(query);
+  const searchResult = useMemo(() => {
+    if (!query.trim()) return { locations: [], fallbackState: null, fallbackStateCode: null, searchedCity: null };
+    return searchLocationsWithFallback(query);
   }, [query]);
+
+  const { locations: results, fallbackState, searchedCity } = searchResult;
 
   if (!query.trim()) {
     return null;
@@ -65,9 +67,15 @@ export function SearchResults({
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden">
       <div className="px-4 py-2 bg-gray-50 border-b border-gray-200">
-        <p className="text-sm text-gray-600">
-          Found {results.length} {results.length === 1 ? 'location' : 'locations'} matching &quot;{query}&quot;
-        </p>
+        {fallbackState ? (
+          <p className="text-sm text-gray-600">
+            <span className="text-sky-600 font-medium">&quot;{searchedCity}&quot;</span> isn&apos;t in our database — showing {results.length} {results.length === 1 ? 'location' : 'locations'} in <span className="font-medium">{fallbackState}</span>
+          </p>
+        ) : (
+          <p className="text-sm text-gray-600">
+            Found {results.length} {results.length === 1 ? 'location' : 'locations'} matching &quot;{query}&quot;
+          </p>
+        )}
       </div>
       <ul className="divide-y divide-gray-100 max-h-96 overflow-y-auto">
         {results.map((location) => {

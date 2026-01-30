@@ -1294,7 +1294,38 @@ Made header responsive for mobile:
 
 **Build Status:** ✓ Passes (no TypeScript or ESLint errors)
 
+---
+
+## Iteration 38 - 2026-01-30
+
+**US-089: Search shows state results for cities not in database** ✓ PASSED
+
+Smart search fallback for cities not in salary database:
+- Created us-cities-to-state.json with 4167 US cities mapped to state codes
+- Added searchLocationsWithFallback function to lib/data.ts
+- Returns SearchResult with locations + fallback info
+- If no direct match, looks up city in US cities database
+- If found, shows all salary survey locations from that state
+
+**Example behavior:**
+- Search "Brooklyn" → "Brooklyn isn't in our database — showing 3 locations in New York"
+- Shows Albany, Buffalo, Manhattan (NY locations)
+
+**Files added:**
+- src/data/us-cities.csv - Source data (5000 cities)
+- src/data/us-cities-to-state.json - Lookup map (4167 unique cities)
+
+**Files modified:**
+- src/lib/data.ts - Added searchLocationsWithFallback, SearchResult interface
+- src/components/SearchResults.tsx - Use new search function, show fallback message
+
+**Bundle size:** 180KB → 208KB (+28KB for cities lookup)
+
+---
+
+**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
+
 **Current Status:**
-- 88/88 user stories passing ✅
+- 89/89 user stories passing ✅
 - Build succeeds (npm run build)
 - No TypeScript errors

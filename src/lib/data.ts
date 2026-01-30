@@ -1,5 +1,6 @@
 import type { Location, RoleKey, Trend } from '@/types/salary';
 import { locations } from './salaries';
+import usCitiesToState from '@/data/us-cities-to-state.json';
 
 /**
  * Get all unique state codes from the data
@@ -316,6 +317,57 @@ export function searchLocations(query: string): Location[] {
       );
     }
   );
+}
+
+/**
+ * Search result with fallback information
+ */
+export interface SearchResult {
+  locations: Location[];
+  fallbackState: string | null; // State name if we fell back to showing state results
+  fallbackStateCode: string | null;
+  searchedCity: string | null; // The city the user searched for (if fallback)
+}
+
+/**
+ * Search locations with smart fallback
+ * If no direct matches, look up the city in US cities database and show state results
+ */
+export function searchLocationsWithFallback(query: string): SearchResult {
+  const q = query.toLowerCase().trim();
+
+  if (!q) {
+    return { locations, fallbackState: null, fallbackStateCode: null, searchedCity: null };
+  }
+
+  // First try direct search
+  const directResults = searchLocations(query);
+
+  if (directResults.length > 0) {
+    return { locations: directResults, fallbackState: null, fallbackStateCode: null, searchedCity: null };
+  }
+
+  // No direct matches - look up city in US cities database
+  const cityToState = usCitiesToState as Record<string, string>;
+  const stateCode = cityToState[q];
+
+  if (stateCode) {
+    // Found the city - show all locations from that state
+    const stateLocations = getLocationsByState(stateCode);
+    const stateName = STATE_NAMES[stateCode] || stateCode;
+
+    if (stateLocations.length > 0) {
+      return {
+        locations: stateLocations,
+        fallbackState: stateName,
+        fallbackStateCode: stateCode,
+        searchedCity: query,
+      };
+    }
+  }
+
+  // No results at all
+  return { locations: [], fallbackState: null, fallbackStateCode: null, searchedCity: null };
 }
 
 /**

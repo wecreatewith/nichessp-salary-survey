@@ -1255,6 +1255,22 @@
       "priority": 88,
       "passes": true,
       "notes": "Hide 'Preconstruction & Estimating' on mobile (hidden sm:inline). Shows 'Salary Survey 2026' only on small screens. Removed whitespace-nowrap, allow flex-wrap."
+    },
+    {
+      "id": "US-089",
+      "title": "Search shows state results for cities not in database",
+      "acceptanceCriteria": [
+        "When user searches a city not in the salary database, look it up in US cities list",
+        "If found, show all salary survey locations from that state",
+        "Example: 'Brooklyn' → shows Albany, Buffalo, Manhattan (NY locations)",
+        "Example: 'Oakland' → shows Los Angeles, Sacramento, San Diego, San Francisco (CA locations)",
+        "Data source: src/data/us-cities.csv (5000 US cities with state codes)",
+        "Show helpful message like 'Showing results for New York' when falling back to state",
+        "Direct matches in salary database still take priority"
+      ],
+      "priority": 89,
+      "passes": true,
+      "notes": "Added searchLocationsWithFallback function with 4167 US cities lookup. Shows '\"Brooklyn\" isn't in our database — showing 3 locations in New York'"
     }
   ]
 }
