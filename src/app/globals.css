@@ -118,3 +118,88 @@ body {
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
+
+/* Matrix Easter Egg Mode */
+body.matrix-mode {
+  background: #000 !important;
+}
+
+body.matrix-mode * {
+  border-color: #0f0 !important;
+}
+
+body.matrix-mode .bg-white,
+body.matrix-mode .bg-gray-50,
+body.matrix-mode .bg-gray-100 {
+  background: rgba(0, 20, 0, 0.9) !important;
+}
+
+body.matrix-mode .bg-navy-900,
+body.matrix-mode .bg-gradient-to-br {
+  background: #000 !important;
+}
+
+body.matrix-mode .text-white,
+body.matrix-mode .text-gray-600,
+body.matrix-mode .text-gray-500,
+body.matrix-mode .text-gray-400,
+body.matrix-mode .text-gray-700,
+body.matrix-mode .text-navy,
+body.matrix-mode .text-sky-300,
+body.matrix-mode .text-sky-400,
+body.matrix-mode .text-orange-400,
+body.matrix-mode h1, body.matrix-mode h2, body.matrix-mode h3,
+body.matrix-mode p, body.matrix-mode span, body.matrix-mode a {
+  color: #0f0 !important;
+}
+
+body.matrix-mode .bg-gradient-to-r {
+  background: linear-gradient(to right, #0f0, #0a0) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+body.matrix-mode .bg-sky-500,
+body.matrix-mode .bg-orange-500,
+body.matrix-mode .bg-orange-400 {
+  background: #0f0 !important;
+  color: #000 !important;
+}
+
+body.matrix-mode button,
+body.matrix-mode a {
+  color: #0f0 !important;
+}
+
+body.matrix-mode .shadow-lg,
+body.matrix-mode .shadow-xl {
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3) !important;
+}
+
+body.matrix-mode img {
+  filter: grayscale(100%) brightness(0.8) sepia(100%) hue-rotate(70deg) saturate(500%) !important;
+}
+
+body.matrix-mode svg {
+  color: #0f0 !important;
+  fill: #0f0 !important;
+}
+
+body.matrix-mode svg path {
+  stroke: #0f0 !important;
+}
+
+body.matrix-mode input,
+body.matrix-mode select {
+  background: #001100 !important;
+  color: #0f0 !important;
+  border-color: #0f0 !important;
+}
+
+body.matrix-mode input::placeholder {
+  color: #060 !important;
+}
+
+body.matrix-mode .recharts-surface {
+  filter: hue-rotate(70deg) saturate(3);
+}

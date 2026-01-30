@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { MatrixEasterEgg } from './MatrixEasterEgg';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -26,6 +27,7 @@ export function Layout({ children }: LayoutProps) {
       </main>
       <DualCTASection />
       <Footer />
+      <MatrixEasterEgg />
     </div>
   );
 }
