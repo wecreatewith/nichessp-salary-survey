@@ -1271,22 +1271,6 @@
       "priority": 89,
       "passes": true,
       "notes": "Added searchLocationsWithFallback function with 4167 US cities lookup. Shows '\"Brooklyn\" isn't in our database — showing 3 locations in New York'"
-    },
-    {
-      "id": "US-090",
-      "title": "Matrix easter egg mode",
-      "acceptanceCriteria": [
-        "Small subtle button in bottom right corner of page",
-        "Clicking it toggles 'Matrix mode' on/off",
-        "Matrix mode: green text on black background, Matrix-style aesthetic",
-        "Falling green characters animation in background (optional)",
-        "All text becomes green/lime colored",
-        "Toggle back to normal mode with same button",
-        "Easter egg - not prominent, just discoverable"
-      ],
-      "priority": 90,
-      "passes": true,
-      "notes": "MatrixEasterEgg component with falling katakana rain, green-on-black theme, subtle toggle button"
     }
   ]
 }

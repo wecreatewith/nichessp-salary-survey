@@ -1325,35 +1325,7 @@ Smart search fallback for cities not in salary database:
 
 **Build Status:** ✓ Passes (no TypeScript or ESLint errors)
 
----
-
-## Iteration 39 - 2026-01-30
-
-**US-090: Matrix easter egg mode** ✓ PASSED
-
-Fun easter egg for Ralph demo:
-- Small subtle button in bottom right corner (◉)
-- Clicking toggles Matrix mode on/off
-- Matrix mode features:
-  - Falling green katakana/number rain animation (canvas)
-  - Black background with green (#0f0) text throughout
-  - All UI elements get green-on-black treatment
-  - Glowing green shadows
-  - Charts get hue-rotated to green
-- Click again to exit the Matrix
-
-**Files added:**
-- src/components/MatrixEasterEgg.tsx - Toggle button + MatrixRain canvas animation
-
-**Files modified:**
-- src/app/globals.css - Matrix mode CSS overrides (body.matrix-mode)
-- src/components/Layout.tsx - Added MatrixEasterEgg component
-
----
-
-**Build Status:** ✓ Passes (no TypeScript or ESLint errors)
-
 **Current Status:**
-- 90/90 user stories passing ✅
+- 89/89 user stories passing ✅
 - Build succeeds (npm run build)
 - No TypeScript errors
